@@ -1,12 +1,12 @@
 <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900&amp;subset=latin-ext" rel="stylesheet">
 
 <style type="text/css">
-/* Piilota alasivujen navigaatio */
+/* -- Piilota alasivujen navigaatio ----------------------------------------- */
 .Middle .ContentArea h3.BottomMargin {
   display: none;
 }
 
-/* Piilota tuotesivujen 'Näytä yhdellä sivulla', 'Lajitteluperuste' */
+/* -- Piilota tuotesivujen 'Näytä yhdellä sivulla', 'Lajitteluperuste' ------ */
 .Middle .ContentArea #CategoryProducts .InputLabelling,
 .Middle .ContentArea #CategoryProducts #ep-PageSize,
 .Middle .ContentArea #CategoryProducts #ep-SortOrder
@@ -14,12 +14,12 @@
   display: none;
 }
 
-/* Footerin tumma taustaväri pois */
+/* -- Footerin tumma taustaväri pois ---------------------------------------- */
 .Footer {
   background: none;
 }
 
-/* Fontit */
+/* -- Fontit ---------------------------------------------------------------- */
 * {
   font-family: 'Lato', sans-serif;
 }
@@ -49,17 +49,17 @@ p strong
   font-family: FontAwesome
 }
 
-/* Piilota tuotesivun hassut someikonit */
+/* -- Piilota tuotesivun someikonit ----------------------------------------- */
 .ProductDetails .SocialMedia {
   display: none;
 }
 
-/* Palvelut-sivun kuvagridi */
+/* -- Palvelut-sivun kuvagridi ---------------------------------------------- */
 .project-box {
   display: inline-block;
-  margin: 8px;
   position: relative;
   cursor: pointer;
+  margin: 8px;
 }
 
 .project-box .project-text {
@@ -92,4 +92,15 @@ p strong
   opacity: 0.15;
 }
 
+/* -- Etusivun herokuva  ---------------------------------------------------- */
+.front-hero-image {
+  margin: 8px;
+  width: calc(100% - 28px);
+}
+
+/* -- Etusivun kuvagrid  ---------------------------------------------------- */
+.front-grid img {
+  width: calc(33% - 16px);
+  margin: 8px;
+}
 </style>
