@@ -1,0 +1,118 @@
+<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,900&amp;subset=latin-ext" rel="stylesheet">
+
+<style type="text/css">
+/* -- Piilota alasivujen navigaatio ----------------------------------------- */
+.Middle .ContentArea h3.BottomMargin {
+  display: none;
+}
+
+/* -- Piilota tuotesivujen 'Näytä yhdellä sivulla', 'Lajitteluperuste' ------ */
+.Middle .ContentArea #CategoryProducts .InputLabelling,
+.Middle .ContentArea #CategoryProducts #ep-PageSize,
+.Middle .ContentArea #CategoryProducts #ep-SortOrder
+ {
+  display: none;
+}
+
+/* -- Footerin tumma taustaväri pois ---------------------------------------- */
+.Footer {
+  background: none;
+}
+
+/* -- Fontit ---------------------------------------------------------------- */
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+p, li {
+  font-weight: 300;
+}
+
+.ContentArea h1,
+.ContentArea h2,
+.ContentArea h3,
+.ContentArea h3 a,
+.ContentArea h3 a:hover,
+.ContentArea .BreadcrumbItem,
+.ContentArea .BreadcrumbItem:hover,
+.Price,
+.InfoArea .Price,
+.ProductDetails .Price,
+.Header a,
+.Header a:hover,
+p strong
+{
+  font-weight: 400 !important;
+}
+
+.HorizontalNavBar .BasketBox span {
+  font-family: FontAwesome
+}
+
+/* -- Piilota tuotesivun someikonit ----------------------------------------- */
+.ProductDetails .SocialMedia {
+  display: none;
+}
+
+/* -- Palvelut-sivun kuvagridi ---------------------------------------------- */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-box {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: calc(33.33% - 16px);
+  margin: 8px;
+}
+
+.project-box img {
+  width: 100%;
+}
+
+.project-box .project-text {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.project-box .project-name {
+  text-align: center;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.project-box .project-title {
+  text-align: center;
+  font-size: 24px;
+}
+
+.project-box:hover .project-text,
+.project-box.project-active .project-text {
+  display: flex;
+}
+
+.project-box:hover img,
+.project-box.project-active img {
+  opacity: 0.15;
+}
+
+/* -- Etusivun herokuva  ---------------------------------------------------- */
+.front-hero-image {
+  width: calc(100% - 28px);
+  margin: 8px;
+}
+
+/* -- Etusivun kuvagrid  ---------------------------------------------------- */
+.front-grid img {
+  width: calc(33.33% - 16px);
+  margin: 8px;
+}
+</style>

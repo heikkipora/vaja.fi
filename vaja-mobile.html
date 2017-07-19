@@ -55,31 +55,44 @@ p strong
 }
 
 /* -- Palvelut-sivun kuvagridi ---------------------------------------------- */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .project-box {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  margin: 8px;
+  width: calc(50% - 4px);
+  margin: 2px;
+}
+
+.project-box img {
+  width: 100%;
 }
 
 .project-box .project-text {
   display: none;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
-  top: 150px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
 }
+
 
 .project-box .project-name {
   text-align: center;
-  font-size: 28px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 
 .project-box .project-title {
   text-align: center;
-  font-size: 24px;
+  font-size: 12px;
 }
 
 .project-box:hover .project-text,
@@ -94,13 +107,13 @@ p strong
 
 /* -- Etusivun herokuva  ---------------------------------------------------- */
 .front-hero-image {
-  margin: 8px;
-  width: calc(100% - 28px);
+  width: calc(100% - 4px);
+  margin: 2px;
 }
 
 /* -- Etusivun kuvagrid  ---------------------------------------------------- */
 .front-grid img {
-  width: calc(33% - 16px);
-  margin: 8px;
+  width: calc(33.33% - 4px);
+  margin: 2px;
 }
 </style>
