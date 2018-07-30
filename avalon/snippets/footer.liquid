@@ -23,6 +23,10 @@
             <div class="copyright">{{ store.display_name }} &copy; {{ "%Y" | date_now }} {% if modules contains "powered_by" %} &middot; {{ powered_by_link }}{% endif %}</div>
         </div>
 
+        <div class="span3 vaja-footer">
+          {% include _vaja-footer.liquid %}
+        </div>
+
         {% if link_count > 0 %}
             <div class="span3 offset3 footer-nav">
                 <nav>
