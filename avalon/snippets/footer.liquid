@@ -37,47 +37,6 @@
             </div>
         {% endif %}
 
-        {% if modules contains "social_links" %}
-            <div class="span2">
-                <p class="heading">{{ "contact.social.follow" | t }}</p>
-                {% if store.social_links.rss_feed %}
-                    {% assign feed_url = store.social_links.rss_feed %}
-                {% else %}
-                    {% assign feed_url = store.feed_url %}
-                {% endif %}
-
-                {% if store.social_links != empty or settings.feed_links != "none" %}
-                    <ul class="social-links">
-                        {% include social-links.liquid %}
-
-                        {% if settings.feed_links != "none" %}
-                            {% if settings.feed_links == "rss-only" or settings.feed_links == "both" %}
-                                <li>
-                                    <a href="{{ feed_url }}" target="_blank" class="tooltip">
-                                        <svg role="img" class="icon icon-social" title="RSS">
-                                            <use xlink:href="#theme-icon-round-rss"></use>
-                                        </svg>
-                                        <span class="tip">{{ "contact.social.rss_feed" | t }}</span>
-                                    </a>
-                                </li>
-                            {% endif %}
-
-                            {% if settings.feed_links == "feedly-only" or settings.feed_links == "both" %}
-                                <li>
-                                    <a href="http://cloud.feedly.com/#subscription%2Ffeed%2F{{ feed_url | url_encode }}" target="_blank" class="tooltip">
-                                        <svg role="img" class="icon icon-social" title="Feedly">
-                                            <use xlink:href="#theme-icon-round-feedly"></use>
-                                        </svg>
-                                        <span class="tip">{{ "contact.social.add_feedly" | t }}</span>
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
-                    </ul>
-                {% endif %}
-            </div>
-        {% endif %}
-
         {% if modules contains "payment_logos" %}
             <div class="span3">
                 <p class="heading">{{ "products.payment.we_accept" | t }}</p>
