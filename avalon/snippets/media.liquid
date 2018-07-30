@@ -1,0 +1,91 @@
+<ul class="carousel lightbox-container js-lightbox-container" data-carousel='{ "id": "product-media", "indicators": {% if settings.enable_carousel == "true" %}false{% else %}true{% endif %}, "controls": true }'>
+    {% if item.images != empty %}
+        {% for image in item.images %}
+            <li class="media">
+                <a class="lightbox-link" href="{{ image.huge }}">
+                    <img class="lightbox-image" src="{{ image.mucho_grande }}" srcset="{{ image.mucho_grande }}, {{ image.huge }} 2x" alt="">
+                </a>
+            </li>
+        {% endfor %}
+    {% else %}
+        {% unless item.featured_media %}
+            <li class="media">
+                {{ "default-item.svg" | asset_url | img_tag }}
+            </li>
+        {% endunless %}
+    {% endif %}
+
+    {% if item.featured_media %}
+        {% if item.featured_media.type != "audio" %}
+            <li class="media video js-player">
+                {% if item.featured_media.type == "youtube" or item.featured_media.type == "vimeo" %}
+                    <div data-video-id="{{ item.featured_media.id }}" data-type="{{ item.featured_media.type }}"></div>
+                {% else %}
+                    <video controls {% if item.featured_media_cover.huge %} poster="{{ item.featured_media_cover.huge }}" {% endif %}>
+                        <source src="{{ item.featured_media.url }}" type="video/mp4">
+                    </video>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>
+                <div class="media media-audio-cover">
+                    {% if item.featured_media_cover.mucho_grande %}
+                        <img src="{{ item.featured_media_cover.mucho_grande }}" srcset="{{ item.featured_media_cover.mucho_grande }}, {{ item.featured_media_cover.huge }} 2x" alt="">
+                    {% else %}
+                        {{ "default-audio.svg" | asset_url | img_tag }}
+                    {% endif %}
+                </div>
+                <div class="media audio js-player">
+                    <audio controls>
+                        <source src="{{ item.featured_media.url }}" type="audio/mp3">
+                    </audio>
+                </div>
+            </li>
+        {% endif %}
+    {% endif %}
+</ul>
+
+{% if settings.enable_carousel == "true" %}
+    {% assign index = 0 %}
+
+    <ul class="carousel carousel-thumbs" data-carousel='{ "id": "product-media-thumbs", "group": 2, "breakpoints": { "360": 3, "480": 4, "640": 5 } }' hidden>
+        {% if item.images != empty %}
+            {% for image in item.images %}
+                <li>
+                    <a href="#product-media" class="media" data-ride="carousel" data-slide-to="{{ index }}">
+                        <img src="{{ image.medium }}" srcset="{{ image.medium }}, {{ image.large }} 2x" alt="Image {{ index }}">
+                    </a>
+                </li>
+
+                {% assign index = index | plus: 1 %}
+            {% endfor %}
+        {% else %}
+            {% unless item.featured_media %}
+                <li>
+                    <a href="#product-media" class="media" data-ride="carousel" data-slide-to="{{ index }}">
+                        {{ "default-item.svg" | asset_url | img_tag }}
+                    </a>
+                </li>
+            {% endunless %}
+        {% endif %}
+
+        {% if item.featured_media %}
+            <li>
+                <a href="#product-media" class="media" data-ride="carousel" data-slide-to="{{ index }}">
+                    {% if item.featured_media_cover.medium %}
+                        <span class="carousel-thumb-play" aria-hidden="true" role="presentation">
+                            <svg class="icon">
+                                <use xlink:href="#plyr-play"></use>
+                            </svg>
+                        </span>
+                        <img src="{{ item.featured_media_cover.medium }}" srcset="{{ item.featured_media_cover.medium }}, {{ item.featured_media_cover.large }} 2x" alt="Image {{ index }}">
+                    {% elsif item.featured_media.type == "audio" %}
+                        {{ "default-audio.svg" | asset_url | img_tag }}
+                    {% else %}
+                        {{ "default-video.svg" | asset_url | img_tag }}
+                    {% endif %}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

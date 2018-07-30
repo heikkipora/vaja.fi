@@ -1,0 +1,30 @@
+{% selz_footer %}{% endselz_footer %}
+{% assign lang = store.language | split: "-"  %}
+
+<script>
+window.theme = {
+    instagram: {
+        user_id: "{{ store.access_tokens.instagram_user_id }}",
+        access_token: "{{ store.access_tokens.instagram }}",
+        link: "{{ store.social_links.instagram }}"
+    },
+    dribbble: {
+        user_id: "{{ store.access_tokens.dribbble_username }}",
+        access_token: "{{ store.access_tokens.dribbble }}",
+        link: "{{ store.social_links.dribbble }}"
+    },
+    flickr: {
+        user_id: "",
+        access_token: "{{ store.access_tokens.flickr }}",
+        link: "{{ store.social_links.flickr }}"
+    },
+    authenticated: {% if store.user_is_owner == "true" %}true{% else %}false{% endif %},
+    sprite: "{{ 'sprite.svg' | asset_url }}"
+};
+</script>
+
+<script src="https://cdn.rangetouch.com/1.0.1/rangetouch.js" async></script>
+<script src="https://cdn.shr.one/1.1.1/shr.js"></script>
+<script src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
+<script src="{{ "bundles.js" | asset_url }}"></script>
+<script src="https://cdn.selzstatic.com/js/jquery.timeago/locales/jquery.timeago.{{ lang[0] }}.js"></script>

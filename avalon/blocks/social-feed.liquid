@@ -1,0 +1,156 @@
+{% include blocks-styles.liquid %}
+
+{% assign twitter_enabled = false %}
+{% assign facebook_enabled = false %}
+{% assign instagram_enabled = false %}
+{% assign dribbble_enabled = false %}
+{% assign flickr_enabled = false %}
+
+{% if store.social_links.twitter_username %}
+    {% assign twitter_enabled = true %}
+{% endif %}
+
+{% if store.social_links.facebook %}
+    {% assign facebook_enabled = true %}
+{% endif %}
+
+{% if store.social_links.flickr %}
+    {% assign flickr_enabled = true %}
+{% endif %}
+
+{% if store.access_tokens.instagram != empty and store.access_tokens.instagram_user_id != empty %}
+    {% assign instagram_enabled = true %}
+{% endif %}
+
+{% if store.access_tokens.dribbble != empty and store.access_tokens.dribbble_username != empty %}
+    {% assign dribbble_enabled = true %}
+{% endif %}
+
+<div id="{{block.id}}" class="content-block content-block-social-feed {{ class | strip }}">
+    <div class="container">
+        <div class="block-container {{ container_class | strip }}">
+            {% comment %} Flickr Start {% endcomment %}
+            {% if block.type == "social-flickr" %}
+                {% if flickr_enabled %}
+                   <div class="flickr-feed">
+                       {% if block.settings.feed_logo == "true" %}
+                        <header class="text-center">
+                            <a href="{{ store.social_links.flickr }}" target="_blank">
+                                <h6>Flickr</h6>
+                            </a>
+                        </header>
+                        {% endif %}
+                        <div class="social-feed">
+                            {% comment %} Populated via main.js with settings in scripts.liquid {% endcomment %}
+                            <div class="grid-gallery js-flickr-gallery">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                {% elsif store.user_is_owner %}
+                    <div class="span5">
+                        <div class="empty-placeholder">
+                            <svg role="img" class="icon color-flickr">
+                    	        <use xlink:href="#theme-icon-flickr"></use>
+                    	    </svg>
+                            <p>{{ "contact.social.connect_flickr" | t }}</p>
+                            <a href="https://selz.com/settings/store?tab=social-links" class="btn" target="_blank">{{ "contact.social.connect" | t }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% comment %} Flickr End {% endcomment %}
+
+            {% comment %} Dribbble Start {% endcomment %}
+            {% if block.type  == "social-dribbble" %}
+                {% if dribbble_enabled %}
+                   <div class="dribble-feed">
+                        {% if block.settings.feed_logo == "true" %}
+                            <header class="text-center">
+                                <a href="{{ store.social_links.dribbble }}" target="_blank">
+                                    <h6>Dribbble</h6>
+                                </a>
+                            </header>
+                        {% endif %}
+
+                        <div class="social-feed">
+                            {% comment %} Populated via main.js with settings in scripts.liquid  {% endcomment %}
+                            <div class="grid-gallery js-dribbble-gallery">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                {% elsif store.user_is_owner %}
+                    <div class="empty-placeholder">
+                        <svg role="img" class="icon color-dribbble">
+                	        <use xlink:href="#theme-icon-dribbble"></use>
+                	    </svg>
+                        <p>{{ "contact.social.connect_dribbble" | t }}</p>
+                        <a href="https://selz.com/settings/store?tab=social-links" class="btn" target="_parent">{{ "contact.social.connect" | t }}</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% comment %} Dribbble End {% endcomment %}
+
+            {% comment %} Instagram Start {% endcomment %}
+                {% if block.type == "social-instagram" %}
+                    {% if instagram_enabled %}
+                        <div class=" instagram-feed">
+                            {% if block.settings.feed_logo == "true" %}
+                                <header class="text-center">
+                                    <a href="{{ store.social_links.instagram }}" target="_blank">
+                                        <h6>Instagram</h6>
+                                    </a>
+                                </header>
+                            {% endif %}
+
+                            <div class="social-feed">
+                                {% comment %} Populated via main.js with settings in scripts.liquid  {% endcomment %}
+                                <div class="grid-gallery js-instagram-gallery">
+                                    <!-- Dynamic content -->
+                                </div>
+                            </div>
+                        </div>
+                    {% elsif store.user_is_owner %}
+                        <div class="empty-placeholder">
+                            <svg role="img" class="icon color-instagram">
+                    	        <use xlink:href="#theme-icon-instagram"></use>
+                    	    </svg>
+                            <p>{{ "contact.social.connect_instagram" | t }}</p>
+                            <a href="https://selz.com/settings/store?tab=social-links" class="btn" target="_parent">{{ "contact.social.connect" | t }}</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% comment %} Instagram End {% endcomment %}
+
+            {% comment %} Twitter Start {% endcomment %}
+            {% if block.type == "social-twitter" %}
+                {% if twitter_enabled %}
+                    <div class="span6 block-twitter-feed">
+                        {% if block.settings.feed_logo == "true" %}
+                            <header class="text-center">
+                                <a href="{{ store.social_links.twitter }}" target="_blank">
+                                    <h6>Twitter</h6>
+                                </a>
+                            </header>
+                        {% endif %}
+
+                        <div class="social-feed js-twitter-feed">
+                            <a class="twitter-timeline" href="https://twitter.com/{{ store.social_links.twitter_username }}" data-link-color="{{ settings.color_primary }}" data-chrome="nofooter transparent noheader noscrollbar noborders" data-theme="{{ settings.twitter_timeline_theme }}" data-screen-name="{{ store.social_links.twitter_username }}" width="100%" data-tweet-limit="2"></a>
+                            <script>window.twttr=function(a,b,c){var d,e=a.getElementsByTagName(b)[0],f=window.twttr||{};return a.getElementById(c)?f:(d=a.createElement(b),d.id=c,d.src="https://platform.twitter.com/widgets.js",e.parentNode.insertBefore(d,e),f._e=[],f.ready=function(a){f._e.push(a)},f)}(document,"script","twitter-wjs");</script>
+                        </div>
+                    </div>
+                {% elsif store.user_is_owner %}
+                    <div class="empty-placeholder">
+                        <svg role="img" class="icon color-twitter">
+                            <use xlink:href="#theme-icon-twitter"></use>
+                        </svg>
+                        <p>{{ "contact.social.connect_twitter" | t }}</p>
+                        <a href="https://selz.com/settings/store?tab=social-links" class="btn" target="_parent">{{ "contact.social.connect" | t }}</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% comment %} Twitter End {% endcomment %}
+        </div>
+    </div>
+</div>

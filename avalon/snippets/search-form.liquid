@@ -1,0 +1,15 @@
+{% form 'search' %}
+    <fieldset>
+        <legend class="sr-only">{{ "products.search.search" | t }}</legend>
+        <div class="search-control{% if search_collapsed == true %} search-control-hidden{% endif %}">
+            <label for="Keyword" class="sr-only">{{ "products.search.keyword" | t }}</label>
+            <input type="search" name="keyword" id="Keyword" class="search-query" placeholder="{{ "products.search.search" | t }}" value="{{ search.keyword }}">
+            <button type="submit" class="btn-faux-link btn-search">
+                <svg role="presentation" class="icon icon-search">
+                    <use xlink:href="#theme-icon-search"></use>
+                </svg>
+                <span class="sr-only">{{ "products.search.search" | t }}</span>
+            </button>
+        </div>
+    </fieldset>
+{% endform %}

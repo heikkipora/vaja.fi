@@ -1,0 +1,5 @@
+{% assign header_text_empty = block.settings.header_text | is_null_or_empty %}
+
+{% if block.settings.enable_header == "true" and header_text_empty != "true" %}
+    <h2 class="block-header text-center">{{ block.settings.header_text | trim }}</h2>
+{% endif %}

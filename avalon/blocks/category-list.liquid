@@ -1,0 +1,28 @@
+{% assign categories_empty = block.settings.categories | is_null_or_empty %}
+{% assign tiles_limit = block.settings.rows | times: block.settings.per_row | to_integer %}
+{% assign category_slugs = block.settings.categories | split: "," %}
+{% include blocks-styles.liquid %}
+
+<div id="{{block.id}}" class="content-block content-block-category-list {{ class | strip }}">
+    <div class="container">
+        {% include block-header.liquid %}
+
+        <div class="block-container {{ container_class | strip }}">
+            <ul class="tiles {{ columns | strip }}">
+                {% if categories_empty != true %}
+                    {% for category_slug in category_slugs limit: tiles_limit %}
+                        {% assign category = categories[category_slug] %}
+                        {% if category %}
+                            {% include tile-category.liquid %}
+                        {% endif %}
+                    {% endfor %}
+                {% elsif categories_empty and store.user_is_owner %}
+                    {% assign category = categories.dummy_category %}
+                    {% for column_number in (1..tiles_limit) %}
+                        {% include tile-category.liquid %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

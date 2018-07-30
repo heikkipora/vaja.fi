@@ -1,0 +1,43 @@
+// Strips
+.strips {
+    list-style: none;
+    padding-left: 0px;
+    
+    .strip {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+        .item-info {
+            margin-bottom: 0px;
+        }
+        
+        &:first-child {
+            border-top: 0;
+            border-top-width: 0px;
+            border-top-style: initial;
+            border-top-color: initial;
+        }
+    }
+    
+    @media (min-width: 1080px) {
+        .strip {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+    }
+    @media (min-width: 768px) {
+        .strip {
+            padding-top: 45px;
+            padding-bottom: 45px;
+        }
+        .strip {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-top: 1px solid #f5f5f5;
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: rgb(245, 245, 245);
+        }
+    }
+}

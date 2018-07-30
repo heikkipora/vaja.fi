@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Edit block settings to add audio content"
+        },
+        "html": {
+            "empty": "Edit block settings to edit HTML content"
+        },
+        "image": {
+            "empty": "Edit block settings to add an image"
+        },
+        "quote": {
+            "empty": "Add customer reviews and testimonials to showcase your store’s happy customers"
+        },
+        "video": {
+            "empty": "Edit block settings to add video content"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Add a post",
+            "block_title": "From the blog",
+            "get_started": "Get started with your blog and keep your customers up to date with your latest news.",
+            "read_more": "read more",
+            "words": "words"
+        },
+        "tags": {
+            "empty": "Sorry, there's no articles yet. Check back later.",
+            "tags_count": {
+                "one": "article tagged with",
+                "other": "articles tagged with",
+                "zero": "articles tagged with"
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Contact",
+            "email": "Email",
+            "error": "Whoops, it looks like there were some errors.",
+            "message": "Message",
+            "name": "Name",
+            "send": "Send",
+            "success": "Your message was sent!"
+        },
+        "social": {
+            "add_feedly": "Add to Feedly",
+            "connect": "Connect",
+            "connect_dribbble": "Connect your Dribbble account to show your feed here.",
+            "connect_facebook": "Connect your Facebook account to show your feed here.",
+            "connect_flickr": "Connect your Flickr account to show your feed here.",
+            "connect_instagram": "Connect your Instagram account to show your feed here.",
+            "connect_twitter": "Connect your Twitter account to show your feed here.",
+            "empty": "Add social links in store settings",
+            "follow": "Follow",
+            "rss_feed": "RSS Feed",
+            "share": "Share"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Error",
+            "subtext": "Sorry, we couldn't find this page.",
+            "title": "Page not found"
+        },
+        "buttons": {
+            "close": "Close",
+            "learn_more": "Learn more"
+        },
+        "cookies": {
+            "message": "We use cookies to optimize your experience. You agree to our use of cookies by using this website."
+        },
+        "navigation": {
+            "close": "Close Menu",
+            "menu": "Menu"
+        },
+        "pages": {
+            "home": "Home"
+        },
+        "pagination": {
+            "page": "Page",
+            "pagination": "Pagination"
+        },
+        "skip_link": {
+            "skip": "Skip to content"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Categories",
+            "empty": "This category has no items",
+            "view": "View items:"
+        },
+        "category_list": {
+            "empty": "Add categories in block settings to display"
+        },
+        "featured_category": {
+            "empty": "Select category in block settings to display items"
+        },
+        "item": {
+            "on_sale": "On sale",
+            "sale": "Sale",
+            "shop_now": "Shop now",
+            "sold_out": "Sold out",
+            "youll_get": "You'll get"
+        },
+        "payment": {
+            "we_accept": "We accept"
+        },
+        "search": {
+            "keyword": "Keyword",
+            "results": "Search Results",
+            "results_for": "Results for",
+            "search": "Search"
+        }
+    }
+}

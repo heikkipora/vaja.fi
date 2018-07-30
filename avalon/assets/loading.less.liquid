@@ -1,0 +1,20 @@
+// ==========================================================================
+// Loading state
+// ==========================================================================
+
+.is-loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: @loader-size;
+    height: @loader-size;
+    border: @loader-border-width solid transparent;
+    // Can't use transform since it's part of the animation
+    margin: -(@loader-size / 2) 0 0 -(@loader-size / 2);
+    border-left-color: currentColor;
+    border-radius: 50%;
+    animation: spin 0.5s infinite linear;
+    transform-origin: 50%;
+    opacity: .7;
+}

@@ -1,0 +1,17 @@
+{% include blocks-styles.liquid %}
+{% assign html_empty = block.settings.html | is_null_or_empty %}
+
+{% if html_empty == false or store.user_is_owner %}
+    <div id="{{ block.id }}" class="content-block content-block-html {{ class | strip }}">
+        <div class="container">
+            {% include block-header.liquid %}
+            <div class="block-container {{ container_class | strip }}">
+                {% if html_empty == false %}
+                    {{ block.settings.html }}
+                {% elseif store.user_is_owner %}
+                    <p class="content-block-placeholder">{{ "blocks.html.empty" | t }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

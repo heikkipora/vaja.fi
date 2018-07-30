@@ -1,0 +1,23 @@
+<li class="tile">
+    <a href="{{ category.url }}" class="tile-container">
+        <div class="media tile-media">
+            {% if category.featured_image %}
+                <img src="{{ category.featured_image.grande }}" srcset="{{ category.featured_image.grande }}, {{ category.featured_image.mucho_grande }} 2x" alt="{{ category.title }}">
+            {% else %}
+                {{ "default-category.svg" | asset_url | img_tag: category.title }}
+            {% endif %}
+        </div>
+        {% if settings.category_tile_display_options %}
+            {% assign display_options = settings.category_tile_display_options | split: "," %}
+
+            <div class="tile-info">
+                {% if display_options contains "title" %}
+                    <h4>{{ category.title }}</h4>
+                {% endif %}
+                {% if display_options contains "count" %}
+                    <p>{{ category.total_all_items | pluralize: "item", "items" }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </a>
+</li>

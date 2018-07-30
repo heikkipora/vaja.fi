@@ -1,0 +1,339 @@
+// ==========================================================================
+// Custom mixins
+// ==========================================================================
+
+// Clearfix
+// ---------------------------------------
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+.clearfix() {
+    &:before,
+    &:after {
+        content: " "; // 1
+        display: table; // 2
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Font size rem plugin with px fallback
+// Requires html element to have a font-size of 62.5% to reset to 10px
+// ---------------------------------------
+.font-size(@font-size: 16){
+    @rem: (@font-size / 10);
+    font-size: @font-size * 1px;
+    font-size: ~"@{rem}rem";
+}
+
+.font-size-h1-xxl(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h1-xxl));
+}
+.font-size-h1-xl(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h1-xl));
+}
+.font-size-h1(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h1));
+}
+.font-size-h2(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h2));
+}
+.font-size-h3(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h3));
+}
+.font-size-h4(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h4));
+}
+.font-size-h5(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h5));
+}
+.font-size-h6(@base: @font-size-headings) {
+    .font-size(ceil(@base * @font-size-multiplier-h6));
+}
+
+// Font smoothing
+// ---------------------------------------
+.font-smoothing(@mode: on) when (@mode = on) {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+.font-smoothing(@mode: on) when (@mode = off) {
+	-moz-osx-font-smoothing: auto;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+// Font helpers
+// ---------------------------------------
+.font-base {
+    font-family: @font-family-base;
+    font-weight: @font-weight-base;
+    .font-size(@font-size-base);
+    .font-smoothing({% if settings.font_base_smoothing == "true" %}on{% else %}off{% endif %});
+}
+.font-headings {
+    font-family: @font-family-headings;
+    font-weight: @font-weight-headings;
+    .font-size(@font-size-headings);
+    .font-smoothing({% if settings.font_headings_smoothing == "true" %}on{% else %}off{% endif %});
+}
+.font-accent {
+    font-family: @font-family-accent;
+    font-weight: @font-weight-accent;
+    .font-size(@font-size-accent);
+    .font-smoothing({% if settings.font_accent_smoothing == "true" %}on{% else %}off{% endif %});
+}
+
+// Tab focus styles
+// ---------------------------------------
+.tab-focus() {
+	outline: thin dotted @gray;
+	outline-offset: 1px;
+}
+
+// Basic CSS Arrows (using purely border)
+// ---------------------------------------
+.arrow(@position, @color: transparent, @size: 8px) {
+    position: relative;
+
+	&::after {
+		content: "";
+        display: block;
+        position: absolute;
+        left: 50%;
+        margin-left: -@size;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        transition: inherit;
+	}
+}
+// Top arrow
+.arrow(@position, @color: transparent, @size: 8px) when (@position = top) {
+    &::after {
+    	top: -@size;
+        border-width: 0 @size @size @size;
+        border-color: transparent transparent @color;
+    }
+}
+// Bottom arrow
+.arrow(@position, @color: transparent, @size: 8px) when (@position = bottom) {
+    &::after {
+    	bottom: -@size;
+        border-width: @size @size 0 @size;
+        border-color: @color transparent transparent;
+    }
+}
+// Left arrow
+.arrow(@position, @color: transparent, @size: 8px) when (@position = left) {
+    &::after {
+    	left: 0;
+    	top: 50%;
+    	margin-top: -@size;
+        border-width: @size @size @size 0;
+        border-color: transparent @color transparent transparent;
+    }
+}
+// Right arrow
+.arrow(@position, @color: transparent, @size: 8px) when (@position = right) {
+    &::after {
+    	left: auto;
+    	right: 0;
+    	top: 50%;
+    	margin-top: -@size;
+    	margin-right: -@size;
+    	margin-left: 0;
+        border-width: @size 0 @size @size;
+        border-color: transparent transparent transparent @color;
+    }
+}
+
+// Inline version
+// Used in breadcrumbs etc
+.arrow-inline() {
+    &::after {
+        position: static;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: floor(@grid-section-padding / 3);
+        margin-right: 0;
+    }
+}
+
+// Dropdown caret
+.caret {
+    width: 0;
+    height: 0;
+    vertical-align: 3px;
+    margin-left: @padding-small-horizontal;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: currentColor transparent transparent;
+}
+
+// Form control focus state
+//
+// Generate a customized focus state and for any input with the specified color,
+// which defaults to the `@input-border-focus` variable.
+//
+// We highly encourage you to not customize the default value, but instead use
+// this to tweak colors on an as-needed basis. This aesthetic change is based on
+// WebKit's default styles, but applicable to a wider range of browsers. Its
+// usability and accessibility should be taken into account with any change.
+//
+// Example usage: change the default blue border and shadow to white for better
+// contrast against a dark gray background.
+.form-control-focus(@color: @input-border-focus, @alpha: .2) {
+    &:focus {
+        border-color: @color;
+        outline: 0;
+        box-shadow: 0 0 0 2px rgba(red(@color), green(@color), blue(@color), @alpha), inset 0 1px 1px rgba(0,0,0, .05);
+    }
+}
+
+// Placeholder text
+.placeholder(@color: @input-color-placeholder) {
+    &::-moz-placeholder           { color: @color; font-weight: 400;   // Firefox
+                                  opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+    &:-ms-input-placeholder       { color: @color; font-weight: 400; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: @color; font-weight: 400; } // Safari and Chrome
+}
+
+// Contrast helpers
+// ---------------------------------------
+
+// Calculate text color based on background
+.contrast-text-color(@background: "") when (lightness(@background) >= 80%) {
+    color: #000;
+}
+.contrast-text-color(@background: "") when (lightness(@background) >= 65%) {
+    color: @black;
+}
+.contrast-text-color(@background: "") when (lightness(@background) < 65%) {
+    color: #fff;
+}
+
+.text-shadow(@color: "") when (lightness(@color) >= 30%) {
+    text-shadow: 0 1px 1px rgba(0,0,0, .25);
+}
+.text-shadow(@color: "") when (lightness(@color) < 30%) {
+    text-shadow: 0 1px 1px rgba(255,255,255, .2);
+}
+
+// Calculate gradient based on text color to head contrast
+.contrast-gradient(@color: "") when (lightness(@color) >= 65%) {
+    .header-gradient(#333);
+}
+.contrast-gradient(@color: "") when (lightness(@color) < 65%) {
+    .header-gradient(#fff);
+}
+
+.header-gradient(@color) {
+    background: linear-gradient(rgba(red(@color), green(@color), blue(@color), 0), rgba(red(@color), green(@color), blue(@color), .95));
+}
+
+.contrast-text-shadow(@color: "", @background: "")
+when (lightness(@color) >= 80%)
+and (lightness(@background) < 50%) {
+    text-shadow: 0 1px 1px rgba(0,0,0, .2);
+}
+.contrast-text-shadow(@color: "", @background: "")
+when (lightness(@color) >= 80%)
+and (lightness(@background) < 30%) {
+    text-shadow: 0 1px 1px rgba(0,0,0, .5);
+}
+
+// Plyr mixins
+// -------------------------------
+// <input type="range"> styling
+.plyr-range-track() {
+    height: @plyr-range-track-height;
+    background: transparent;
+    border: 0;
+    border-radius: (@plyr-range-track-height / 2);
+    user-select: none;
+}
+.plyr-range-thumb() {
+    position: relative;
+    height: @plyr-range-thumb-height;
+    width: @plyr-range-thumb-width;
+    background: @plyr-range-thumb-bg;
+    border: @plyr-range-thumb-border;
+    border-radius: 100%;
+    transition: background .2s ease, border .2s ease, transform .2s ease;
+    box-shadow: @plyr-range-thumb-shadow;
+    box-sizing: border-box;
+}
+.plyr-range-thumb-active() {
+    background: @plyr-range-thumb-active-bg;
+    border-color: @plyr-range-thumb-active-border-color;
+    transform: scale(@plyr-range-thumb-active-scale);
+}
+.plyr-appearance-none() {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+}
+
+// Block heights
+// ---------------------------------------
+.block-height(@multiplier) {
+    padding-top: @padding-base-vertical * (@multiplier * .5);
+    padding-bottom: @padding-base-vertical * (@multiplier * .5);
+
+    // Multiply @padding-base-vertical by multiplier
+    @media (min-width: @screen-md) {
+        padding-top: (@padding-base-vertical * @multiplier);
+        padding-bottom: (@padding-base-vertical * @multiplier);
+    }
+    @media (min-width: @screen-lg) {
+        padding-top: (@padding-base-vertical * (@multiplier + 2));
+        padding-bottom: (@padding-base-vertical * (@multiplier + 2));
+    }
+}
+
+// Logo size helper
+// ---------------------------------------
+.set-logo-size() {
+    @width: @logo-max-width;
+    @height: @logo-max-height;
+    @font-size: @logo-text-xl;
+
+    {% if settings.logo_size == 0 %}
+        @width: (@logo-max-width / 5);
+        @height: (@logo-max-height / 5);
+        @font-size: @logo-text-xs;
+    {% elsif settings.logo_size == 1 %}
+        @width: (@logo-max-width / 4);
+        @height: (@logo-max-height / 4);
+        @font-size: @logo-text-s;
+    {% elsif settings.logo_size == 2 %}
+        @width: (@logo-max-width / 3);
+        @height: (@logo-max-height / 3);
+        @font-size: @logo-text-m;
+    {% elsif settings.logo_size == 3 %}
+        @width: (@logo-max-width / 2);
+        @height: (@logo-max-height / 2);
+        @font-size: @logo-text-l;
+    {% endif %}
+
+    img {
+        max-width: 88px;
+    }
+
+    @media (min-width: @screen-xs) {
+        .text-logo {
+            .font-size(@font-size);
+        }
+        img {
+            max-width: @width;
+            max-height: @height;
+        }
+    }
+}

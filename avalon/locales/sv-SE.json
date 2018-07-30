@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Redigera blockinställningar för att lägga till ljud"
+        },
+        "html": {
+            "empty": "Redigera blockinställningar för att lägga till HTML"
+        },
+        "image": {
+            "empty": "Redigera blockinställningar för att lägga till bild"
+        },
+        "quote": {
+            "empty": "Lägg till kundrecensioner och omdömen att visa upp butikens nöjda kunder"
+        },
+        "video": {
+            "empty": "Redigera blockinställningar för att lägga till video"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Gör ett inlägg",
+            "block_title": "Från bloggen",
+            "get_started": "Kom igång med din blogg och håll kunderna uppdaterade om dina senaste nyheter.",
+            "read_more": "Läs mer",
+            "words": "ord"
+        },
+        "tags": {
+            "empty": "Det finns tyvärr inga artiklar ännu. Kom tillbaka lite senare.",
+            "tags_count": {
+                "one": "artikel märkt med",
+                "other": "artikel märkt med",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Kontakt",
+            "email": "Mejl",
+            "error": "Hoppsan! Det verkar som om några fel uppstod.",
+            "message": "Meddelande",
+            "name": "Namn",
+            "send": "Skicka",
+            "success": "Ditt meddelande har skickats!"
+        },
+        "social": {
+            "add_feedly": "Lägg till i Feedly",
+            "connect": "Anslut",
+            "connect_dribbble": "Anslut ditt Dribbble-konto för att visa din feed här.",
+            "connect_facebook": "Anslut ditt Facebook-konto för att visa din feed här.",
+            "connect_flickr": "Anslut ditt Flickr-konto för att visa din feed här.",
+            "connect_instagram": "Anslut ditt Instagram-konto för att visa din feed här.",
+            "connect_twitter": "Anslut ditt Twitter-konto för att visa din feed här.",
+            "empty": "Lägg till sociala länkar i butikens inställningar",
+            "follow": "Följ",
+            "rss_feed": "RSS-feed",
+            "share": "Dela"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Fel",
+            "subtext": "Vi kunde tyvärr inte hitta den här sidan.",
+            "title": "Sidan hittades inte"
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Stäng meny",
+            "menu": "Meny"
+        },
+        "pages": {
+            "home": "Hem"
+        },
+        "pagination": {
+            "page": "Sida",
+            "pagination": "Sidnumrering"
+        },
+        "skip_link": {
+            "skip": "Gå direkt till innehåll"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Kategorier",
+            "empty": "Den här kategorin har inga produkter",
+            "view": "Visa produkter:"
+        },
+        "category_list": {
+            "empty": "Lägg till kategorier i blockinställningar för att visa dem."
+        },
+        "featured_category": {
+            "empty": "Välj kategorier i blockinställningar för att visa produkter"
+        },
+        "item": {
+            "on_sale": "På rea",
+            "sale": "Rea",
+            "shop_now": "Shoppa nu",
+            "sold_out": "Slutsåld",
+            "youll_get": "Du får"
+        },
+        "payment": {
+            "we_accept": ""
+        },
+        "search": {
+            "keyword": "Sök",
+            "results": "Sökresultat",
+            "results_for": "Resultat för",
+            "search": "Sök"
+        }
+    }
+}

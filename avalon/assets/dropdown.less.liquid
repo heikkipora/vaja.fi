@@ -1,0 +1,260 @@
+// ==========================================================================
+// Dropdown
+// ==========================================================================
+
+.dropdown-arrow() {
+    content: "";
+    position: absolute;
+    display: block;
+    width: @dropdown-arrow-size;
+    height: @dropdown-arrow-size;
+    z-index: (@tooltip-zindex - 1);
+    bottom: 100%;
+    left: 50%;
+
+    background: @dropdown-background;
+    transform: translate(-50%, 50%) rotate(45deg) translateY(-1px);
+
+    @arrow-border-color: darken(@dropdown-border-color, 5%);
+    border: 1px solid fade(@arrow-border-color, 80%);
+    border-width: 1px 0 0 1px;
+}
+
+.dropdown() {
+    @dropdown-offset: @padding-base-vertical;
+
+    display: none;
+    position: absolute;
+    top: ~"calc(100% + @{dropdown-offset})";
+    z-index: @tooltip-zindex;
+    margin: 0 0 @grid-section-padding;
+    text-align: left;
+    animation: dropdown .2s ease-out;
+    background: @dropdown-background;
+    border: 1px solid @dropdown-border-color;
+    box-shadow: @dropdown-shadow;
+    border-radius: @dropdown-radius;
+    color: @dropdown-link-color;
+
+    a,
+    .btn-faux-link {
+        color: @dropdown-link-color;
+
+        &:hover,
+        &:focus {
+            color: @dropdown-link-hover-color;
+        }
+    }
+    .active > a {
+        color: @dropdown-link-hover-color;
+        font-weight: @font-weight-bold;
+    }
+
+    // Arrows
+    &::after {
+        .dropdown-arrow();
+    }
+
+    // Helper
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 100%;
+        height: @dropdown-offset;
+        background: transparent;
+    }
+}
+
+.dropdown-menu() {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    padding-top: (@grid-section-padding / 2);
+    padding-bottom: (@grid-section-padding / 2);
+    text-align: left;
+
+    a {
+        padding: @padding-small-vertical @padding-large-horizontal;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            background: darken(@dropdown-background, 3%);
+        }
+    }
+
+    // Add border to first level items with children
+    .nav-depth-0 > li.has-children + li {
+        margin-top: @padding-base-vertical;
+        padding-top: @padding-base-vertical;
+        border-top: 1px solid @dropdown-border-color;
+    }
+}
+
+.dropdown-mega-menu() {
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    padding-top: @padding-large-vertical;
+    padding-bottom: @padding-large-vertical;
+    border-radius: 0;
+    color: @dropdown-link-color;
+
+    // Remove arrow and helper as mega menu is fixed
+    &::after,
+    &::before {
+        display: none;
+    }
+
+    // Reset container padding (as its nested)
+    .container {
+        .container-padding();
+    }
+
+    // Narrower padding
+    a {
+        padding-top: @dropdown-padding;
+        padding-bottom: @dropdown-padding;
+        color: inherit;
+    }
+
+    // Reset nesting to be one level less
+    .nav-depth-0 > li > a {
+        padding-left: 0;
+    }
+    .nav-depth-1 > li > a {
+        padding-left: @padding-large-horizontal;
+    }
+    .nav-depth-2 > li > a {
+        padding-left: (@padding-large-horizontal * 2);
+    }
+
+    // Reset padding-top
+    .nav-depth-1 > li.has-children + li {
+        padding-top: 0;
+    }
+
+    .dropdown-mega-menu-categories {
+        flex-grow: 1;
+
+        > ul {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-left: -@padding-large-horizontal;
+
+            > li {
+                width: ~"calc(20% - @{padding-large-horizontal})";
+                margin: @padding-small-vertical 0 @padding-small-vertical @padding-large-horizontal;
+
+                a {
+                    opacity: 1;
+                }
+            }
+        }
+        .dropdown-mega-menu-feature-image {
+            display: block;
+            width: 100%;
+            padding: 0;
+            margin: 0 auto @padding-large-vertical;
+            border-radius: @border-radius-base;
+            background: @body-background;
+
+            img {
+                width: 100%;
+                border-radius: inherit;
+            }
+        }
+    }
+
+    .dropdown-mega-menu-category {
+        display: flex;
+        align-items: center;
+        padding-top: @padding-small-vertical;
+        padding-bottom: @padding-small-vertical;
+        flex-grow: 1;
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        small,
+        a,
+        p {
+            color: @dropdown-link-color;
+        }
+        
+        h2 {
+            margin-bottom: (@grid-section-padding / 1.5);
+        }
+        li {
+            line-height: @dropdown-line-height;
+        }
+        a {
+            line-height: @dropdown-line-height;
+
+            &:hover {
+                color: @dropdown-link-hover-color;
+            }
+        }
+    }
+    .dropdown-mega-menu-category-info {
+        width: 25%;
+        padding-top: @padding-large-vertical;
+        padding-bottom: @padding-large-vertical;
+
+        h2 {
+            display: block;
+        }
+    }
+    .dropdown-mega-menu-category-items {
+        display: flex;
+        width: 75%;
+        justify-content: flex-start;
+
+        .tile-container {
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        a {
+            color: @dropdown-link-color;
+        }
+    }
+}
+
+.dropdown {
+    .dropdown();
+}
+.dropdown-menu {
+    .dropdown-menu();
+}
+.dropdown-mega-menu-nav-bar {
+    // Hide mega menu stuff
+    .dropdown-mega-menu-category {
+        width: 100%;
+    }
+    .dropdown-mega-menu-category-info h2,
+    .dropdown-mega-menu-category-items,
+    .dropdown-mega-menu-feature-image {
+        display: none;
+    }
+}
+
+@media (min-width: @navigation-bp) {
+    .dropdown-nav-bar {
+        .dropdown();
+    }
+    .dropdown-menu-nav-bar {
+        .dropdown-menu();
+    }
+    .dropdown-mega-menu-nav-bar {
+        .dropdown-mega-menu();
+    }
+}

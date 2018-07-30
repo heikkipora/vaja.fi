@@ -1,0 +1,193 @@
+// --------------------------------------------------
+// Forms
+// --------------------------------------------------
+
+// Normalize non-controls
+// Restyle and baseline non-control form elements.
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    // Chrome and Firefox set a `min-width: min-content;` on fieldsets,
+    // so we reset that to ensure it behaves more like a standard block element.
+    // See https://github.com/twbs/bootstrap/issues/12359.
+    min-width: 0;
+}
+
+label {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    .font-size(@font-size-small);
+    font-weight: @font-weight-bold;
+}
+
+// Normalize form controls
+//
+// While most of our form styles require extra classes, some basic normalization
+// is required to ensure optimum display with or without those classes to better
+// address browser inconsistencies.
+
+// Override content-box in Normalize (* isn't specific enough)
+input[type="search"] {
+    box-sizing: border-box;
+}
+
+// Common form controls
+select,
+textarea,
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: @padding-small-vertical @padding-base-horizontal;
+    .font-size(@font-size-base);
+    font-weight: @font-weight-base;
+    line-height: @line-height-base;
+    color: @input-color;
+    background-color: @input-bg;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: @input-border-width solid @input-border;
+    border-radius: @input-border-radius;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -webkit-appearance: none; // iOS/Webkit won't allow all styling unless this is there.
+
+    // Customize the `:focus` state to imitate native WebKit styles.
+    .form-control-focus();
+
+    // Placeholder
+    .placeholder();
+
+    // Disabled and read-only inputs
+    //
+    // HTML5 says that controls under a fieldset > legend:first-child won't be
+    // disabled if the fieldset is disabled. Due to implementation difficulty, we
+    // don't honor that edge case; we style them as disabled anyway.
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+        background-color: @input-bg-disabled;
+        opacity: 1; // iOS fix for unreadable disabled content
+    }
+}
+
+// Reset height for `textarea`s
+textarea {
+    height: auto;
+    resize: vertical;
+}
+select {
+    max-width: 100%;
+	padding-right: 0; // For IE jankness
+	-webkit-padding-end: 25px;
+	-webkit-padding-start: 12px;
+
+	// Webkit gets nice styling
+	@media screen and (-webkit-min-device-pixel-ratio: 0) {
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMTcwcHgiIGhlaWdodD0iMzVweCIgdmlld0JveD0iMCAwIDE3MCAzNSIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWxuczpza2V0Y2g9Imh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaC9ucyI+ICAgIDx0aXRsZT5TbGljZSAxPC90aXRsZT4gICAgPGRlc2NyaXB0aW9uPkNyZWF0ZWQgd2l0aCBTa2V0Y2ggKGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCk8L2Rlc2NyaXB0aW9uPiAgICA8ZGVmcz48L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9ImNhcmV0IiBza2V0Y2g6dHlwZT0iTVNMYXllckdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMS4wMDAwMDAsIDMuMDAwMDAwKSIgZmlsbD0iIzRENUE2MSI+ICAgICAgICAgICAgPGcgaWQ9ImcyOTkxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Ni41MDAwMDAsIDMwLjAwMDAwMCkgc2NhbGUoMSwgLTEpIHRyYW5zbGF0ZSgtNDYuNTAwMDAwLCAtMzAuMDAwMDAwKSAiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNLTAuMzEyNSw2MCBMNTksNjAgTDI5LjM0Mzc1LDMxIEwtMC4zMTI1LDYwIFoiIGlkPSJwYXRoMjk5MyI+PC9wYXRoPiAgICAgICAgICAgIDwvZz4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==);
+		background-size: 24px;
+		background-position: right 50%;
+		background-repeat: no-repeat;
+	}
+}
+
+// Search inputs in iOS
+// This overrides the extra rounded corners on search inputs in iOS so that our
+// `.form-control` class can properly style them. Note that this cannot simply
+// be added to `.form-control` as it's not specific enough. For details, see
+// https://github.com/twbs/bootstrap/issues/11586.
+
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
+// Widths
+input[type=number] {
+    width: 80px;
+}
+
+// Control groups
+.control-group {
+    padding-bottom: (@grid-section-padding / 3);
+}
+
+// Input groups
+.input-group {
+    display: flex;
+
+    > * {
+        .font-size(@font-size-base);
+		white-space: normal;
+    }
+
+    > input {
+        position: relative;
+        margin: 0;
+        border-radius: 0;
+
+        // Make input on top when focused
+		&:focus {
+			z-index: 2;
+		}
+
+		+ input,
+		+ select,
+		+ .btn {
+			margin-left: -2px;
+		}
+    }
+    .add-on {
+        display: inline-block;
+        padding: 0 @padding-base-horizontal;
+        height: @input-height-base;
+        line-height: @input-height-base - 3;
+        background: @input-group-addon-bg;
+        border: @input-border-width solid @input-group-addon-border-color;
+        border-width: @input-border-width 0;
+        font-weight: @font-weight-base;
+        color: @input-group-addon-text-color;
+    }
+
+    > :first-child {
+		border-radius: @input-border-radius 0 0 @input-border-radius;
+
+		&.add-on {
+			border-width: @input-border-width 0 @input-border-width @input-border-width;
+		}
+	}
+	> :last-child {
+		border-radius: 0 @input-border-radius @input-border-radius 0;
+
+		&.add-on {
+			border-width: @input-border-width @input-border-width @input-border-width 0;
+		}
+	}
+}
+
+// Feedback states
+.field-validation-error {
+    display: block;
+    margin-top: @grid-section-padding / 4;
+    color: @state-danger-text;
+
+    &:empty {
+        margin-top: 0;
+    }
+}
+
+// Help text
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+
+.help-block {
+    display: block; // account for any element using help-block
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: lighten(@text-color, 25%); // lighten the text some for contrast
+}

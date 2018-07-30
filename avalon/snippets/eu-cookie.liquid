@@ -1,0 +1,21 @@
+{% if store.cookie_banner_enabled %}
+    {% assign has_no_link = store.cookie_policy_url | is_null_or_empty %}
+
+    <div class="alert alert-cookie js-alert-cookie" role="alert" hidden>
+        <div class="container">
+            <button type="button" class="alert-dismiss btn-faux-link js-alert-cookie-accept">
+                <svg role="presentation" class="icon icon-small">
+                    <use xlink:href="#theme-icon-close"></use>
+                </svg>
+                <span class="sr-only">{{ "general.buttons.close" | t }}</span>
+            </button>
+            <p class="alert-body">
+                {{ "general.cookies.message" | t }}
+
+                {% unless has_no_link %}
+                    <a href="{{ store.cookie_policy_url }}" target="_blank">{{ "general.buttons.learn_more" | t }}</a>
+                {% endunless %}
+            </p>
+        </div>
+    </div>
+{% endif %}

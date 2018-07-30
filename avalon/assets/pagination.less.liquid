@@ -1,0 +1,26 @@
+// ==========================================================================
+// Pagination
+// ==========================================================================
+
+.pagination-container {
+    max-width: @container-width;
+    margin: 0 auto;
+    overflow: hidden;
+
+    .pagination {
+        margin-bottom: (@grid-section-padding / 2);
+        text-align: right;
+        overflow: auto;
+
+        .previous {
+            float: left;
+        }
+        .next {
+            float: right;
+        }
+
+        @media (min-width : @screen-md) {
+            margin-bottom: @grid-section-padding;
+        }
+    }
+}

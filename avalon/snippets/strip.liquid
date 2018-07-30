@@ -1,0 +1,42 @@
+<li class="strip">
+    <div class="container row vertical-aligned-sm">
+        <div class="media span5 item-media">
+            {% if item.featured_image %}
+                <a href="{{ item.url }}">
+                    <img src="{{ item.featured_image.grande }}" srcset="{{ item.featured_image.grande }}, {{ item.featured_image.mucho_grande }} 2x" alt="">
+                </a>
+            {% else %}
+                {% if item.featured_media %}
+                    {% if item.featured_media.type == "audio" %}
+                        {{ "default-audio.svg" | asset_url | img_tag }}
+                    {% else %}
+                        {{ "default-video.svg" | asset_url | img_tag }}
+                    {% endif %}
+                {% else %}
+                    {{ "default-item.svg" | asset_url | img_tag }}
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="span6 offset1 item-info">
+            <div>
+                <h3>{{ item.title }}</h3>
+
+                {% if item.is_sold_out %}
+                    <small class="tag tag-sold-out">{{ "products.item.sold_out" | t }}</small>
+                {% elsif item.price_regular > item.price %}
+                    <small class="tag tag-sale">{{ "products.item.sale" | t }}</small>
+                {% endif %}
+
+                {{ item.description }}
+
+                {% if store.display_currency_code %}
+                    <p>{{ item.price | money_with_currency: item.currency_code, item.price_is_flexible, item.quantity_unit }}</p>
+                {% else %}
+                    <p>{{ item.price | money: item.currency_code, item.price_is_flexible, item.quantity_unit }}</p>
+                {% endif %}
+
+                <a href="{{ item.url }}" class="btn">{{ "products.item.shop_now" | t }}</a>
+            </div>
+        </div>
+    </div>
+</li>

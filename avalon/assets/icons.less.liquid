@@ -1,0 +1,55 @@
+// ==========================================================================
+// Icons
+// ==========================================================================
+
+// Base
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.icon-small {
+    width: 18px;
+    height: 18px;
+}
+
+// Lock
+.icon-lock {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 4px;
+}
+
+// Fix click event issues with some browsers
+// http://stackoverflow.com/questions/29814709/click-event-not-fired-on-button-with-svg-element-in-safari
+button svg,
+a svg {
+    pointer-events: none;
+}
+
+.blog-icon {
+    font-family: Wingdings;
+    font-style: normal;
+    font-size: 52px;
+    color: #000;
+    font-weight: 700;
+}
+
+// Loaders
+// --------------------------------------------
+// Based on http://projects.lukehaas.me/css-loaders/
+.spinner,
+.processing-block::before {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    font-size: 0;
+    border: 3px solid @gray-lighter;
+    border-left-color: @text-logo-color;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}

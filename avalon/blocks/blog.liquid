@@ -1,0 +1,40 @@
+{% include blocks-styles.liquid %}
+
+{% assign display_options = settings.article_tile_display_options | split: "," %}
+
+<div id="{{block.id}}" class="content-block content-block-blog {{ class | strip }}">
+    <div class="container">
+        {% include block-header.liquid %}
+
+        <div class="block-container {{ container_class | strip }}">
+            {% paginate blog.articles[block.settings.tag] by block.settings.page_size %}
+                <header class="text-center">
+                    <a href="{{ "/blog" | to_url }}">
+                        <h6>{{ "blogs.articles.block_title" | t }}</h6>
+                    </a>
+                </header>
+                <section class="row">
+                    {% for article in paginate.items %}
+                        <article class="{% if block.settings.page_size == 1 %}span-centered {% endif %}article-summary">
+                            {% if display_options contains "image" %}
+                                <a href="{{ article.page_path }}">
+                                    <div class="media" style="background-image: url('{{ article.featured_image.grande }}')" role="banner"></div>
+                                </a>
+                            {% endif %}
+                            {% if display_options contains "title" %}
+                                <a href="{{ article.page_path }}"><h4>{{ article.title }}</h4></a>
+                            {% endif %}
+                            {% if display_options contains "info" %}
+                                <small><time class="js-timeago" datetime="{{ article.published_time_iso }}">{{ article.published_time }}</time></small>
+                            {% endif %}
+                            <p>{{ article.excerpt | truncate: 225, "&hellip;" }} <a href="{{ article.page_path }}">{{ "blogs.articles.read_more" | t }}</a></p>
+                        </article>
+                    {% endfor %}
+                </section>
+                {% if block.settings.paginate == "true" %}
+                    {% include pagination.liquid %}
+                {% endif %}
+            {% endpaginate %}
+        </div>
+    </div>
+</div>

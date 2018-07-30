@@ -1,0 +1,58 @@
+// ==========================================================================
+// Animation
+// ==========================================================================
+
+@keyframes dropdown {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes spin {
+    0%      { transform: rotate(0deg); }
+    100%    { transform: rotate(360deg); }
+}
+@keyframes fade-out {
+    0%      { opacity: 1; }
+    100%    { opacity: 0; }
+}
+@keyframes fade-in {
+	0%      { opacity: 0; }
+	100%    { opacity: 1; }
+}
+@keyframes menu-item {
+	0%      { opacity: 0; transform: translateY(-100%); }
+	100%    { opacity: 1; transform: translateY(0); }
+}
+
+// Collapse
+// --------------------------------------------------
+.collapse {
+	display: none;
+
+	&.in      { display: block; }
+	tr&.in    { display: table-row; }
+	tbody&.in { display: table-row-group; }
+}
+.collapsing {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	transition: height .35s ease;
+}
+
+// Fade in content
+// --------------------------------------------
+.fade {
+	opacity: 0;
+	transition: opacity .15s ease;
+	
+	&.in {
+		opacity: 1;
+	}
+}
+
+// Plyr
+// ---------------------------------------
+@keyframes plyr-progress {
+    to { background-position: @plyr-progress-loading-size 0; }
+}

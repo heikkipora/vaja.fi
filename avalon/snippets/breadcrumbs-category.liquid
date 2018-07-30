@@ -1,0 +1,40 @@
+<nav role="navigation" class="nav-breadcrumbs">
+    <ul class="list-inline">
+        <li>
+            <a href="{{ store.url }}">{{ "general.pages.home" | t }}</a>
+        </li>
+        
+        {% if categories_page_enabled %}
+            <li>
+                <a href="{{ "/categories" | to_url }}">{{ categories_page_title }}</a>
+            </li>
+        {% endif %}
+        
+        {% for id in category.parent_ids -%}
+            {% assign link_category = null %}
+            
+            {% for category in categories %}
+                {% if category.id == id %}
+                    {% assign link_category = category %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+            
+            {% if link_category != null %}
+                <li>
+                    <a href="{{ link_category.url }}">
+                        {{ link_category.title }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor -%}
+        
+        {% if include_category %}
+            <li>
+                <a href="{{ category.url }}">
+                    {{ category.title }}
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

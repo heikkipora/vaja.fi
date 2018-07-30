@@ -1,0 +1,14 @@
+{% if paginate.pages > 1 %}
+    <div class="pagination-container">
+        <p class="sr-only" id="pagination-label">{{ "general.pagination.pagination" | t }}</p>
+        <div class="pagination" role="navigation" aira-labelledby="pagination-label">
+            <p class="sr-only">{{ "general.pagination.page" | t }} {{ paginate.current_page }} / {{ paginate.pages }}</p>
+            {% if paginate.next.is_link %}
+                <a href="{{ paginate.next.url }}" class="btn next" rel="next">{{ paginate.next.title }}</a>
+            {% endif %}
+            {% if paginate.previous.is_link %}
+                <a href="{{ paginate.previous.url }}" class="btn previous" rel="prev">{{ paginate.previous.title }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

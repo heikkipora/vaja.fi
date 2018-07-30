@@ -1,0 +1,42 @@
+{% include blocks-styles.liquid %}
+{% assign total_items = block.settings.per_row | times: block.settings.rows %}
+{% assign index = 0 %}
+
+{% if categories[block.settings.category].all_items != empty %}
+    <div id="{{block.id}}" class="content-block content-block-items {{ class | strip }}">
+        {% if block.settings.items_style == "tiles" %}
+            {% paginate categories[block.settings.category].all_items by 100 %}
+                <div class="container">
+                    {% include block-header.liquid %}
+
+                    <div class="block-container {{ container_class | strip }}">
+                        <ul class="tiles">
+                            {% for item in paginate.items %}
+                                {% include tile-item.liquid %}
+                                {% assign index = index | plus: 1 %}
+
+                                {% if index == total_items %}
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endpaginate %}
+        {% else %}
+            {% paginate categories[block.settings.category].all_items by block.settings.strips_page_size %}
+                <div class="container {{ container_class | strip }}">
+                    {% include block-header.liquid %}
+
+                    <div class="block-container {{ container_class | strip }}">
+                        <ul class="strips">
+                            {% for item in paginate.items %}
+                                {% include strip.liquid %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endpaginate %}
+        {% endif %}
+    </div>
+{% endif %}

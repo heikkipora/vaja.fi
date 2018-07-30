@@ -1,0 +1,58 @@
+{% if store.apps.paypal or store.cards_enabled %}
+    <ul class="payment-logos">
+        {% if store.cards_enabled %}
+            <li class="tooltip">
+                <svg role="img" class="payment-logo">
+                    <use xlink:href="#theme-logo-visa"></use>
+                </svg>
+                <span class="tip">Visa</span>
+            </li>
+            
+            <li class="tooltip">
+                <svg role="img" class="payment-logo">
+                    <use xlink:href="#theme-logo-mastercard"></use>
+                </svg>
+                <span class="tip">MasterCard</span>
+            </li>
+            
+            <li class="tooltip">
+                <svg role="img" class="payment-logo">
+                    <use xlink:href="#theme-logo-amex"></use>
+                </svg>
+                <span class="tip">American Express</span>
+            </li>
+            
+            {% if store.extra_cards_enabled %}
+                <li class="tooltip">
+                    <svg role="img" class="payment-logo">
+                        <use xlink:href="#theme-logo-diners"></use>
+                    </svg>
+                    <span class="tip">Diners</span>
+                </li>
+                
+                <li class="tooltip">
+                    <svg role="img" class="payment-logo">
+                        <use xlink:href="#theme-logo-jcb"></use>
+                    </svg>
+                    <span class="tip">JCB</span>
+                </li>
+                
+                <li class="tooltip">
+                    <svg role="img" class="payment-logo">
+                        <use xlink:href="#theme-logo-discover"></use>
+                    </svg>
+                    <span class="tip">Discover</span>
+                </li>
+            {% endif %}
+        {% endif %}
+        
+        {% if store.apps.paypal %}
+            <li class="tooltip">
+                <svg role="img" class="payment-logo">
+                    <use xlink:href="#theme-logo-paypal"></use>
+                </svg>
+                <span class="tip">PayPal</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

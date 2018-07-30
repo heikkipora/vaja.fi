@@ -1,0 +1,31 @@
+{% if link.has_children %}
+    <ul class="nav-depth-{{ link.depth }}">
+        {% for link in link.links %}
+            <li class="{% if link.has_children %}has-children{% endif %}{% if link.is_active %} active{% endif %}">
+                {% if link.depth == 1 %}
+                    {% for category in categories %}
+                        {% if category.id == link.id %}
+                            {% assign link_category = category %}
+                        {% endif %}
+                    {% endfor %}
+    
+                    {% if settings.enable_mega_menu == "true" and settings.mega_menu_display_category_images == "true" %}
+                        <a href="{{ link.url }}"{% if link.target %} target="{{ link.target }}"{% endif %} class="dropdown-mega-menu-feature-image">
+                            {% if link_category.featured_image %} 
+                                <img src="{{ link_category.featured_image.grande }}" srcset="{{ link_category.featured_image.grande }}, {{ link_category.featured_image.mucho_grande }} 2x" alt="{{ link_category.title }}">
+                            {% else %}
+                                {{ "default-category-menu.svg" | asset_url | img_tag: link_category.title }}
+                            {% endif %}
+                        </a>
+                    {% endif %}
+                {% endif %}
+            
+                <a href="{{ link.url }}"{% if link.target %} target="{{ link.target }}"{% endif %}>
+                    {{ link.title }}
+                </a>
+                
+                {% include nav-menu-links.liquid %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

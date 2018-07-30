@@ -1,0 +1,320 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+{% if settings.container_width == 0 %}
+    {% assign container_width = "100%"; %}
+    {% assign header_width = "@screen-md"; %}
+{% else %}
+    {% capture container_width %}{{settings.container_width}}px{% endcapture %}
+    {% capture header_width %}{{settings.container_width}}px{% endcapture %}
+{% endif %}
+
+// Base Colors
+@red:                                       #E74C3C;
+@green:                                     #1AC266;
+@blue:                                      #3498DB;
+@purple:                                    #9B59B6;
+@orange:                                    #E67E22;
+@yellow:                                    #F1C40F;
+@dark-blue:                                 #34495E;
+@turquoise:                                 #1ABC9C;
+
+// Tints (darker)
+@tint-red:                                  #C0392B;
+@tint-green:                                #18B55F;
+@tint-blue:                                 #2980B9;
+@tint-purple:                               #8E44AD;
+@tint-orange:                               #D35400;
+@tint-yellow:                               #F39C12;
+@tint-dark-blue:                            #2C3E50;
+@tint-turquoise:                            #16A085;
+
+// Greyscale
+@black:                                     darken(@gray-dark, 20%);
+@gray-dark:                                 #7F8C8D;
+@gray:                                      #95A5A6;
+@gray-light:                                #C1C7D1;
+@gray-lighter:                              mix(@gray-light, @gray-lightest, 30%);
+@gray-lightest:                             #ECF0F1;
+@off-white:                                 #F8F9FA;
+
+// Brands
+@color-facebook:                            #3C569A;
+@color-twitter:                             #0F94FF;
+@color-google-plus:                         #DE4C35;
+@color-instagram:                           #925E47;
+@color-pinterest:                           #CB2026;
+@color-dribbble:                            #EA4C89;
+@color-paypal:                              #0D79BF;
+@color-flickr:                              #FD1E81;
+@color-selz:                                #6D48CC;
+@color-rss:                                 #F58432;
+
+// Product tiles
+@color-sold-out:                            {{ settings.color_sold_out }};
+@color-sale:                                {{ settings.color_sale }};
+
+// Base
+// --------------------------------------------------
+@body-background:                           {{ settings.color_body_bg }};
+@text-color:                                {{ settings.color_text }};
+@link-color:                                {{ settings.color_links }};
+@link-hover-color:                          darken(@link-color, 10%);
+@border-color-on-body:                      darken(@body-background, 5%);
+@color-sale-price:                          {{ settings.color_sale_price }};
+@headings-color:                            {{ settings.color_headings }};
+@headings-small-color:                      lighten(@text-color, 15%);
+
+// Typography
+// --------------------------------------------------
+// Families
+@font-family-base:                          {{ settings.font_base | to_font_stack }};
+@font-family-headings:                      {{ settings.font_headings | to_font_stack }};
+@font-family-accent:                        {{ settings.font_accent | to_font_stack }};
+
+// Weights
+@font-weight-base:                          {{ settings.font_base_weight }};
+@font-weight-headings:                      {{ settings.font_headings_weight }};
+@font-weight-bold:                          600;
+@font-weight-accent:                        {{ settings.font_accent_weight }};
+
+// Sizing
+@font-size-base:                            {{ settings.font_base_size }};  // if 16px...
+@font-size-headings:                        {{ settings.font_headings_size }};
+@font-size-accent:                          {{ settings.font_accent_size }};
+
+// Sizing from base
+@font-size-large:                           ceil((@font-size-base * 1.1)); // ~18px
+@font-size-small:                           ceil((@font-size-base * 0.85)); // ~14px
+@font-size-tiny:                            ceil((@font-size-base * 0.75)); // ~12px
+@font-size-xs:                              ceil((@font-size-base * 0.75)); // ~12px
+
+// Headings multipliers
+@font-size-multiplier-h1-xxl:               4;
+@font-size-multiplier-h1-xl:                3;
+@font-size-multiplier-h1:                   2.25;
+@font-size-multiplier-h2:                   1.85;
+@font-size-multiplier-h3:                   1.5;
+@font-size-multiplier-h4:                   1.1;
+@font-size-multiplier-h5:                   1;
+@font-size-multiplier-h6:                   0.8;
+
+// Headings spacing
+@letter-spacing-headings:                   -0.025em;
+
+// Line height
+@line-height-headings:                      1.1;
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:                          1.7;
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:                      floor((@font-size-base * @line-height-base)) * 1px; // ~25px
+
+// Component padding
+// --------------------------------------------------
+@padding-base-vertical:                     floor(@grid-section-padding / 3);
+@padding-base-horizontal:                   floor(@grid-section-padding / 2);
+
+@padding-small-vertical:                    floor(@grid-section-padding / 6);
+@padding-small-horizontal:                  floor(@grid-section-padding / 3);
+
+@padding-large-vertical:                    floor(@grid-section-padding / 2);
+@padding-large-horizontal:                  floor(@grid-section-padding / 1.5);
+
+// Radii
+// --------------------------------------------------
+@border-radius-base:                        4px;
+@border-radius-btn:                         50px;
+
+// Menu
+// --------------------------------------------------
+@menu-bg:                                   {{ settings.color_navbar_bg }};
+@main-menu-width:                           280px;
+@mobile-menu-text-color:                    {{ settings.color_navbar_links }};
+@main-menu-text-color:                      {{ settings.color_navbar_links }};
+
+// Header
+// --------------------------------------------------
+@header-width:                              {{ header_width }};
+@header-bg:                                 {{ settings.color_header_bg }};
+@header-text-color-basic:                   {{ settings.color_header_text_basic }};
+@header-homepage-height:                    {{ settings.homepage_banner_height }} * 1%;
+
+// Footer
+// --------------------------------------------------
+@footer-bg-color:                           {{ settings.color_footer_bg }};
+@footer-title-links-color:                  {{ settings.color_footer_title_links }};
+@footer-title-links-hover:                  darken(@footer-title-links-color, 10%);
+
+// Articles
+// --------------------------------------------------
+@article-banner-text-color:                 @header-text-color-basic;
+
+// Tiles
+// --------------------------------------------------
+@tile-background:                           {{ settings.color_product_tile_bg }};
+@tile-media-shadow:                         none;
+@tile-radius:                               @border-radius-base;
+
+// Tags
+// --------------------------------------------------
+@tag-background:                            @body-background;
+
+// Logo
+// --------------------------------------------------
+@logo-max-width:                             400px;
+@logo-max-height:                            250px;
+@logo-text-xs:                               18;
+@logo-text-s:                                24;
+@logo-text-m:                                28;
+@logo-text-l:                                32;
+@logo-text-xl:                               36;
+
+// Dropdowns
+// --------------------------------------------------
+@dropdown-background:                       {{ settings.color_dropdown_background }};
+@dropdown-border-color:                     darken(@dropdown-background, 8%);
+@dropdown-link-color:                       {{ settings.color_dropdown_title_links }};
+@dropdown-link-hover-color:                 {{ settings.color_dropdown_title_links_hover }};
+@dropdown-arrow-size:                       10px;
+@dropdown-shadow:                           0 1px 1px fade(#000, 5%), 0 1px 5px fade(#000, 5%);
+@dropdown-radius:                           @border-radius-base;
+@dropdown-line-height:                      1.5;
+@dropdown-margin:                           6px;
+@dropdown-padding:                          (@padding-small-vertical - 1);
+
+// Buttons
+// --------------------------------------------------
+@btn-font-size:                             @font-size-tiny;
+@btn-font-weight:                           @font-weight-bold;
+@btn-case:                                  uppercase;
+@btn-letter-spacing:                        0.15em;
+@btn-radius:                                @border-radius-btn;
+@btn-background:                            {{ settings.color_button }};
+@btn-text-color:                            {{ settings.color_button_text }};
+@btn-secondary-background:                  {{ settings.color_button_secondary }};
+@btn-secondary-text-color:                  {{ settings.color_button_text_secondary }};
+@btn-success-bg:                            @green;
+@btn-danger-bg:                             @red;
+@btn-link-disabled-color:                   @gray-light;
+
+// Tooltips
+// --------------------------------------------------
+@tooltip-bg:                                @footer-bg-color;
+@tooltip-text-color:                        @text-color;
+@tooltip-zindex:                            30;
+
+// Announcement bar
+// --------------------------------------------------
+@announcement-text:                         {{ settings.color_announcement_text }};
+@announcement-bg:                           {{ settings.color_announcement_bg }};
+
+// EU cookie
+// --------------------------------------------------
+@eu-cookie-background:                      @header-bg;
+@eu-cookie-color:                           @header-text-color-basic;
+
+// Item media
+// --------------------------------------------------
+@media-large-background:                    {{ settings.color_large_media_bg }};
+
+// Alerts
+// --------------------------------------------------
+@alert-padding:                             (@grid-section-padding / 3) (@grid-section-padding / 1.5);
+
+// Tables
+// --------------------------------------------------
+// Customizes the `.table` component with basic values, each used across all table variations.
+@table-cell-padding:                        20px;
+@table-condensed-cell-padding:              10px;
+@table-bg:                                  transparent;
+@table-border-color:                        @border-color-on-body;
+
+// Forms
+// --------------------------------------------------
+@input-bg:                                  #fff;
+@input-bg-disabled:                         @gray-lighter;
+@input-color:                               @gray-dark;
+@input-border:                              @gray-lighter;
+@input-border-width:                        1px;
+@input-border-radius:                       @border-radius-base;
+@input-border-focus:                        @text-logo-color;
+@input-color-placeholder:                   @gray-light;
+
+// Input heights
+@input-height-base:                         (@line-height-computed + (@padding-base-vertical * 2) + 2) * 1px;
+
+// Input group addons
+@input-group-addon-bg:                      @gray-lightest;
+@input-group-addon-text-color:              @gray-dark;
+@input-group-addon-border-color:            @input-border;
+
+// Form states and alerts
+// --------------------------------------------------
+// Define colors for form feedback states and, by default, alerts.
+@state-success-text:                        @tint-green;
+@state-success-bg:                          lighten(@tint-green, 52%);
+@state-success-border:                      darken(@state-success-bg, 8%);
+
+@state-info-text:                           @tint-blue;
+@state-info-bg:                             lighten(@tint-blue, 45%);
+@state-info-border:                         darken(@state-info-bg, 7%);
+
+@state-warning-text:                        @tint-yellow;
+@state-warning-bg:                          lighten(@tint-yellow, 45%);
+@state-warning-border:                      darken(@state-warning-bg, 7%);
+
+@state-danger-text:                         @tint-red;
+@state-danger-bg:                           lighten(@tint-red, 45%);
+@state-danger-border:                       darken(@state-danger-bg, 7%);
+
+// Carousels
+// --------------------------------------------------
+@carousel-text-shadow:                      0 1px 2px fade(#000, 60%);
+@carousel-control-color:                    {{ settings.color_carousel_control }};
+@carousel-control-width:                    ((@grid-section-padding * 2) + 18);
+@carousel-control-opacity:                  .75;
+@carousel-indicator-active-bg:              {{ settings.color_carousel_indicator }};
+@carousel-indicator-border-color:           fade(@carousel-indicator-active-bg, 50%);
+@carousel-caption-color:                    #fff;
+
+// Lightbox
+// --------------------------------------------------
+@lightbox-bg-color:                         {{ settings.color_lightbox_bg }};
+@lightbox-indicator-color:                  {{ settings.color_lightbox_indicators }};
+
+// Spinner
+// --------------------------------------------------
+@loader-size:                               20px;
+@loader-border-width:                       2px;
+
+// Media queries breakpoints
+// --------------------------------------------------
+@screen-xs:                                 480px;
+@screen-sm:                                 768px;
+@screen-md:                                 1080px;
+@screen-lg:                                 1360px;
+// Mega wide desktop
+@screen-xlg:                                1600px;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:                             (@screen-sm - 1);
+@screen-sm-max:                             (@screen-md - 1);
+@screen-md-max:                             (@screen-lg - 1);
+
+// Navigation
+@navigation-bp:                             (@screen-md + 1);
+@navbar-bg-color:                           {{ settings.color_navbar_bg }};
+@text-logo-color:                           {{ settings.color_text_logo }};
+@navbar-link-color:                         {{ settings.color_navbar_links }};
+@navbar-link-hover-color:                   {{ settings.color_navbar_links_hover }};
+
+// Containers
+@container-width:                           {{ container_width }};
+
+// Grid
+@grid-gutter:                               5%;
+@grid-breakpoint:                           (@screen-sm + 1);
+@grid-min-width:                            270px;
+@grid-gutter-width:                         20px;
+@grid-section-padding:                      20px;

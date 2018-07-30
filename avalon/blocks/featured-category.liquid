@@ -1,0 +1,39 @@
+{% include blocks-styles.liquid %}
+{% assign tiles_limit = block.settings.rows | times: block.settings.per_row | to_integer %}
+{% assign strips_limit = block.settings.strips | to_integer %}
+
+<div id="{{block.id}}" class="content-block content-block-featured-category {{ class | strip }}">
+    {% assign category_items = categories[block.settings.category].all_items %}
+
+    {% if category_items == empty and store.user_is_owner %}
+        {% for column_number in (1..limit) %}
+            {% assign category_items = category_items | push: categories[block.settings.category].dummy_item %}
+        {% endfor %}
+    {% endif %}
+
+    {% if block.settings.items_style == "tiles" %}
+        <div class="container">
+            {% include block-header.liquid %}
+
+            <div class="block-container {{ container_class | strip }}">
+                <ul class="tiles {{ columns | strip }}">
+                    {% for item in category_items limit: tiles_limit %}
+                        {% include tile-item.liquid %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        <div class="container {{ container_class | strip }}">
+            {% include block-header.liquid %}
+
+            <div class="block-container {{ container_class | strip }}">
+                <ul class="strips">
+                    {% for item in category_items limit: strips_limit %}
+                        {% include strip.liquid %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>

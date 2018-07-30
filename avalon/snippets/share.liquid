@@ -1,0 +1,30 @@
+<ul class="list-inline list-inline-spaced text-center">
+	<li class="btn-addon">
+		<a href="https://www.facebook.com/sharer/sharer.php?u={{ shareUrl }}" target="_blank" class="btn btn-small btn-facebook" data-shr-network="facebook">
+		    <svg role="img" class="icon">
+		        <use xlink:href="#theme-icon-facebook"></use>
+		    </svg>{{ "contact.social.share" | t }}
+	    </a>
+	</li>
+	<li>
+		<a href="https://twitter.com/intent/tweet?text={{ shareText }}&url={{ shareUrl }}&via={{ twitterUser }}" target="_blank" class="btn btn-small btn-twitter" data-shr-network="twitter">
+		    <svg role="img" class="icon">
+		        <use xlink:href="#theme-icon-twitter"></use>
+		    </svg>Tweet
+		</a>
+	</li>
+	<li class="btn-addon">
+		<a href="http://pinterest.com/pin/create/button/?url={{ shareUrl }}&media={{ shareImage }}&description={{ shareText }}" target="_blank" class="btn btn-small btn-pinterest" data-shr-network="pinterest">
+		    <svg role="img" class="icon">
+		        <use xlink:href="#theme-icon-pinterest"></use>
+		    </svg>Pin
+		</a>
+	</li>
+	<li>
+		<a href="https://plus.google.com/share?url={{ shareUrl }}" target="_blank" class="btn btn-small btn-google-plus" data-shr-network="google">
+		    <svg role="img" class="icon">
+		        <use xlink:href="#theme-icon-google-plus"></use>
+		    </svg>+1
+		</a>
+	</li>
+</ul>

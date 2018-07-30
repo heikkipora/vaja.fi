@@ -1,0 +1,44 @@
+<nav class="nav-bar-menu" role="navigation">
+    <div>
+        <button type="button" class="btn-faux-link btn-close-menu" data-toggle="class" data-target="html" data-class="menu-active">
+            <svg role="img" class="icon icon-close" title="{{ "general.buttons.close" | t }} Menu">
+                <use xlink:href="#theme-icon-close"></use>
+            </svg>
+            <span class="sr-only">{{ "general.navigation.close" | t }}</span>
+        </button>
+
+        <div class="form-search">
+            {% assign search_collapsed = false %}
+            {% include search-form.liquid %}
+        </div>
+
+        <ul role="menubar" class="nav-bar-menu-items">
+            {% for link in links.main-menu %}
+            {% if link.page_path == "/categories" %}
+                {% assign categories_page_enabled = true %}
+                {% assign categories_page_title = link.title %}
+            {% endif %}
+                <li class="{% if settings.enable_mega_menu == "true" %}has-mega-menu{% endif %} {% if link.is_active %}active{% endif %}">
+                    <a href="{{ link.url }}"{% if link.target %} target="{{ link.target }}"{% endif %}>
+                        {{ link.title }}
+                        {% if link.has_children %}
+                            <span class="caret" aria-hidden="true"></span>
+                        {% endif %}
+                        {% if settings.enable_mega_menu == "true" and link.has_children %}
+                            <span class="menu-helper" aria-hidden="true"></span>
+                        {% endif %}
+                    </a>
+                    {% if settings.enable_mega_menu == "true" %}
+                        {% include nav-mega-menu.liquid %}
+                    {% else %}
+                        {% if link.has_children %}
+                            <div class="dropdown-nav-bar dropdown-menu-nav-bar" role="menu">
+                                {% include nav-menu-links.liquid %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

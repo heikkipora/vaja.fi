@@ -1,0 +1,57 @@
+{% if settings.homepage_banner != 4 and page.template == "index" %}
+    {% assign banner_images_empty = settings.carousel_images | is_null_or_empty %}
+    {% assign banner_video_empty = settings.hero_video | is_null_or_empty %}
+    {% assign banner_video_poster_empty = settings.hero_video_poster | is_null_or_empty %}
+    {% assign banner_empty_content = "header" | is_editable_region_empty %}
+
+    {% capture banner_class %}
+        {% if settings.homepage_banner <= 2 %}
+            {% if banner_images_empty == false or banner_video_empty == false %}
+                header-image
+            {% endif %}
+        {% endif %}
+        {% if settings.homepage_banner != 2 %}
+            header-with-text
+        {% endif %}
+    {% endcapture %}
+
+    <div class="header header-hero {{ banner_class | strip }}" role="banner">
+        {% if settings.homepage_banner != 2 and banner_empty_content == false or store.user_is_owner %}
+            <div class="header-text">
+                <div class="container">
+                    {% editable_region header %}
+                    {% endeditable_region %}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if settings.homepage_banner < 3 %}
+            {% assign carousel_options = settings.homepage_banner_carousel_options | split: ',' %}
+
+            <ul class="carousel" data-carousel='{ "id": "banner", "interval": {% if carousel_options contains "autoplay" %}5000{% else %}false{% endif %}, "indicators": {% if carousel_options contains "indicators" %}true{% else %}false{% endif %}, "controls": {% if carousel_options contains "controls" %}true{% else %}false{% endif %}, "fit": "{{ settings.homepage_banner_background_style }}" }'>
+                {% case settings.homepage_hero_type %}
+                    {% when 0 or 2 %}
+                        {% unless banner_video_empty %}
+                            <li class="media">
+                                <video playsinline autoplay loop muted src="{{ settings.hero_video | asset_url }}"{% unless banner_video_poster_empty %} poster="{{ settings.hero_video_poster | asset_url }}"{% endunless %}></video>
+                            </li>
+                        {% endunless %}
+                    {% when 0 or 1 %}
+                        {% unless banner_images_empty %}
+                            {% assign banner_images = settings.carousel_images | split: ',' %}
+
+                            {% if banner_images.size > 0 %}
+                                {% for banner_image in banner_images %}
+                                    <li class="media">
+                                        <img src="{{ banner_image | asset_url }}" alt="">
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endunless %}
+                {% endcase %}
+            </ul>
+        {% endif %}
+
+        {% shortcut "banner" "btn-settings-shortcut" "above-right" %}{% endshortcut %}
+    </div>
+{% endif %}

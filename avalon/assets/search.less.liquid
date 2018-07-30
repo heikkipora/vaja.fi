@@ -1,0 +1,44 @@
+// ==========================================================================
+// Search
+// ==========================================================================
+
+// Container
+.container-search {
+    max-width: @screen-xs;
+    text-align: center;
+    
+    .form-search {
+        margin-bottom: @grid-section-padding;
+    }
+}
+
+// Form
+.form-search {
+    margin: 0;
+}
+
+// Search query input
+input.search-query {
+	border-radius: 50px;
+	padding-left: @padding-large-horizontal;
+	padding-right: @grid-section-padding;
+}
+
+// Control wrapper
+.search-control {
+	position: relative;
+	
+	.btn-search { 
+        position: absolute;
+        right: (@grid-section-padding / 2);
+        top: 50%;
+        transform: translateY(-50%);
+        
+        .icon-search {
+            display: block;
+            margin: 0;
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

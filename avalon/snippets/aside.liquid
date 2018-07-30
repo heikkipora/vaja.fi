@@ -1,0 +1,22 @@
+<aside class="aside">
+    {% if store.sharing_enabled and page.template == "item" %}
+        {% assign shareUrl = item.short_url %}
+        {% assign shareTitle = item.title %}
+        {% assign twitterUser = store.social_links.twitter_username %}
+        {% assign shareImage = item.featured_image.url_large %}
+        {% assign shareText = item.title %}
+        {% include share.liquid %}
+        
+    {% elsif store.sharing_enabled and page.template == "article" %}
+        {% assign shareUrl = article.url %}
+        {% assign shareTitle = article.title %}
+        {% assign twitterUser = store.social_links.twitter_username %}
+        {% assign shareImage = article.featured_image %}
+        {% assign shareText = article.title %}
+        {% include share.liquid %}
+    {% endif %}
+    
+    {{ app_disqus }}
+    
+    {{ app_yotpo }}
+</aside>

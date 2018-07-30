@@ -1,0 +1,7 @@
+<svg width="300" height="169" viewBox="0 0 300 169" xmlns="http://www.w3.org/2000/svg">
+    <title>Product</title>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" d="M-8-73h315v316H-8z"/>
+        <path d="M210.4 93.6l-68-68c-.4-.4-.8-.6-1.4-.6H93c-1.2 0-2 .8-2 2v48c0 .6.2 1 .6 1.4l68 68c.4.4 1 .6 1.4.6.4 0 1-.2 1.4-.6l48-48c.8-.8.8-2 0-2.8zM121 63c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="#DBE3E8"/>
+    </g>
+</svg>

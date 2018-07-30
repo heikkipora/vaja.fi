@@ -1,0 +1,84 @@
+{% comment %}
+    Add Facebook, Pinterest and Twitter Open Graph meta tags to item pages
+    for Facebook sharing, Pinterest pinning and Twitter card
+
+    More info Open Graph meta tags
+    - https://developers.facebook.com/docs/opengraph/using-objects/
+    - https://developers.pinterest.com/rich_pins/
+
+    Use the Facebook Open Graph Debugger for validation (and cache clearing)
+    - http://developers.facebook.com/tools/debug
+
+    Validate your Pinterest rich pins
+    - https://developers.pinterest.com/rich_pins/validator/
+
+    Your cards must be approved by Twitter to be activated
+    - https://dev.twitter.com/docs/cards/validation/validator
+
+    More information:
+    - https://dev.twitter.com/docs/cards/types/product-card
+{% endcomment %}
+
+<link rel="publisher" href="{{ store.url }}">
+<link rel="author" href="{{ store.url }}">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ store.feed_url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }} - {% endif %}{{ store.display_name | escape }}">
+<meta property="og:site_name" content="{{ store.display_name | escape }}">
+<meta property="og:url" content="{{ page.url }}">
+<meta name="author" content="{{ store.display_name | escape }}">
+<meta name="twitter:site" content="{{ store.url }}">
+<meta name="theme-color" content="{{ settings.color_primary }}">
+
+{% if page.template == "item" %}
+    <meta property="og:type" content="product">
+    <meta property="og:price:amount" content="{{ item.price }}">
+    <meta property="og:price:currency" content="{{ item.currency_code }}">
+    <meta name="description" property="og:description" content="{{ item.meta_description | escape }}">
+{% elsif page.template == "article" %}
+    <meta property="og:type" content="article">
+    <meta property="article:publisher" content="{{ store.url }}">
+    <meta property="article:author" content="{{ store.url }}">
+    <meta property="article:published_time" content="{{ article.published_time_iso }}">
+    <meta name="description" property="og:description" content="{{ article.meta_description | escape }}">
+{% else %}
+    <meta property="og:type" content="website">
+    <meta name="description" property="og:description" content="{{ page.meta_description | escape }}">
+{% endif %}
+
+{% comment %} Images {% endcomment %}
+
+{% if page.template == "item" %}
+    <meta property="og:image" content="{{ item.featured_image.mucho_grande | replace: "https:", "http:" }}">
+    <meta property="og:image:secure_url" content="{{ item.featured_image.mucho_grande }}">
+{% else if page.template == "article" and article.featured_image %}
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="{{ article.featured_image.mucho_grande | replace: "https:", "http:" }}">
+    <meta property="og:image:secure_url" content="{{ article.featured_image.mucho_grande }}">
+{% elsif store.logo %}
+    <meta property="og:image" content="{{ store.logo | replace: "https:", "http:" }}">
+    <meta property="og:image:secure_url" content="{{ store.logo }}">
+{% endif %}
+
+{% comment %} Twitter card {% endcomment %}
+
+{% if page.template == "item" %}
+    <meta name="twitter:card" content="product">
+    <meta name="twitter:title" content="{{ item.title }}">
+    <meta name="twitter:description" content="{{ item.description | strip_html | truncatewords: 140, '' | escape }}">
+    <meta name="twitter:image" content="{{ item.featured_image.mucho_grande }}">
+    <meta name="twitter:label1" content="Price">
+    <meta name="twitter:data1" content="{{ item.price | money: item.currency_code, item.price_is_flexible, item.quantity_unit }}">
+    <meta name="twitter:label2" content="Availability">
+    <meta name="twitter:data2" content="{% if item.is_sold_out %}{{ "products.item.sold_out" | t }}{% else %}In stock{% endif %}">
+{% elsif page.template == "article" %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ article.title }}">
+    <meta name="twitter:description" content="{{ article.meta_description | escape }}">
+    <meta name="twitter:image" content="{{ item.featured_image.mucho_grande }}">
+{% endif %}
+
+{% comment %} Twitter user name of the site, based on theme settings {% endcomment %}
+
+{% if store.social_links.twitter_username %}
+    <meta name="twitter:creator" content="@{{ store.social_links.twitter_username }}">
+{% endif %}

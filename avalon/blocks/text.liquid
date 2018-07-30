@@ -1,0 +1,13 @@
+{% assign content_empty = block.content | is_null_or_empty %}
+
+{% if content_empty == false or store.user_is_owner %}
+    {% include blocks-styles.liquid %}
+
+    <div id="{{ block.id }}" class="content-block content-block-text {{ class | strip }}">
+        <div class="container block-text-container">
+            <div class="block-container {{ container_class | strip }}">
+                {{ block.content }}
+            </div>
+        </div>
+    </div>
+{% endif %}

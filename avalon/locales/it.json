@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Modifica impostazioni di blocco per aggiungere contenuti audio"
+        },
+        "html": {
+            "empty": "Modifica impostazioni di blocco per aggiungere contenuti HTML"
+        },
+        "image": {
+            "empty": "Modifica impostazioni di blocco per aggiungere un’immagine"
+        },
+        "quote": {
+            "empty": "Aggiungi recensioni dei clienti e testimonial per mostrare esperienze utenti positive"
+        },
+        "video": {
+            "empty": "Modifica impostazioni di blocco per aggiungere contenuti video"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Aggiungi un post",
+            "block_title": "Dal blog",
+            "get_started": "Avvia il tuo blog e mantieni aggiornati i clienti con le ultime novità.",
+            "read_more": "Leggi altro",
+            "words": "parole"
+        },
+        "tags": {
+            "empty": "Spiacenti, sembra che non ci siano ancora articoli. Riprova più tardi.",
+            "tags_count": {
+                "one": "articolo taggato con",
+                "other": "articoli taggati con",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Contatti",
+            "email": "",
+            "error": "Ops, si sono verificati degli errori.",
+            "message": "Messaggio",
+            "name": "Nome",
+            "send": "Invia",
+            "success": "Il tuo messaggio è stato inviato!"
+        },
+        "social": {
+            "add_feedly": "Aggiungi a Feedly",
+            "connect": "Connetti",
+            "connect_dribbble": "Collegati al tuo account Dribbble per mostrare qui il tuo feed.",
+            "connect_facebook": "Collegati al tuo account Facebook per mostrare qui il tuo feed.",
+            "connect_flickr": "Collegati al tuo account Flickr per mostrare qui il tuo feed.",
+            "connect_instagram": "Collegati al tuo account Instagram per mostrare qui il tuo feed.",
+            "connect_twitter": "Collegati al tuo account Twitter per mostrare qui i tuoi feed.",
+            "empty": "Aggiungi collegamenti social alle impostazioni de negozio",
+            "follow": "Segui",
+            "rss_feed": "Feed RSS",
+            "share": "Condividi"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Errore",
+            "subtext": "Siamo spiacenti, non abbiamo trovato la pagina.",
+            "title": "Pagina non trovata"
+        },
+        "buttons": {
+            "close": "Chiuso",
+            "learn_more": "Scopri di più"
+        },
+        "cookies": {
+            "message": "Utilizziamo i cookie per ottimizzare la tua esperienza. Utilizzando il sito, accetti il nostro uso dei cookie."
+        },
+        "navigation": {
+            "close": "Chiudi menu",
+            "menu": ""
+        },
+        "pages": {
+            "home": ""
+        },
+        "pagination": {
+            "page": "Pagina",
+            "pagination": "Impaginazione"
+        },
+        "skip_link": {
+            "skip": "Salta al contenuto"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Categorie",
+            "empty": "Questa categoria non ha oggetti",
+            "view": "Vedi articoli:"
+        },
+        "category_list": {
+            "empty": "Aggiungi categorie su impostazioni di blocco da mostrare"
+        },
+        "featured_category": {
+            "empty": "Seleziona categorie su impostazioni di blocco da mostrare"
+        },
+        "item": {
+            "on_sale": "In vendita",
+            "sale": "Offerta",
+            "shop_now": "Acquista ora",
+            "sold_out": "Esaurito",
+            "youll_get": "Otterrai"
+        },
+        "payment": {
+            "we_accept": "Accettiamo"
+        },
+        "search": {
+            "keyword": "Parola chiave",
+            "results": "Risultati della ricerca",
+            "results_for": "Risultati per",
+            "search": "Cerca"
+        }
+    }
+}

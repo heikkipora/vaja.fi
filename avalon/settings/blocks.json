@@ -1,0 +1,951 @@
+{
+    "sections": [
+        {
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "id": "settings",
+            "label": "Settings"
+        },
+        {
+            "id": "link",
+            "label": "Link"
+        },
+        {
+            "id": "button",
+            "label": "Button"
+        },
+        {
+            "id": "advanced",
+            "label": "Advanced",
+            "collapsed": "true"
+        }
+    ],
+    "settings": {
+        "default": {
+            "settings": [
+                {
+                    "name": "enable_header",
+                    "label": "Enable header text",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "false",
+                    "options": [
+                        {
+                            "label": "Shown",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "header_text",
+                    "label": "Header text",
+                    "section": "settings",
+                    "type": "text",
+                    "value": "",
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "enable_header",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "height",
+                    "label": "Height",
+                    "section": "advanced",
+                    "type": "range",
+                    "min": 0,
+                    "max": 4,
+                    "value": 0,
+                    "steps": {
+                        "0": "XS",
+                        "1": "S",
+                        "2": "M",
+                        "3": "L",
+                        "4": "XL"
+                    }
+                },
+                {
+                    "name": "width",
+                    "label": "Width",
+                    "section": "advanced",
+                    "type": "range",
+                    "value": 100,
+                    "min": 30,
+                    "max": 100,
+                    "unit": "%",
+                    "dependencies": {
+                        "match": "none",
+                        "cases": [
+                            {
+                                "name": "background_image_position",
+                                "value": "column-left"
+                            },
+                            {
+                                "name": "background_image_position",
+                                "value": "column-right"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "alignment",
+                    "label": "Alignment",
+                    "section": "advanced",
+                    "type": "select",
+                    "value": "center",
+                    "options": [
+                        {
+                            "label": "Left",
+                            "value": "left"
+                        },
+                        {
+                            "label": "Center",
+                            "value": "center"
+                        },
+                        {
+                            "label": "Right",
+                            "value": "right"
+                        }
+                    ],
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "width",
+                                "match": "under",
+                                "value": 100
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "background_type",
+                    "label": "Background",
+                    "section": "advanced",
+                    "type": "select",
+                    "value": "none",
+                    "options": [
+                        {
+                            "label": "Image",
+                            "value": "image"
+                        },
+                        {
+                            "label": "Color",
+                            "value": "color"
+                        },
+                        {
+                            "label": "None",
+                            "value": "none"
+                        }
+                    ]
+                },
+                {
+                    "name": "background_color",
+                    "label": "Background",
+                    "section": "advanced",
+                    "type": "color",
+                    "value": "#fff",
+                    "dependencies": {
+                        "match": "any",
+                        "cases": [
+                            {
+                                "name": "background_type",
+                                "value": "color"
+                            },
+                            {
+                                "name": "background_type",
+                                "value": "image"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "background_image",
+                    "label": "Background image",
+                    "section": "advanced",
+                    "type": "upload",
+                    "allow_stock": false,
+                    "validate": "image",
+                    "resize": {
+                        "enabled": true,
+                        "maxWidth": 1600
+                    },
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "background_type",
+                                "value": "image"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "background_image_mode",
+                    "label": "Background display",
+                    "section": "advanced",
+                    "type": "radio",
+                    "value": "cover",
+                    "options": [
+                        {
+                            "label": "Cover",
+                            "help": "Fill area",
+                            "value": "cover"
+                        },
+                        {
+                            "label": "Contain",
+                            "help": "Show all image",
+                            "value": "contain"
+                        },
+                        {
+                            "label": "Centered",
+                            "value": "center"
+                        },
+                        {
+                            "label": "Tiled",
+                            "value": "tiled"
+                        }
+                    ],
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "background_type",
+                                "value": "image"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "text": {
+            "template": "text.liquid",
+            "settings": [
+                {
+                    "name": "color_text",
+                    "label": "Text",
+                    "section": "settings",
+                    "type": "color",
+                    "inherit": true
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "image": {
+            "template": "image.liquid",
+            "settings": [
+                {
+                    "name": "src",
+                    "value":
+                        "https://selzstatic.com/themes/placeholders/image-block.svg"
+                },
+                {
+                    "name": "alignment",
+                    "disabled": true
+                }
+            ]
+        },
+        "image-with-text": {
+            "template": "image-with-text.liquid",
+            "settings": [
+                {
+                    "name": "src",
+                    "value":
+                        "https://selzstatic.com/themes/placeholders/image-block.svg"
+                },
+                {
+                    "name": "image_position",
+                    "label": "Layout",
+                    "section": "image",
+                    "type": "select",
+                    "value": "column-left",
+                    "options": [
+                        {
+                            "label": "Image on left",
+                            "value": "column-left"
+                        },
+                        {
+                            "label": "Image on right",
+                            "value": "column-right"
+                        }
+                    ]
+                },
+                {
+                    "name": "alignment",
+                    "label": "Text alignment",
+                    "section": "settings",
+                    "value": "left",
+                    "dependencies": false
+                },
+                {
+                    "name": "height",
+                    "value": 3
+                },
+                {
+                    "name": "background_type",
+                    "options": [
+                        {
+                            "label": "Color",
+                            "value": "color"
+                        },
+                        {
+                            "label": "None",
+                            "value": "none"
+                        }
+                    ]
+                },
+                {
+                    "name": "color_text",
+                    "label": "Text",
+                    "section": "advanced",
+                    "type": "color",
+                    "inherit": true
+                },
+                {
+                    "name": "image_style",
+                    "label": "Image style",
+                    "section": "advanced",
+                    "type": "radio",
+                    "value": "cover",
+                    "options": [
+                        {
+                            "label": "Cover",
+                            "help": "Fill area",
+                            "value": "cover"
+                        },
+                        {
+                            "label": "Contain",
+                            "help": "Show all image",
+                            "value": "contain"
+                        },
+                        {
+                            "label": "Centered",
+                            "value": "center"
+                        },
+                        {
+                            "label": "Tiled",
+                            "value": "tiled"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "image-with-text-overlay": {
+            "template": "image-with-text-overlay.liquid",
+            "settings": [
+                {
+                    "name": "src",
+                    "value":
+                        "https://selzstatic.com/themes/placeholders/image-block.svg"
+                },
+                {
+                    "name": "alignment",
+                    "label": "Text alignment",
+                    "section": "settings",
+                    "value": "center",
+                    "dependencies": false
+                },
+                {
+                    "name": "height",
+                    "value": 3
+                },
+                {
+                    "name": "background_type",
+                    "options": [
+                        {
+                            "label": "Color",
+                            "value": "color"
+                        },
+                        {
+                            "label": "None",
+                            "value": "none"
+                        }
+                    ]
+                },
+                {
+                    "name": "color_text",
+                    "label": "Text",
+                    "section": "advanced",
+                    "type": "color",
+                    "inherit": true
+                },
+                {
+                    "name": "image_style",
+                    "label": "Image style",
+                    "section": "advanced",
+                    "type": "radio",
+                    "value": "cover",
+                    "options": [
+                        {
+                            "label": "Cover",
+                            "help": "Fill area",
+                            "value": "cover"
+                        },
+                        {
+                            "label": "Contain",
+                            "help": "Show all image",
+                            "value": "contain"
+                        },
+                        {
+                            "label": "Centered",
+                            "value": "center"
+                        },
+                        {
+                            "label": "Tiled",
+                            "value": "tiled"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "audio": {
+            "template": "audio.liquid"
+        },
+        "video": {
+            "template": "video.liquid"
+        },
+        "grid": {
+            "template": "grid.liquid",
+            "settings": [
+                {
+                    "name": "vertical_alignment",
+                    "label": "Vertical alignment",
+                    "section": "settings",
+                    "type": "select",
+                    "value": "center",
+                    "options": [
+                        {
+                            "label": "Top",
+                            "value": "top"
+                        },
+                        {
+                            "label": "Center",
+                            "value": "center"
+                        },
+                        {
+                            "label": "Bottom",
+                            "value": "bottom"
+                        }
+                    ],
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "columns",
+                                "match": "over",
+                                "value": 1
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "featured-category": {
+            "template": "featured-category.liquid",
+            "settings": [
+                {
+                    "name": "items_style",
+                    "label": "Items style",
+                    "section": "settings",
+                    "type": "select",
+                    "value": "tiles",
+                    "options": [
+                        {
+                            "label": "Tiles",
+                            "value": "tiles"
+                        },
+                        {
+                            "label": "Strips",
+                            "value": "strips"
+                        }
+                    ]
+                },
+                {
+                    "name": "per_row",
+                    "label": "Products per row",
+                    "section": "settings",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 4,
+                    "value": 4,
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "items_style",
+                                "value": "tiles"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "rows",
+                    "label": "Rows",
+                    "section": "settings",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 8,
+                    "value": 1,
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "items_style",
+                                "value": "tiles"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "strips",
+                    "label": "Strips",
+                    "section": "settings",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 3,
+                    "value": 1,
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "items_style",
+                                "value": "strips"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "featured-product": {
+            "template": "featured-product.liquid"
+        },
+        "html": {
+            "template": "html.liquid"
+        },
+        "category-list": {
+            "template": "category-list.liquid",
+            "settings": [
+                {
+                    "name": "per_row",
+                    "label": "Categories per row",
+                    "section": "products",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 4,
+                    "value": 4
+                },
+                {
+                    "name": "rows",
+                    "label": "Rows",
+                    "section": "products",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 8,
+                    "value": 1
+                }
+            ]
+        },
+        "button": {
+            "template": "button.liquid",
+            "settings": [
+                {
+                    "name": "auto_width",
+                    "label": "Auto width",
+                    "section": "advanced",
+                    "type": "checkbox",
+                    "value": "true",
+                    "options": [
+                        {
+                            "label": "Enabled",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "width",
+                    "section": "advanced",
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "case": "not",
+                                "name": "auto_width",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "alignment",
+                    "section": "settings",
+                    "dependencies": {
+                        "match": "any",
+                        "cases": [
+                            {
+                                "name": "width",
+                                "match": "under",
+                                "value": 100
+                            },
+                            {
+                                "name": "auto_width",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "background_type",
+                    "disabled": true
+                },
+                {
+                    "name": "style",
+                    "label": "Style",
+                    "section": "settings",
+                    "type": "select",
+                    "value": "primary",
+                    "options": [
+                        {
+                            "label": "Primary",
+                            "value": "primary"
+                        },
+                        {
+                            "label": "Secondary",
+                            "value": "secondary"
+                        },
+                        {
+                            "label": "Facebook",
+                            "value": "facebook"
+                        },
+                        {
+                            "label": "Twitter",
+                            "value": "twitter"
+                        },
+                        {
+                            "label": "Pinterest",
+                            "value": "pinterest"
+                        },
+                        {
+                            "label": "Google",
+                            "value": "google-plus"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "map": {
+            "template": "map.liquid",
+            "settings": [
+                {
+                    "name": "height",
+                    "value": 3
+                }
+            ]
+        },
+        "blog": {
+            "template": "blog.liquid",
+            "settings": [
+                {
+                    "name": "paginate",
+                    "disabled": true,
+                    "value": "true"
+                }
+            ]
+        },
+        "quote": {
+            "template": "quote.liquid",
+            "settings": [
+                {
+                    "name": "color_text",
+                    "inherit": true,
+                    "section": "advanced",
+                    "label": "Text",
+                    "type": "color"
+                },
+                {
+                    "name": "enable_header",
+                    "section": "advanced"
+                },
+                {
+                    "name": "header_text",
+                    "section": "advanced"
+                }
+            ]
+        },
+        "divider": {
+            "template": "divider.liquid",
+            "settings": [
+                {
+                    "name": "divider_color",
+                    "label": "Color",
+                    "section": "settings",
+                    "type": "color",
+                    "value": "#bdc3c7"
+                },
+                {
+                    "name": "thickness",
+                    "label": "Thickness",
+                    "section": "settings",
+                    "type": "range",
+                    "value": 1,
+                    "step": 1,
+                    "min": 1,
+                    "max": 50,
+                    "unit": "px"
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                },
+                {
+                    "name": "alignment",
+                    "disabled": true
+                }
+            ]
+        },
+        "social-links": {
+            "template": "social-links.liquid",
+            "settings": [
+                {
+                    "name": "social_color_active",
+                    "label": "Icon color",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "false",
+                    "options": [
+                        {
+                            "label": " ",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "social_link_color",
+                    "label": "Color",
+                    "section": "settings",
+                    "type": "color",
+                    "value": "#000000",
+                    "dependencies": {
+                        "cases": [
+                            {
+                                "name": "social_color_active",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "social_link_size",
+                    "label": "Size",
+                    "section": "settings",
+                    "type": "range",
+                    "step": 1,
+                    "min": 1,
+                    "max": 4,
+                    "value": 1,
+                    "steps": {
+                        "1": "Small",
+                        "2": "Medium",
+                        "3": "Large",
+                        "4": "Extra large"
+                    }
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "social-twitter": {
+            "template": "social-feed.liquid",
+            "settings": [
+                {
+                    "name": "alignment",
+                    "section": "settings",
+                    "dependencies": false
+                },
+                {
+                    "name": "feed_logo",
+                    "label": "Show logo",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "true",
+                    "options": [
+                        {
+                            "label": "",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "social-instagram": {
+            "template": "social-feed.liquid",
+            "settings": [
+                {
+                    "name": "alignment",
+                    "section": "settings",
+                    "dependencies": false
+                },
+                {
+                    "name": "count",
+                    "label": "Images",
+                    "section": "settings",
+                    "type": "range",
+                    "value": 8,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "name": "feed_logo",
+                    "label": "Show logo",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "true",
+                    "options": [
+                        {
+                            "label": "",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "social-dribbble": {
+            "template": "social-feed.liquid",
+            "settings": [
+                {
+                    "name": "alignment",
+                    "section": "settings",
+                    "dependencies": false
+                },
+                {
+                    "name": "count",
+                    "label": "Images",
+                    "section": "settings",
+                    "type": "range",
+                    "value": 8,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "name": "feed_logo",
+                    "label": "Show logo",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "true",
+                    "options": [
+                        {
+                            "label": "",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        },
+        "social-flickr": {
+            "template": "social-feed.liquid",
+            "settings": [
+                {
+                    "name": "alignment",
+                    "section": "settings",
+                    "dependencies": false
+                },
+                {
+                    "name": "count",
+                    "label": "Images",
+                    "section": "settings",
+                    "type": "range",
+                    "value": 8,
+                    "min": 1,
+                    "max": 20
+                },
+                {
+                    "name": "feed_logo",
+                    "label": "Show logo",
+                    "section": "settings",
+                    "type": "toggle",
+                    "value": "true",
+                    "options": [
+                        {
+                            "label": "",
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "name": "enable_header",
+                    "disabled": true
+                },
+                {
+                    "name": "header_text",
+                    "disabled": true
+                }
+            ]
+        }
+    }
+}

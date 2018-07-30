@@ -1,0 +1,12 @@
+{% extends theme.liquid %}
+
+{% block header %}
+     {% include header.liquid %}
+{% endblock %}
+    
+{% block contents %}
+	<main id="main">
+    	{% editable_region main %}
+    	{% endeditable_region %}
+    </main>
+{% endblock %}

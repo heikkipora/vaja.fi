@@ -1,0 +1,13 @@
+{% if link.has_children %}
+    <ul class="nav-depth-{{ link.depth }}">
+        {% for link in link.links %}
+            <li class="{% if link.has_children %}has-children{% endif %}{% if link.is_active %} active{% endif %}">
+                <a href="{{ link.url }}"{% if link.target %} target="{{ link.target }}"{% endif %}>
+                    {{ link.title }}
+                </a>
+                
+                {% include nav-mega-menu-links.liquid %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

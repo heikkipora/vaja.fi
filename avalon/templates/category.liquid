@@ -1,0 +1,69 @@
+{% extends theme.liquid %}
+
+{% block header %}
+     <header class="header header-small">
+        <div class="container">
+            {% include breadcrumbs-category.liquid %}
+
+            <h1>{{ category.title }}</h1>
+            {% if category.description %}
+                <p>{{ category.description }}</p>
+            {% endif %}
+        </div>
+    </header>
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <div class="section">
+            <div class="container">
+                {% paginate category.items by settings.default_page_size %}
+                    {% if category.items == empty and category.has_children != true %}
+                        <p class="empty-block">{{ "products.categories.empty" | t }}</p>
+                    {% else %}
+                        <ul class="tiles">
+                            {% for item in category.items -%}
+                                {% include tile-item.liquid %}
+                            {% endfor -%}
+                        </ul>
+                        {% include pagination.liquid %}
+                    {% endif %}
+                {% endpaginate %}
+
+                {% assign category_display_items = settings.category_display_items | split: ',' %}
+                {% if category_display_items contains 'category' and category.has_children %}
+                    {% for child in category.children %}
+                        {% if child.total_items == 0 and child.total_all_items == 0 %}
+                            {% continue %}
+                        {% endif %}
+
+                        <div class="section-heading">
+                            <h2>{{ child.title }}</h2>
+                            <a href="{{ child.url }}">{{ "products.categories.view" | t }} {{ child.total_all_items }}</a>
+                        </div>
+
+                        {% if child.total_items > 0 %}
+                            <ul class="tiles">
+                                {% for item in child.items limit: 3 %}
+                                    {% include tile-item.liquid %}
+                                {% endfor %}
+                            </ul>
+                        {% elsif child.total_all_items > 0 %}
+                            <ul class="tiles">
+                                {% for item in child.all_items limit: 3 %}
+                                    {% include tile-item.liquid %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endfor %}
+                {% else if category.has_children %}
+                    <ul class="tiles">
+                        {% for category in category.children %}
+                            {% include tile-category.liquid %}
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

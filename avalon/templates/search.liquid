@@ -1,0 +1,37 @@
+{% extends theme.liquid %}
+
+{% block header %}
+     <header class="header header-small">
+        <div class="container">
+            <h1>{{ "products.search.search" | t }}</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <div class="section">
+            <div class="container">
+                <div class="container container-search">
+                    {% assign search_collapsed = false %}
+                    {% include search-form.liquid %}
+                </div>
+
+                {% if search.keyword != empty %}
+                    <p class="text-centered">{{ "products.search.results_for" | t }} '<strong>{{ search.keyword }}</strong>': {{ search.results.size }}</p>
+                {% endif %}
+
+                {% if search.keyword != empty %}
+                    {% paginate search.results by settings.default_page_size %}
+                        <ul class="tiles">
+                            {% for item in search.results -%}
+                                {% include tile-item.liquid %}
+                            {% endfor -%}
+                        </ul>
+                        {% include pagination.liquid %}
+                    {% endpaginate %}
+                {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

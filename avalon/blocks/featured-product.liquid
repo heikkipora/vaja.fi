@@ -1,0 +1,51 @@
+{% assign item = block.item %}
+    {% include blocks-styles.liquid %}
+
+    {% if block.settings.enable_header == "true" and header_text_empty != "true" %}
+        <div class="container block-header-container block-header-container-small">
+            {% include block-header.liquid %}
+        </div>
+    {% endif %}
+    
+    <div id="{{block.id}}" class="content-block content-block-featured-product {{ class | strip }}">
+        <div class="container featured-image-container">
+            <div class="block-feature-image">
+                {% if item.featured_image %}
+                    <a href="{{ item.url }}">
+                        <img src="{{ item.featured_image.grande }}" srcset="{{ item.featured_image.grande }}, {{ item.featured_image.mucho_grande }} 2x" alt="">
+                    </a>
+                {% else %}
+                    {% if item.featured_media %}
+                        {% if item.featured_media.type == "audio" %}
+                            {{ "default-audio.svg" | asset_url | img_tag }}
+                        {% else %}
+                            {{ "default-video.svg" | asset_url | img_tag }}
+                        {% endif %}
+                    {% else %}
+                        {{ "default-item.svg" | asset_url | img_tag }}
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="container block-content-container">
+            <div class="block-container {{ container_class | strip }} {{ alignment | strip }}">
+                <h3>{{ item.title }}</h3>
+
+                {% if item.is_sold_out %}
+                    <small class="tag tag-sold-out">{{ "products.item.sold_out" | t }}</small>
+                {% elsif item.price_regular > item.price %}
+                    <small class="tag tag-sale">{{ "products.item.sale" | t }}</small>
+                {% endif %}
+
+                {{ item.description }}
+
+                {% if store.display_currency_code %}
+                    <p>{{ item.price | money_with_currency: item.currency_code }}</p>
+                {% else %}
+                    <p>{{ item.price | money: item.currency_code }}</p>
+                {% endif %}
+
+                {% include button.liquid %}
+            </div>
+        </div>
+    </div>

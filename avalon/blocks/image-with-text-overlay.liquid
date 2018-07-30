@@ -1,0 +1,25 @@
+{% assign content_empty = block.content | is_null_or_empty %}
+{% assign button_empty = block.settings.text | is_null_or_empty %}
+{% assign header_text_empty = block.settings.header_text | is_null_or_empty %}
+
+{% if content_empty == false or store.user_is_owner %}
+    {% include blocks-styles.liquid %}
+
+    {% if block.settings.enable_header == "true" and header_text_empty != "true" %}
+        <div class="container block-header-container">
+            {% include block-header.liquid %}
+        </div>
+    {% endif %}
+
+    <div id="{{block.id}}" class="content-block content-block-image-with-text-overlay {{ class | strip }}">
+        <div class="container">
+            <div class="block-container {{ container_class | strip }}">
+                {{ block.content }}
+
+                {% if button_empty == false %}
+                    {% include button.liquid %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

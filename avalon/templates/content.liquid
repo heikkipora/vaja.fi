@@ -1,0 +1,28 @@
+{% extends theme.liquid %}
+
+{% block header %}
+     {% if page.meta_description or page.title %}
+        <header class="header header-small">
+            <div class="container">
+                {% if page.title %}
+                    <h1>{{ page.title }}</h1>
+                {% endif %}
+                
+                {% if page.meta_description %}
+                    <p>{{ page.meta_description }}</p>
+                {% endif %}
+            </div>
+        </header>
+    {% endif %}
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                {% editable_region body %}
+                {% endeditable_region %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% include blocks-styles.liquid %}
+
+{% assign source_empty = block.settings.src | is_null_or_empty %}
+{% assign poster_empty = block.settings.poster | is_null_or_empty %}
+{% assign url_empty = block.settings.url | is_null_or_empty %}
+
+{% if source_empty == false or url_empty == false or store.user_is_owner %}
+    <div id="{{ block.id }}" class="content-block content-block-video {{ class | strip }}">
+        <div class="container">
+            {% include block-header.liquid %}
+
+            {% if source_empty == false or url_empty == false %}
+                <div class="block-container {{ container_class | strip }} js-player">
+                    {% if block.settings.type == "html5" and source_empty == false %}
+                        <video src="{{ block.settings.src }}" controls {% unless poster_empty %}poster="{{ block.settings.poster }}"{% endunless %}></video>
+                    {% elsif block.settings.type == "youtube" and url_empty == false %}
+                        <div data-type="youtube" data-video-id="{{ block.settings.url }}"></div>
+                    {% elsif block.settings.type == "vimeo" and url_empty == false %}
+                        <div data-type="vimeo" data-video-id="{{ block.settings.url }}"></div>
+                    {% endif %}
+                </div>
+            {% elsif store.user_is_owner %}
+                <div class="block-container {{ container_class | strip }}">
+                    <p class="content-block-placeholder">{{ "blocks.video.empty" | t }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

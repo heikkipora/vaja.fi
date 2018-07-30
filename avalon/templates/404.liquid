@@ -1,0 +1,23 @@
+{% extends theme.liquid %}
+
+{% block header %}
+    <header class="header header-small">
+        {% if error_message %}
+            <h1>{{ "general.404.error" | t }}</h1>
+        {% else %}
+            <h1>{{ "general.404.title" | t }}</h1>
+        {% endif %}
+    </header>
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <div class="container">
+            {% if error_message %}
+                <p class="empty-block">{{ error_message }}</p>
+            {% else %}
+                <p class="empty-block">{{ "general.404.subtext" | t }}</p>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}

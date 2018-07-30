@@ -1,0 +1,190 @@
+{% if block.settings.height == 1 %}
+    {% assign block_height = "small" %}
+{% elsif block.settings.height == 2 %}
+    {% assign block_height = "medium" %}
+{% elsif block.settings.height == 3 %}
+    {% assign block_height = "large" %}
+{% elsif block.settings.height == 4 %}
+    {% assign block_height = "extra-large" %}
+{% endif %}
+
+{% capture class %}
+    {% if block.settings.height != 0 and block.type != "map" %}
+        content-block-height-{{ block_height }}
+    {% endif %}
+{% endcapture %}
+
+{% capture container_class %}
+    {% if block.settings.alignment %}
+        align-{{ block.settings.alignment }}
+    {% endif %}
+
+    {% if block.settings.vertical_alignment %}
+        vertical-align-{{ block.settings.vertical_alignment }}
+    {% endif %}
+{% endcapture %}
+
+{% capture button_class %}
+    {% if block.type == "button" %}
+        btn-{{ block.settings.style }}
+
+        {% if block.settings.auto_width != "true" %}
+            btn-block
+        {% endif %}
+    {% endif %}
+{% endcapture %}
+
+{% capture columns %}
+    {% if block.settings.per_row %}
+        columns-{{ block.settings.per_row }}
+    {% endif %}
+{% endcapture %}
+
+{% capture styles %}
+    {% if block.settings.background_type != "none" %}
+        {% if block.settings.background_type == "image" and block.settings.background_image %}
+            #{{ block.id }} {
+                background-image: url('{{ block.settings.background_image }}');
+
+                {% if block.settings.background_image_mode %}
+                    {% if block.settings.background_image_mode == "cover" or block.settings.background_image_mode == "contain" %}
+                        background-size: {{ block.settings.background_image_mode }};
+                    {% endif %}
+
+                    {% if block.settings.background_image_mode == "tiled" %}
+                        background-repeat: repeat;
+                    {% else %}
+                        background-repeat: no-repeat;
+                        background-position: 50% 50%;
+                    {% endif %}
+                {% endif %}
+            }
+        {% endif %}
+
+        {% if block.settings.background_color contains "#" %}
+            #{{ block.id }} {
+                background-color: {{ block.settings.background_color }};
+            }
+        {% endif %}
+    {% endif %}
+
+    {% if block.settings.color_text contains "#" %}
+        #{{ block.id }} {
+            color: {{ block.settings.color_text }};
+        }
+
+        #{{ block.id }} h1,
+        #{{ block.id }} h2,
+        #{{ block.id }} h3,
+        #{{ block.id }} h4,
+        #{{ block.id }} h5,
+        #{{ block.id }} h6,
+        #{{ block.id }} strong {
+            color: inherit;
+        }
+    {% endif %}
+
+    {% if block.settings.width < 100 %}
+        @media (min-width: 768px) {
+            #{{ block.id }} > .container > .block-container {
+                max-width: {{ block.settings.width }}%;
+            }
+        }
+    {% endif %}
+
+    {% if block.type == "map" and block.settings.height %}
+        {% if block.settings.height == 1 %}
+            {% assign map_height = 250 %}
+        {% elsif block.settings.height == 2 %}
+            {% assign map_height = 500 %}
+        {% elsif block.settings.height == 3 %}
+            {% assign map_height = 750 %}
+        {% elsif block.settings.height == 4 %}
+            {% assign map_height = 1000 %}
+        {% else %}
+            {% assign map_height = 150 %}
+        {% endif %}
+
+        #{{ block.id }} iframe {
+            height: {{ map_height }}px;
+        }
+    {% endif %}
+
+	{% if block.type == "quote" %}
+        #{{ block.id }} p {
+            font-size: {{ block.settings.font_size }}px;
+        }
+    {% endif %}
+
+    {% if block.type == "divider" and block.settings.divider_color %}
+        #{{ block.id }} hr {
+            height: {{ block.settings.thickness }}px;
+            color: {{ block.settings.divider_color }};
+            background-color: {{ block.settings.divider_color }};
+        }
+    {% endif %}
+
+    {% if block.type == "social-links" %}
+        {% if block.settings.social_color_active == "true" and block.settings.social_link_color %}
+            #{{ block.id }} a {
+                color: {{ block.settings.social_link_color }};
+            }
+        {% endif %}
+
+        {% if block.settings.social_link_size %}
+            #{{ block.id }} .icon {
+                width: {{ block.settings.social_link_size | times: 24 }}px;
+                height: {{ block.settings.social_link_size | times: 24 }}px;
+            }
+        {% endif %}
+    {% endif %}
+
+    {% if block.type == "image-with-text" %}
+        #{{ block.id }}::before {
+            content: "";
+            background-image: url('{{ block.settings.src }}');
+
+            {% if block.settings.image_style %}
+                {% if block.settings.image_style == "cover" or block.settings.image_style == "contain" %}
+                    background-size: {{ block.settings.image_style }};
+                {% endif %}
+
+                {% if block.settings.image_style == "tiled" %}
+                    background-repeat: repeat;
+                {% else %}
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                {% endif %}
+            {% endif %}
+        }
+
+        {% if block.settings.background_type == "color" and block.settings.background_color contains "#" %}
+            #{{ block.id }} {
+                background-color: {{ block.settings.background_color }};
+            }
+        {% endif %}
+    {% endif %}
+
+    {% if block.type == "image-with-text-overlay" %}
+        #{{ block.id }} {
+            background-image: url('{{ block.settings.src }}');
+
+            {% if block.settings.image_style == "cover" or block.settings.image_style == "contain" %}
+                background-size: {{ block.settings.image_style }};
+            {% endif %}
+
+            {% if block.settings.image_style == "tiled" %}
+                background-repeat: repeat;
+            {% else %}
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+            {% endif %}
+
+            {% if block.settings.background_type == "color" and block.settings.background_color contains "#" %}
+                background-color: {{ block.settings.background_color }};
+            {% endif %}
+        }
+    {% endif %}
+{% endcapture %}
+
+<style>{{ styles | compress_css }}</style>

@@ -1,0 +1,23 @@
+{% include blocks-styles.liquid %}
+
+{% assign source_empty = block.settings.src | is_null_or_empty %}
+
+{% if source_empty == false or store.user_is_owner %}
+    <div id="{{block.id}}" class="content-block content-block-audio {{ class | strip }}">
+        <div class="container">
+            {% include block-header.liquid %}
+
+            {% if source_empty == false %}
+                <div class="block-container {{ container_class | strip }} js-player">
+                    <audio src="{{ block.settings.src }}" controls></audio>
+                </div>
+            {% else %}
+                {% if store.user_is_owner %}
+                    <div class="block-container {{ container_class | strip }}">
+                        <p class="content-block-placeholder">{{ "blocks.audio.empty" | t }}</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Editar ajustes de bloque para agregar contenido de audio"
+        },
+        "html": {
+            "empty": "Editar ajustes de bloque para editar contenido HTML"
+        },
+        "image": {
+            "empty": "Editar ajustes de bloque para agregar una imagen"
+        },
+        "quote": {
+            "empty": "Agrega reseñas y testimonios de clientes para mostrar a los clientes felices de tu tienda"
+        },
+        "video": {
+            "empty": "Editar ajustes de bloque para agregar contenido de video"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Agrega una publicación",
+            "block_title": "Desde el blog",
+            "get_started": "Comienza con tu blog y mantén a tus clientes actualizados con tus últimas noticias.",
+            "read_more": "leer más",
+            "words": "palabras"
+        },
+        "tags": {
+            "empty": "Lamentablemente, aún no hay artículos. Vuelve a revisar más tarde.",
+            "tags_count": {
+                "one": "artículo etiquetado con",
+                "other": "artículos etiquetados con",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Contacto",
+            "email": "Correo electrónico",
+            "error": "Uy, parece que han ocurrido algunos errores.",
+            "message": "Mensaje",
+            "name": "Nombre",
+            "send": "Enviar",
+            "success": "¡Tu mensaje se ha enviado!"
+        },
+        "social": {
+            "add_feedly": "Agregar a Feedly",
+            "connect": "Conectar",
+            "connect_dribbble": "Conecta tu cuenta de Dribbble para mostrar tus noticias aquí.",
+            "connect_facebook": "Conecta tu cuenta de Facebook para mostrar tus noticias aquí.",
+            "connect_flickr": "Conecta tu cuenta de Flickr para mostrar tus noticias aquí.",
+            "connect_instagram": "Conecta tu cuenta de Instagram para mostrar tus noticias aquí.",
+            "connect_twitter": "Conecta tu cuenta de Twitter para mostrar tus noticias aquí.",
+            "empty": "Agregar enlaces sociales en ajustes de la tienda",
+            "follow": "Seguir",
+            "rss_feed": "Fuente RSS",
+            "share": "Compartir"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "",
+            "subtext": "Lamentablemente, no hemos podido encontrar esta página.",
+            "title": "Página no encontrada"
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Cerrar menú",
+            "menu": "Menú"
+        },
+        "pages": {
+            "home": "Inicio"
+        },
+        "pagination": {
+            "page": "Página",
+            "pagination": "Paginación"
+        },
+        "skip_link": {
+            "skip": "Saltar al contenido"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Categorías",
+            "empty": "Esta categoría no tiene artículos",
+            "view": "Ver artículos:"
+        },
+        "category_list": {
+            "empty": "Agregar categorías en ajustes de bloque para mostrar"
+        },
+        "featured_category": {
+            "empty": "Seleccionar categoría en ajustes de bloque para mostrar artículos"
+        },
+        "item": {
+            "on_sale": "Oferta",
+            "sale": "Venta",
+            "shop_now": "Comprar ahora",
+            "sold_out": "Agotado",
+            "youll_get": "Obtendrás"
+        },
+        "payment": {
+            "we_accept": "Aceptamos"
+        },
+        "search": {
+            "keyword": "Palabra clave",
+            "results": "Resultados de búsqueda",
+            "results_for": "Resultados para",
+            "search": "Buscar"
+        }
+    }
+}

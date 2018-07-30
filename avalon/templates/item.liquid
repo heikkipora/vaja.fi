@@ -1,0 +1,88 @@
+{% extends theme.liquid %}
+
+{% block contents %}   
+    <main id="main">
+        {% assign media_size = settings.item_media_size | to_integer %}
+
+        {% if media_size == 9 and settings.item_layout == 0 %}
+            {% assign media_size = 12 %}
+        {% endif %}
+
+        {% assign text_column_size = 12 | minus: media_size %}
+
+        {% if settings.item_layout == 0 %}
+            <div class="section item-portrait">
+                <article class="container">
+                    <section class="span{{ media_size }} span-centered item-media">
+                        {% include media.liquid %}
+                    </section>
+                    <div class="item-info">
+                        <div class="row">
+                            <section class="container span8">
+                                <h1 itemprop="name">{{ item.title }}</h1>
+                                {% if item.price_regular > item.price %}
+                                    <small class="tag tag-sale">{{ "products.item.sale" | t }}</small>
+                                {% endif %}
+                                {% if item.description != empty %}
+                                    <div class="item-description" itemprop="description">{{ item.description }}</div>
+                                {% endif %}
+                                {% if item.files_description != empty %}
+                                    <p>{{ "products.item.youll_get" | t }} {{ item.files_description }}</p>
+                                {% endif %}
+                                {% if store.display_sku and item.sku %}
+                                    <small>SKU: {{ item.sku }}</small>
+                                {% endif %}
+                            </section>
+                            <section class="span4">
+                                {{ purchase_form }}
+                            </section>
+                        </div>
+                    </div>
+                    {% include aside.liquid %}
+                </article>
+            </div>
+        {% else %}
+            <div class="section item-landscape">
+                <article class="container">
+                    <div class="row">
+                        <section class="span{{ media_size }}">
+                            <div class="item-media">
+                                {% include media.liquid %}
+                            </div>
+                        </section>
+                        <section class="span{{ text_column_size }} item-info">
+                            <h1 itemprop="name">{{ item.title }}</h1>
+
+                            {% if item.price_regular > item.price %}
+                                <small class="tag tag-sale">{{ "products.item.sale" | t }}</small>
+                            {% endif %}
+                            
+                            {{ purchase_form }}
+                        
+                            {% if item.description != empty and item.description.size < 351 %}
+                                <div class="item-description" itemprop="description">{{ item.description }}</div>
+                            {% endif %}
+
+                            {% if item.files_description != empty %}
+                                <p>{{ "products.item.youll_get" | t }} {{ item.files_description }}</p>
+                            {% endif %}
+                            
+                            {% if store.display_sku and item.description.size < 351 and item.sku %}
+                                <small>SKU: {{ item.sku }}</small>
+                            {% endif %}
+
+                            {% if item.description != empty and item.description.size > 350 %}
+                                <section class="item-description">{{ item.description }}</section>
+                            {% endif %}
+                            
+                            {% if store.display_sku and item.description.size > 350 and item.sku %}
+                                <small>SKU: {{ item.sku }}</small>
+                            {% endif %}
+                        </section>
+                    </div>
+                    {% include aside.liquid %}
+                </article>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

@@ -1,0 +1,77 @@
+{
+    "header": {
+        "blocks": [
+            {
+                "type": "text",
+                "content":
+                    "<h1 class='text-center'>Welcome to your awesome store</h1><p class='text-center'>Use this text block to tell customers who you are and what you do</p><p class='text-center'>Use this button to point to a product or delete it using the editor</p>"
+            },
+            {
+                "type": "button",
+                "settings": {
+                    "style": "primary",
+                    "text": "Primary Button",
+                    "action": "link",
+                    "link_url": "/categories",
+                    "target": ""
+                }
+            }
+        ]
+    },
+    "main": {
+        "blocks": [
+            {
+                "type": "featured-category",
+                "settings": {
+                    "category": "all",
+                    "items_style": "strips",
+                    "rows": 1,
+                    "per_row": 3,
+                    "enable_header": "true",
+                    "header_text": "Featured product"
+                }
+            },
+            {
+                "type": "image-with-text-overlay",
+                "content":
+                    "<h2 class='text-center'>Image with text overlay</h2><p class='text-center'>This is a text block with a image background. Use the Settings icon in the top right to change the image.</p>",
+                "settings": {
+                    "src":
+                        "https://selzstatic.com/themes/placeholders/banner-3.svg",
+                    "height": 3,
+                    "text": "Button"
+                }
+            },
+            {
+                "type": "featured-category",
+                "settings": {
+                    "category": "all",
+                    "items_style": "tiles",
+                    "rows": 1,
+                    "per_row": 3,
+                    "enable_header": "true",
+                    "header_text": "New arrivals"
+                }
+            },
+            {
+                "type": "category-list",
+                "settings": {
+                    "categories": "all,featured",
+                    "rows": 1,
+                    "per_row": 3,
+                    "padding_top": 1,
+                    "padding_bottom": 0
+                }
+            }
+        ]
+    },
+    "footer": {
+        "blocks": [
+            {
+                "type": "text",
+                "content":
+                    "Add any additional contact details or info about you."
+            }
+        ]
+    }
+}

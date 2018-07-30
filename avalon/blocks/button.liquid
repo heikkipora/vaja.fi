@@ -1,0 +1,9 @@
+{% include blocks-styles.liquid %}
+
+<div id="{{block.id}}" class="content-block content-block-button {{ class | strip }}">
+    <div class="container">
+        <div class="block-container {{ container_class | strip }}">
+            {% include button.liquid %}
+        </div>
+    </div>
+</div>

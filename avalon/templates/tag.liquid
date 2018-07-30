@@ -1,0 +1,28 @@
+{% extends theme.liquid %}
+
+{% block header %}
+     <header class="header header-small">
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            <p>{{ tag.articles.size }} {{ "blogs.tags.tags_count" | t, tag.articles.size }} '{{ page.title }}'</p>
+        </div>
+    </header>
+{% endblock %}
+
+{% block contents %}
+    <div class="section">
+        <div class="container article-list">
+            {% paginate tag.articles by settings.default_page_size %}
+                {% if tag.articles == empty %}
+                    <p class="empty-block">{{ "blogs.tags.empty" | t }}</p>
+                {% else %}
+                    {% for article in tag.articles %}
+                        {% include article-content.liquid %}
+                    {% endfor %}
+                    
+                    {% include pagination.liquid %}
+                {% endif %}
+            {% endpaginate %}
+        </div>
+    </div>
+{% endblock %}

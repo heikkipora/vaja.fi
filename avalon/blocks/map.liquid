@@ -1,0 +1,11 @@
+{% include blocks-styles.liquid %}
+
+<div id="{{block.id}}" class="content-block content-block-map {{ class | strip }}">
+	<div class="container">
+	    {% include block-header.liquid %}
+
+		<div class="block-container {{ container_class | strip }}">
+		    <iframe src="{{ block.url }}" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+		</div>
+	</div>
+</div>

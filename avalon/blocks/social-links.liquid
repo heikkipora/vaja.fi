@@ -1,0 +1,15 @@
+{% include blocks-styles.liquid %}
+
+{% if store.social_links != empty %}
+    <div id="{{block.id}}" class="content-block content-block-social-links {{ class | strip }}">
+        <div class="container">
+            <div class="block-container {{ container_class | strip }}">
+                <ul class="social-links">
+                    {% include social-links.liquid %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% elseif store.user_is_owner %}
+    <p class="content-block-placeholder">{{ "contact.social.empty" | t }}</p>
+{% endif %}

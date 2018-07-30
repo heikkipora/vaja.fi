@@ -1,0 +1,24 @@
+{% assign content_empty = block.content | is_null_or_empty %}
+{% assign button_empty = block.settings.text | is_null_or_empty %}
+
+{% capture block_class %}
+    {% if block.settings.image_position == "column-right" %}
+        content-block-image-right
+    {% endif %}
+{% endcapture %}
+
+{% if content_empty == false or store.user_is_owner %}
+    {% include blocks-styles.liquid %}
+
+    <div id="{{block.id}}" class="content-block content-block-image-with-text {{ class | strip }} {{ block_class | strip }}">
+        <div class="container block-content-container">
+            <div class="block-container {{ container_class | strip }} {{ alignment | strip }}">
+                {{ block.content }}
+
+                {% if button_empty == false %}
+                    {% include button.liquid %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

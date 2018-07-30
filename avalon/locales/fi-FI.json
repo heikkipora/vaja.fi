@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Muokkaa elementin asetuksia lisätäksesi audiosisältöä"
+        },
+        "html": {
+            "empty": "Muokkaa elementin asetuksia muokataksesi HTML-sisältöä"
+        },
+        "image": {
+            "empty": "Muokkaa elementin asetuksia lisätäksesi kuvan"
+        },
+        "quote": {
+            "empty": "Lisää asiakkaiden antamia arvosteluja ja asiakastarinoita kauppasi tyytyväisiltä asiakkailta"
+        },
+        "video": {
+            "empty": "Muokkaa elementin asetuksia lisätäksesi videosisältöä"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Lisää postaus",
+            "block_title": "Blogista",
+            "get_started": "Perusta blogi, niin voit pitää asiakkaasi aina ajan tasalla uusimmista kuulumisistasi.",
+            "read_more": "lue lisää",
+            "words": "sanaa"
+        },
+        "tags": {
+            "empty": "Yhtään artikkelia ei ole vielä saatavilla. Tarkista tilanne myöhemmin.",
+            "tags_count": {
+                "one": "",
+                "other": "article tagged with",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Yhteystiedot",
+            "email": "Sähköpostiosoite",
+            "error": "Hups! Ilmeni virheitä.",
+            "message": "Viesti",
+            "name": "Nimi",
+            "send": "Lähetä",
+            "success": "Viestisi lähetettiin!"
+        },
+        "social": {
+            "add_feedly": "Lisää Feedlyyn",
+            "connect": "Linkitä",
+            "connect_dribbble": "Linkitä Dribble-tilisi, niin syötteesi näkyy tässä.",
+            "connect_facebook": "Linkitä Facebook-tilisi, niin syötteesi näkyy tässä.",
+            "connect_flickr": "Linkitä Flickr-tilisi, niin syötteesi näkyy tässä.",
+            "connect_instagram": "Linkitä Instagram-tilisi, niin syötteesi näkyy tässä.",
+            "connect_twitter": "Linkitä Twitter-tilisi, niin syötteesi näkyy tässä.",
+            "empty": "Lisää sosiaalisen median linkit kaupan asetuksissa",
+            "follow": "Seuraa",
+            "rss_feed": "RSS-syöte",
+            "share": "Jaa"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Virhe",
+            "subtext": "Sivua ei löytynyt.",
+            "title": "Sivua ei löytynyt"
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Sulje valikko",
+            "menu": "Valikko"
+        },
+        "pages": {
+            "home": "Koti"
+        },
+        "pagination": {
+            "page": "Sivu",
+            "pagination": "Sivutus"
+        },
+        "skip_link": {
+            "skip": "Siirry sisältöön"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Luokat",
+            "empty": "Tässä tuoteryhmässä ei ole tuotteita",
+            "view": "Näytä tuotteet:"
+        },
+        "category_list": {
+            "empty": "Siirry elementin asetuksiin ja lisää näytettäviä tuoteryhmiä"
+        },
+        "featured_category": {
+            "empty": "Siirry elementin asetuksiin ja valitse tuoteryhmä, jonka tuotteita näytetään"
+        },
+        "item": {
+            "on_sale": "Alennuksessa",
+            "sale": "Alennusmyynti",
+            "shop_now": "OSTA NYT",
+            "sold_out": "Loppuunmyyty",
+            "youll_get": "Saat"
+        },
+        "payment": {
+            "we_accept": ""
+        },
+        "search": {
+            "keyword": "Search",
+            "results": "Hae tuloksia",
+            "results_for": "Tulokset:",
+            "search": "Hae"
+        }
+    }
+}

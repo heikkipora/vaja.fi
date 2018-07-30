@@ -1,0 +1,168 @@
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+// Mixin for button styles
+.btn-styles(@background-color; @text-color: #ffffff) {
+    border-color: darken(@background-color, 4%);
+    background: @background-color;
+    color: @text-color;
+
+    &:hover,
+    &:focus {
+        border-color: darken(@background-color, 10%);
+        background: darken(@background-color, 5%);
+        color: @text-color;
+    }
+}
+
+.btn {
+    // Layout
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: @padding-base-vertical @padding-large-horizontal;
+    cursor: pointer;
+    vertical-align: middle;
+
+    // Type
+    .font-size(@btn-font-size);
+    line-height: @line-height-base;
+    text-align: center;
+    text-transform: @btn-case;
+    letter-spacing: @btn-letter-spacing;
+    font-weight: @btn-font-weight;
+    user-select: none;
+
+    // Styles
+    transition: background .3s ease, border .3s ease;
+    border-radius: @btn-radius;
+
+    // Default
+    border: 1px solid;
+
+    // Default button style
+    .btn-styles(@btn-background, @btn-text-color);
+
+    &.btn-secondary {
+        .btn-styles(@btn-secondary-background, @btn-secondary-text-color);
+    }
+
+    // Icon
+    [class^='icon-'] {
+        margin-right: @padding-small-horizontal;
+    }
+
+    // States
+    // --------------------------------------------------
+    &:focus  {
+        outline: none;
+    }
+    &:active {
+        top: 1px;
+        box-shadow: none;
+    }
+
+    // Disabled
+    &[disabled] {
+        pointer-events: none;
+        opacity: .5;
+    }
+
+    // Loading
+    &.loading {
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+// Variants
+// --------------------------------------------------
+.btn-facebook {
+    .btn-styles(@color-facebook);
+}
+.btn-twitter {
+    .btn-styles(@color-twitter);
+}
+.btn-pinterest {
+    .btn-styles(@color-pinterest);
+}
+.btn-google-plus {
+    .btn-styles(@color-google-plus);
+}
+
+// Styling
+// --------------------------------------------------
+.btn-small {
+    padding: @padding-small-vertical @padding-base-horizontal;
+}
+.btn-block {
+    display: block;
+
+    button& {
+        width: 100%;
+    }
+}
+
+// Button count
+// ---------------------------------------------
+.btn-addon {
+    display: inline-flex;
+
+    .btn {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-right: @padding-large-horizontal + 4;
+
+        &-small {
+            padding-right: @padding-base-horizontal + 4;
+        }
+    }
+}
+.share-count {
+    position: relative;
+    .arrow(left, #fff, 4px);
+    display: inline-flex;
+    padding: @padding-base-vertical @padding-large-horizontal;
+
+    background: #fff;
+    border: 1px solid @gray-lighter;
+    border-left: 0;
+    border-radius: 0 @btn-radius @btn-radius 0;
+    color: @gray;
+    font-weight: @btn-font-weight;
+    .font-size(@btn-font-size);
+}
+.btn-small + .share-count {
+    padding: @padding-small-vertical @padding-base-horizontal;
+}
+
+// Unstyled button elements
+// --------------------------------------------------
+.btn-faux-link {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    border: 0;
+    background: transparent;
+    vertical-align: baseline;
+    text-align: left;
+    font: inherit;
+    line-height: inherit;
+    cursor: pointer;
+    -moz-user-select: text;
+}
+
+// Focus styles
+// --------------------------------------------------
+button:focus,
+.btn:focus {
+    .tab-focus();
+}
+
+// Actions
+// --------------------------------------------------
+.action-aside {
+    display: block;
+    text-align: center;
+}

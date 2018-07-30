@@ -1,0 +1,144 @@
+// ==========================================================================
+// Media
+// ==========================================================================
+
+// Common
+// --------------------------------------------
+figure {
+    margin: 0;
+}
+
+img,
+.plyr,
+.video-embed {
+    border-radius: @border-radius-base;
+}
+
+audio,
+video,
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+// Media blocks
+// --------------------------------------------
+.media img,
+.media video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: inherit;
+}
+
+.js .media img {
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    &.in {
+        opacity: 1;
+    }
+}
+
+a.media,
+span.media {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// Media content blocks
+// --------------------------------------------
+.media-content {
+    margin: @grid-section-padding auto;
+
+    @media (min-width: @screen-md) {
+        margin: (@grid-section-padding * 2) auto;
+    }
+}
+
+// Video embed styles
+// --------------------------------------------
+.video-embed {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%; // Assume: 16:9
+    height: 0 !important; // Inline styles
+    width: 100% !important; // Inline styles
+    background: #000;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+    }
+}
+
+// Basic Grid Styles
+// --------------------------------------------
+.grid-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    .media {
+        position: relative;
+        display: block;
+        margin-top: (@grid-gutter-width / 2);
+        width: 100%;
+        overflow: hidden;
+        z-index: 0;
+        border-radius: @border-radius-base;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .media-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        padding: (@grid-section-padding / 4);
+        background: fade(#000, 80%);
+        color: #fff;
+        transform: translateY(100%);
+        transition: transform 0.2s ease-in;
+        .font-size(@font-size-tiny);
+        text-align: center;
+    }
+
+    .media:hover .media-caption,
+    .media:focus .media-caption {
+        transform: translateY(0);
+    }
+
+    @media (min-width: @screen-xs) {
+        @margin: (@grid-gutter-width / 2);
+        margin-left: -@margin;
+
+        .media {
+            width: ~"calc(50% - @{margin})";
+            margin-top: 0;
+            margin-left: @margin;
+            margin-bottom: @margin;
+        }
+    }
+
+    @media (min-width: @screen-sm) {
+        margin-left: -@grid-gutter-width;
+
+        .media {
+            width: ~"calc(25% - @{grid-gutter-width})";
+            margin-left: @grid-gutter-width;
+            margin-bottom: @grid-gutter-width;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{% extends theme.liquid %}
+
+{% block header %}
+    {% if page.meta_description or page.title %}
+         <header class="header header-small">
+            <div class="container">
+                {% if page.title %}
+                    <h1>{{ page.title }}</h1>
+                {% endif %}
+                {% if page.meta_description %}
+                    <p>{{ page.meta_description }}</p>
+                {% endif %}
+            </div>
+        </header>
+    {% endif %}
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <section class="section">
+            <div class="container">
+                {% editable_region contact %}
+                {% endeditable_region %}
+
+                {% form 'contact' %}
+                    {% if form.errors %}
+                        <p class="alert alert-error" role="alert">{{ "contact.form.error" | t }}</p>
+                    {% endif %}
+                    
+                    {% if form.posted_successfully %}
+                        <p class="alert alert-success" role="alert">{{ "contact.form.success" | t }}</p>
+                    {% endif %}
+
+                    <fieldset>
+                        <legend class="sr-only">{{ "contact.form.contact" | t }}</legend>
+                        <div class="row">
+                            <div class="span6 control-group">
+                                <div class="input-group input-group-flex">
+                                    <label for="contact_name" class="add-on">{{ "contact.form.name" | t }}</label>
+                                    <input type="text" id="contact_name" name="contact[name]" placeholder="{{ "contact.form.name" | t }}" value="{{ form.name }}" required>
+                                </div>
+
+                                {% if form.errors.messages['contact_name'] %}
+                                    <div class="field-validation-error" role="alert">{{ form.errors.messages['contact_name'] }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="span6 control-group">
+                                <div class="input-group input-group-flex">
+                                    <label for="contact_email" class="add-on">{{ "contact.form.email" | t }}</label>
+                                    <input type="email" id="contact_email" name="contact[email]" placeholder="{{ "contact.form.email" | t }}" value="{{ form.email }}" required>
+                                </div>
+
+                                {% if form.errors.messages['contact_email'] %}
+                                    <div class="field-validation-error" role="alert">{{ form.errors.messages['contact_email'] }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="contact_message" class="sr-only">{{ "contact.form.message" | t }}</label>
+                            <textarea rows="10" id="contact_message" name="contact[message]" placeholder="{{ "contact.form.message" | t }}" required>{{ form.message }}</textarea>
+                            
+                            {% if form.errors.messages['contact_message'] %}
+                                <div class="field-validation-error" role="alert">{{ form.errors.messages['contact_message'] }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="btn">{{ "contact.form.send" | t }}</button>
+                        </div>
+                    </fieldset>
+                {% endform %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

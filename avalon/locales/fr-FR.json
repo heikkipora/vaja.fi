@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Modifiez les paramètres de bloc pour ajouter du contenu audio"
+        },
+        "html": {
+            "empty": "Modifiez les paramètres de bloc pour modifier le contenu HTML"
+        },
+        "image": {
+            "empty": "Modifiez les paramètres de bloc pour ajouter une image"
+        },
+        "quote": {
+            "empty": "Ajouter des commentaires des internautes et des témoignages pour montrer le taux de satisfaction de votre clientèle"
+        },
+        "video": {
+            "empty": ""
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Ajouter une publication",
+            "block_title": "Depuis le blog",
+            "get_started": "Lancez votre blog et tenez vos clients au courant de votre actualité.",
+            "read_more": "En savoir plus",
+            "words": "mots"
+        },
+        "tags": {
+            "empty": "Désolé, qu'il n’y a pas encore de produits. Revenez plus tard.",
+            "tags_count": {
+                "one": "produit étiqueté avec",
+                "other": "produit étiqueté avec",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "",
+            "email": "E-mail",
+            "error": "Oups ! Quelques erreurs sont survenues.",
+            "message": "",
+            "name": "Nom",
+            "send": "Envoyer",
+            "success": "Votre message a été envoyé !"
+        },
+        "social": {
+            "add_feedly": "Ajouter à Feedly",
+            "connect": "Se connecter",
+            "connect_dribbble": "Connectez votre compte Dribbble pour afficher votre fil d'actualités ici.",
+            "connect_facebook": "Connectez votre compte Facebook pour afficher votre fil d'actualités ici.",
+            "connect_flickr": "Connectez vos comptes Flickr pour afficher votre fil ici.",
+            "connect_instagram": "Connectez votre compte Instagram pour afficher votre fil d'actualités ici.",
+            "connect_twitter": "Connectez votre compte Twitter pour afficher votre fil d'actualités ici.",
+            "empty": "Ajouter des liens sociaux dans les paramètres de boutique",
+            "follow": "Nous suivre",
+            "rss_feed": "Flux RSS",
+            "share": "Partager"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Erreur",
+            "subtext": "Désolé, nous n'avons pas trouvé cette page.",
+            "title": "Page introuvable."
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Fermer le menu",
+            "menu": ""
+        },
+        "pages": {
+            "home": "Accueil"
+        },
+        "pagination": {
+            "page": "",
+            "pagination": ""
+        },
+        "skip_link": {
+            "skip": "Passer directement au contenu"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Catégories",
+            "empty": "Cette catégorie n’a pas de produits",
+            "view": "Afficher les produits :"
+        },
+        "category_list": {
+            "empty": "Ajoutez des catégories dans les paramètres des blocs pour afficher"
+        },
+        "featured_category": {
+            "empty": "Sélectionnez une catégorie dans les paramètres des blocs pour afficher les articles"
+        },
+        "item": {
+            "on_sale": "En soldes",
+            "sale": "Promotion",
+            "shop_now": "ACHETER MAINTENANT",
+            "sold_out": "Épuisé",
+            "youll_get": "Vous recevrez"
+        },
+        "payment": {
+            "we_accept": ""
+        },
+        "search": {
+            "keyword": "Recherche",
+            "results": "Résultats de recherche",
+            "results_for": "Résultats pour",
+            "search": "Recherche"
+        }
+    }
+}

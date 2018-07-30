@@ -1,0 +1,166 @@
+// Tiles
+.tiles {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-basis: 100%;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0; // White space reset
+    text-align: center;
+
+    @media (min-width : @screen-xs) {
+        @gutter: (@grid-section-padding / 2);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-left: -@gutter;
+
+        .tile {
+            width: ~"calc(50% - @{gutter})";
+        }
+    }
+
+    @media (min-width : @screen-sm) {
+        @gutter: @grid-section-padding;
+        margin-left: -@gutter;
+
+        // .columns-3 = default
+        .tile {
+            width: ~"calc(33.33% - @{gutter})";
+            margin-bottom: @gutter;
+            margin-left: @gutter;
+        }
+
+        &.columns-1 .tile {
+            width: ~"calc(100% - @{gutter})";
+        }
+
+        &.columns-2 .tile {
+            width: ~"calc(50% - @{gutter})";
+        }
+
+        &.columns-4 .tile {
+            width: ~"calc(25% - @{gutter})";
+        }
+
+        &.columns-5 .tile {
+            width: ~"calc(20% - @{gutter})";
+        }
+    }
+}
+
+.tile {
+    .font-size(@font-size-base);
+
+    .tile-container {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        z-index: 0;
+        margin-bottom: @grid-section-padding;
+        background: @tile-background;
+        border-radius: @tile-radius;
+
+        &:hover .tile-media img,
+        &:focus .tile-media img {
+            transform: scale(1.05);
+        }
+    }
+
+    @media (min-width: @screen-xs) {
+        padding: 0 (@grid-section-padding / 2);
+    }
+}
+
+.tile-media {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    min-height: 40px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+
+    img {
+        display: block;
+        border-radius: inherit;
+    }
+}
+
+.tile-info {
+    padding: (@grid-section-padding / 2);
+
+    h4 {
+        margin-bottom: (@grid-section-padding / 3);
+        color: @headings-color;
+    }
+
+    p {
+        margin: 0;
+        color: @text-color;
+    }
+
+    .tag {
+        position: absolute;
+        top: (@grid-section-padding / 3);
+        right: (@grid-section-padding / 3);
+        margin: 0;
+    }
+}
+
+.tile-overlaid {
+    .tile-info,
+    .tile-media {
+        border-radius: @border-radius-base;
+    }
+
+    .tile-info {
+        &:extend(.vertical-aligned all);
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        background: fade(@menu-bg, 75%);
+        opacity: 0;
+        transition: opacity .3s .1s ease;
+        text-align: center;
+        .contrast-text-color(@menu-bg);
+
+        > div {
+            width: 100%;
+            padding: @grid-section-padding;
+        }
+
+        h4,
+        .tag {
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all .3s .1s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+        }
+
+        h4 {
+            text-shadow: 0 1px 1px fade(#000, 5%);
+            transition-delay: .15s;
+            color: inherit;
+        }
+
+        .tag {
+            position: static;
+        }
+    }
+
+    a:hover .tile-info,
+    a:focus .tile-info {
+        opacity: 1;
+
+        h4,
+        .tag {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}

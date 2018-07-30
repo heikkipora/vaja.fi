@@ -1,0 +1,58 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+.footer {
+    padding-top: (@grid-section-padding / 2);
+    padding-bottom: (@grid-section-padding / 2);
+    text-align: center;
+    background: @footer-bg-color;
+    color: @footer-title-links-color;
+
+    h4,
+    h6,
+    a,
+    .text-logo {
+        color: inherit;
+    }
+
+    .heading {
+        margin-bottom: @padding-base-vertical;
+    }
+
+    .copyright {
+        margin-bottom: @grid-section-padding;
+        .font-size(@font-size-small);
+
+        a {
+            white-space: nowrap;
+        }
+    }
+
+    &-branding {
+        margin-bottom: @grid-section-padding;
+
+        a {
+            display: inline-block;
+            .set-logo-size();
+        }
+
+        img {
+            display: block;
+        }
+    }
+
+    &-nav nav ul {
+        column-count: 2;
+
+        li {
+            margin-bottom: @padding-large-vertical;
+        }
+    }
+
+    @media (min-width: @screen-sm) {
+        padding-top: @grid-section-padding;
+        padding-bottom: @grid-section-padding;
+        text-align: left;
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Rediger blokindstillinger for at tilføje lydindhold"
+        },
+        "html": {
+            "empty": "Rediger blokindstillinger for at tilføje HTML-indhold"
+        },
+        "image": {
+            "empty": "Rediger blokindstillinger for at tilføje et billede"
+        },
+        "quote": {
+            "empty": "Tilføj bedømmelser og anmeldelser fra dine kunder, som viser, at de er glade og tilfredse"
+        },
+        "video": {
+            "empty": "Rediger blokindstillinger for at tilføje videoindhold"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Tilføj et indlæg.",
+            "block_title": "Fra bloggen",
+            "get_started": "Kom i gang med din blog, og hold dine kunder opdateret om sidste nyt.",
+            "read_more": "læs mere",
+            "words": "ord"
+        },
+        "tags": {
+            "empty": "Der er desværre ingen artikler endnu. Vend tilbage senere.",
+            "tags_count": {
+                "one": "artikel tagget med",
+                "other": "artikel tagget med",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Kontakt",
+            "email": "E-mail",
+            "error": "Ups, det ser ud til, at der opstod en fejl.",
+            "message": "Meddelelse",
+            "name": "Navn",
+            "send": "Indsend",
+            "success": "Din meddelelse er sendt!"
+        },
+        "social": {
+            "add_feedly": "Føj til Feedly",
+            "connect": "Forbind",
+            "connect_dribbble": "Tilknyt din Dribbble-konto, så du kan få vist dit feed her.",
+            "connect_facebook": "Tilknyt din Facebook-konto, så du kan få vist dit feed her.",
+            "connect_flickr": "Tilknyt din Flickr-konto, så du kan få vist dit feed her.",
+            "connect_instagram": "Tilknyt din Instagram-konto, så du kan få vist dit feed her.",
+            "connect_twitter": "Tilknyt din Twitter-konto, så du kan få vist dit feed her.",
+            "empty": "Tilføj sociale links i butiksindstillinger",
+            "follow": "Følg",
+            "rss_feed": "",
+            "share": "Del"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Fejl",
+            "subtext": "Vi kunne desværre ikke finde denne side.",
+            "title": "Side ikke fundet"
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Luk menu",
+            "menu": ""
+        },
+        "pages": {
+            "home": "Startside"
+        },
+        "pagination": {
+            "page": "Side",
+            "pagination": "Paginering"
+        },
+        "skip_link": {
+            "skip": "Gå videre til indhold"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Kategorier",
+            "empty": "Denne kategori har ingen produkter",
+            "view": "Vis produkter:"
+        },
+        "category_list": {
+            "empty": "Tilføj kategorier i blokindstillinger, som skal vises"
+        },
+        "featured_category": {
+            "empty": "Vælg kategori under blokindstillinger for at vise produkter"
+        },
+        "item": {
+            "on_sale": "På udsalg",
+            "sale": "Salg",
+            "shop_now": "Køb nu",
+            "sold_out": "Udsolgt",
+            "youll_get": "Du får"
+        },
+        "payment": {
+            "we_accept": ""
+        },
+        "search": {
+            "keyword": "Søg",
+            "results": "Søgeresultater",
+            "results_for": "Resultat for",
+            "search": "Søg"
+        }
+    }
+}

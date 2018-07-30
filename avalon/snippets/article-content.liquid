@@ -1,0 +1,50 @@
+<article class="article"{% if page.template == "blog" %} itemscope itemType="http://schema.org/BlogPosting"{% endif %}>
+    {% if article.featured_image %}
+        <header class="header header-banner">
+            <div class="media header-banner-image">
+                <img src="{{ article.featured_image.mucho_grande }}" srcset="{{ article.featured_image.mucho_grande }}, {{ article.featured_image.huge }} 2x" alt="">
+            </div>
+            <div class="header-banner-content">
+                {% if page.template == "article" %}
+                    <h1 itemprop="headline">{{ article.title }}</h1>
+                {% else %}
+                    <a href="{{ article.page_path }}"><h1 itemprop="headline">{{ article.title }}</h1></a>
+                {% endif %}
+                {% if settings.hide_blog_post_info != "true" %}
+                    <p><time class="js-timeago" datetime="{{ article.published_time_iso }}" itemprop="datePublished">{{ article.published_time }}</time> &middot; {{ article.word_count }} {{ "blogs.articles.words" | t }} &middot; {{ article.read_time }}</p>
+                {% endif %}
+            </div>
+        </header>
+    {% else %}
+        <header class="header header-small">
+            <div class="container">
+                {% if page.template == "article" %}
+                    <h1 itemprop="headline">{{ article.title }}</h1>
+                {% else %}
+                    <a href="{{ article.page_path }}"><h1 itemprop="headline">{{ article.title }}</h1></a>
+                {% endif %}
+                {% if settings.hide_blog_post_info != "true" %}
+                    <p><time class="js-timeago" datetime="{{ article.published_time_iso }}" itemprop="datePublished">{{ article.published_time }}</time> &middot; {{ article.word_count }} {{ "blogs.articles.words" | t }} &middot; {{ article.read_time }}</p>
+                {% endif %}
+            </div>
+        </header>
+    {% endif %}
+
+    <section class="text-block" itemprop="articleBody">
+        {% if page.template == "article" or settings.blog_only_excerpts != "true" %}
+            {{ article.content }}
+            
+            {% if article.tags.size > 0 and settings.hide_blog_tags != "true" %}
+                <aside class="tags">
+                    <ul class="list-inline list-inline-spaced">
+                        {% for tag in article.tags %}
+                            <li><a href="/tag/{{ tag.slug }}" class="tag" itemprop="keywords">{{ tag.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+            {% endif %}
+        {% else %}
+            <p class="article-excerpt">{{ article.excerpt | truncate: 250, "&hellip;" }} <a href="{{ article.page_path }}">{{ "blogs.articles.read_more" | t }}</a></p>
+        {% endif %}
+    </section>
+</article>

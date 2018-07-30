@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": ""
+        },
+        "html": {
+            "empty": ""
+        },
+        "image": {
+            "empty": ""
+        },
+        "quote": {
+            "empty": ""
+        },
+        "video": {
+            "empty": "Zum Hinzufügen von Videoinhalten Blockeinstellungen bearbeiten"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "",
+            "block_title": "Vom Blog",
+            "get_started": "",
+            "read_more": "",
+            "words": "Wörter"
+        },
+        "tags": {
+            "empty": "",
+            "tags_count": {
+                "one": "Artikel mit dem Tag",
+                "other": "Artikel mit dem Tag",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Kontakt",
+            "email": "",
+            "error": "",
+            "message": "Nachricht",
+            "name": "",
+            "send": "Senden",
+            "success": "Ihre Nachricht wurde gesendet!"
+        },
+        "social": {
+            "add_feedly": "",
+            "connect": "",
+            "connect_dribbble": "",
+            "connect_facebook": "",
+            "connect_flickr": "",
+            "connect_instagram": "",
+            "connect_twitter": "Verknüpfen Sie Ihr Twitter-Konto, damit Ihr Feed hier angezeigt wird.",
+            "empty": "",
+            "follow": "",
+            "rss_feed": "",
+            "share": "Teilen"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "",
+            "subtext": "",
+            "title": ""
+        },
+        "buttons": {
+            "close": "",
+            "learn_more": ""
+        },
+        "cookies": {
+            "message": ""
+        },
+        "navigation": {
+            "close": "Menü schließen",
+            "menu": ""
+        },
+        "pages": {
+            "home": "Startseite"
+        },
+        "pagination": {
+            "page": "",
+            "pagination": ""
+        },
+        "skip_link": {
+            "skip": "Direkt zum Inhalt"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "",
+            "empty": "",
+            "view": "Produkte anzeigen:"
+        },
+        "category_list": {
+            "empty": ""
+        },
+        "featured_category": {
+            "empty": ""
+        },
+        "item": {
+            "on_sale": "",
+            "sale": "Verkauf",
+            "shop_now": "Jetzt einkaufen",
+            "sold_out": "",
+            "youll_get": ""
+        },
+        "payment": {
+            "we_accept": ""
+        },
+        "search": {
+            "keyword": "Search",
+            "results": "Suchergebnisse",
+            "results_for": "Ergebnisse für",
+            "search": ""
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{% if settings.enable_announcement == "true" %}
+    {% assign text_empty = settings.announcement_text | is_null_or_empty %}
+    {% assign link_empty = settings.announcement_link | is_null_or_empty %}
+
+    {% if text_empty == false %}
+        {% if page.template == "index" and settings.announcement_homepage_only == "true" %}
+            {% assign display_announcement = true %}
+        {% elsif settings.announcement_homepage_only != "true" %}
+            {% assign display_announcement = true %}
+        {% endif %}
+    {% endif %}
+
+    {% if display_announcement %}
+        {% if link_empty %}
+            <div class="alert alert-announcement">
+                <div class="container">{{ settings.announcement_text }}</div>
+            </div>
+        {% else %}
+            <a class="alert alert-announcement" href="{{ settings.announcement_link }}">
+                <div class="container">
+                    {{ settings.announcement_text }}
+                </div>
+            </a>
+        {% endif %}
+    {% endif %}
+{% endif %}

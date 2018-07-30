@@ -1,0 +1,46 @@
+// ==========================================================================
+// Tags
+// ==========================================================================
+
+.tags {
+    padding-top: (@grid-section-padding / 2);
+}
+
+.tag {
+    display: inline-block;
+    margin: @grid-section-padding / 3 0 0;
+    padding: 2px 8px;
+
+    border-radius: @border-radius-base;
+    background: @header-bg;
+    color: @header-text-color-basic;
+    border: 1px solid darken(@body-background, 8%);
+
+    .font-size(@font-size-small);
+    font-weight: @font-weight-bold;
+
+    &:hover {
+        color: darken(@header-text-color-basic, 10%);
+    }
+}
+.tag-price,
+.tag-sold-out,
+.tag-sale {
+    text-transform: uppercase;
+    border: 0;
+}
+.tag-price {
+    background: @btn-background;
+    .contrast-text-color(@btn-background);
+}
+.tag-sold-out {
+    background: @color-sold-out;
+    .contrast-text-color(@color-sold-out);
+}
+.tag-sale {
+    background: @color-sale;
+    .contrast-text-color(@color-sale);
+}
+.tag + .tag {
+    margin-left: (@grid-section-padding / 2);
+}

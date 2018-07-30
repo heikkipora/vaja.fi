@@ -1,0 +1,28 @@
+{% extends theme.liquid %}
+
+{% block contents %}
+    <div class="section">
+        <section class="container article-list">
+            {% paginate blog.articles by settings.default_page_size %}
+                {% if blog.articles == empty %}
+                    {% if store.user_is_owner %}
+                    <section class="row empty-placeholder">
+                        <div class="empty-block">
+                            <p>{{ "blogs.articles.get_started" | t }}</p>
+                            <a href="https://selz.com/posts/add" target="_blank" class="btn">{{ "blogs.articles.add_post" | t }}</a>
+                        </div>
+                    </section>
+                    {% else %}
+                        <p class="empty-block">{{ "blogs.articles.no_articles" | t }}</p>
+                    {% endif %}
+                {% else %}
+                    {% for article in blog.articles %}
+                        {% include article-content.liquid %}
+                    {% endfor %}
+
+                    {% include pagination.liquid %}
+                {% endif %}
+            {% endpaginate %}
+        </section>
+    </div>
+{% endblock %}

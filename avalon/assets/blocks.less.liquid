@@ -1,0 +1,354 @@
+// ==========================================================================
+// Content blocks
+// ==========================================================================
+
+// Common
+// [1] This is to prevent collapsing margins when a user sets padding to none
+// but also has an element inside with margin, e.g. a <h1> or <p>
+// [2] This is so the user setting is retained
+.content-block {
+    // [1]
+    &::before,
+    &::after {
+        content: "";
+        display: table;
+    }
+
+    .tiles {
+        align-items: inherit; // [2]
+    }
+
+    h6 {
+        display: inline-block;
+        border-bottom: 2px solid @border-color-on-body;
+        padding-bottom: (@grid-section-padding / 3);
+
+        @media (min-width : @screen-sm) {
+            margin-bottom: (@grid-section-padding * 1.5);
+        }
+
+        @media (min-width : @screen-md) {
+            margin-bottom: (@grid-section-padding * 2);
+        }
+    }
+
+    // Placeholder text
+    .content-block-placeholder {
+        margin: 0;
+        padding: @grid-section-padding;
+        text-align: center;
+        opacity: .7;
+        .font-size();
+    }
+}
+
+// Text
+.content-block-text {
+    word-wrap: break-word;
+}
+
+// Alignment of text
+.content-block-image,
+.content-block-image-with-text,
+.content-block-image-with-text-overlay,
+.content-block-divider,
+.content-block-button,
+.content-block-social-links,
+.content-block-social-feed {
+    .align-left {
+        text-align: left;
+    }
+    .align-center {
+        text-align: center;
+    }
+    .align-right {
+        text-align: right;
+    }
+}
+
+// Social feeds
+.content-block-social-feed {
+    .empty-placeholder {
+        max-width: 420px;
+        margin: @grid-section-padding auto;
+    }
+    .block-twitter-feed {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+// Grid block
+.content-block-grid {
+    // Tile widths inside grid
+    .tiles {
+        display: block;
+        margin: 0;
+
+        .tile {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+
+    // Alignment
+    @media (min-width: @grid-breakpoint) {
+        .vertical-align-top {
+            align-items: flex-start;
+        }
+        .vertical-align-center {
+            align-items: center;
+        }
+        .vertical-align-bottom {
+            align-items: flex-end;
+        }
+    }
+}
+
+// Blog
+.content-block-blog {
+    .article-summary {
+        h4,
+        small {
+            margin: 0 0 (@grid-section-padding / 3);
+        }
+        small {
+            display: block;
+        }
+
+        &:first-child {
+            margin: 0 auto;
+        }
+
+        @media (min-width : @screen-sm) {
+            max-width: 50%;
+            flex: 1 1 0;
+            margin-left: (@grid-gutter / 2);
+        }
+    }
+
+    .pagination-container {
+        max-width: none;
+    }
+
+    .media {
+        height: 0;
+        margin: 0 0 (@grid-section-padding / 3) 0;
+        padding-bottom: 56.5%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-color: @header-bg;
+        border-radius: @border-radius-base;
+    }
+}
+
+// HTML block
+.content-block-html {
+    text-align: center;
+
+    iframe {
+        margin: 0 auto;
+    }
+}
+
+// Map block
+.content-block-map iframe {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+// Divider block
+.content-block-divider hr {
+    margin: 0;
+    border: 0;
+}
+
+// Featured product
+.content-block-featured-product {
+    .container {
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        &.block-content-container {
+            padding-top: @grid-section-padding * 2;
+
+            .tag {
+                margin-top: 0;
+                margin-bottom: @grid-section-padding;
+            }
+        }
+
+        &.featured-image-container {
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+            .block-feature-image {
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+    }
+
+    @media (min-width: @screen-md) {
+        display: flex;
+
+        .container {
+            width: 50%;
+
+            &.block-content-container {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+// Image with text (side by side)
+.content-block-image-with-text {
+    // Calculate spacing
+    @spacing: @grid-gutter-width;
+    @gutter-width: @spacing * 2;
+    position: relative;
+
+    .container {
+        padding-top: (@grid-section-padding * 1.5);
+        padding-bottom: (@grid-section-padding * 1.5);
+    }
+
+    &::before {
+        display: block;
+        min-height: 300px;
+    }
+
+    @media (min-width: @grid-breakpoint) {
+        // Use psuedo element for background size other than "contain"
+        // This uses the text for the height reference, so using "contain"
+        // this way means the image is shrunk to the height of the text
+        padding-left: ~"calc(50% + @{gutter-width})";
+        padding-right: @gutter-width;
+
+        // Container
+        .container {
+            max-width: (@container-width / 2) - @gutter-width;
+            margin-left: 0;
+        }
+
+        // The image
+        &::before {
+            position: absolute;
+            width: 50%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            min-height: 0;
+        }
+
+        // Right aligned image version
+        &.content-block-image-right {
+            padding-right: ~"calc(50% + @{gutter-width})";
+            padding-left: @gutter-width;
+
+            .container {
+                margin-left: auto;
+                margin-right: 0;
+            }
+
+            &::before {
+                left: auto;
+                right: 0;
+            }
+        }
+    }
+}
+
+// Block padding
+#main .content-block {
+    padding-top: @grid-section-padding;
+    padding-bottom: @grid-section-padding;
+
+    @media (min-width: @screen-sm) {
+        padding-top: (@grid-section-padding * 2);
+        padding-bottom: (@grid-section-padding * 2);
+    }
+
+    @media (min-width: @screen-md) {
+        padding-top: (@grid-section-padding * 3);
+        padding-bottom: (@grid-section-padding * 3);
+    }
+
+    &.content-block-grid .content-block {
+        padding-top: (@grid-section-padding / 2);
+        padding-bottom: (@grid-section-padding / 2);
+
+        @media (min-width: @screen-lg) {
+            padding-top: @grid-section-padding;
+            padding-bottom: @grid-section-padding;
+        }
+
+        @media (min-width: @screen-xlg) {
+            padding-top: (@grid-section-padding * 1.5);
+            padding-bottom: (@grid-section-padding * 1.5);
+        }
+    }
+}
+
+// Block header spacing
+.block-header {
+    padding-bottom: @grid-section-padding;
+    margin-bottom: 0;
+
+    .font-size-h3();
+
+    @media (min-width: @screen-sm) {
+        padding-bottom: (@grid-section-padding * 2);
+    }
+
+    @media (min-width: @screen-md) {
+        padding-bottom: (@grid-section-padding * 3);
+    }
+}
+
+// For headers outside main block container
+.block-header-container {
+    padding-top: @grid-section-padding;
+
+    &-small h2 {
+        padding-bottom: 0;
+    }
+
+    @media (min-width: @screen-sm) {
+        padding-top: (@grid-section-padding * 2);
+    }
+
+    @media (min-width: @screen-md) {
+        padding-top: (@grid-section-padding * 3);
+    }
+}
+
+// Set block heights using padding
+
+// Small
+.content-block-height-small > .container {
+    .block-height(6);
+}
+
+// Medium
+.content-block-height-medium > .container {
+    .block-height(10);
+}
+
+// Large
+.content-block-height-large > .container {
+    .block-height(14);
+}
+
+// Extra-large
+.content-block-height-extra-large > .container {
+    .block-height(18);
+}

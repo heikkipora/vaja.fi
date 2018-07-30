@@ -1,0 +1,59 @@
+// ==========================================================================
+// Tables
+// ==========================================================================
+
+// Base table
+// --------------------------------------------
+table {
+    max-width: 100%;
+    background-color: @table-bg;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+// Base table styles
+// --------------------------------------------
+.table {
+    width: 100%;
+    margin-bottom: @grid-section-padding;
+    border-top: 1px solid @table-border-color;
+
+    // Cells
+    th,
+    td {
+        padding: @table-cell-padding * .75 @table-cell-padding;
+        line-height: @line-height-base;
+        text-align: left;
+        border: 1px solid @table-border-color;
+        border-width: 0 0 1px;
+        
+        p {
+            margin: 0;
+        }
+        small {
+            display: block;
+        }
+    }
+    th {
+        color: @gray-light;
+        font-weight: @font-weight-base;
+        vertical-align: bottom;
+        padding-top: (@grid-section-padding / 2);
+        padding-bottom: (@grid-section-padding / 2);
+    }
+    td {
+        vertical-align: top;
+    }
+
+    // Remove top border from thead by default
+    caption + thead tr:first-child th,
+    caption + thead tr:first-child td,
+    colgroup + thead tr:first-child th,
+    colgroup + thead tr:first-child td,
+    thead:first-child tr:first-child th,
+    thead:first-child tr:first-child td {
+        border-top: 0;
+    }
+}

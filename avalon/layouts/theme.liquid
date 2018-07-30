@@ -1,0 +1,66 @@
+{% assign modules = settings.modules | split: ',' %}
+{% assign homepage_modules = settings.homepage_modules | split: ',' %}
+{% if page.template == "article" %}
+    {% assign itemtype = "BlogPosting"; %}
+{% elsif page.template == "blog" %}
+    {% assign itemtype = "Blog"; %}
+{% elsif page.template == "item" %}
+    {% assign itemtype = "Product"; %}
+{% else %}
+    {% assign itemtype = "WebPage"; %}
+{% endif %}
+<!doctype html>
+<html class="template-{{ page.template }} no-js" lang="{{ store.language }}">
+    <head>
+        <!-- Basics -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <!-- Page data -->
+        <title>{% if page.title %}{{ page.title }} - {% endif %}{{ store.display_name }}</title>
+        {% if page.meta_description %}
+            <meta name="description" content="{{ page.meta_description }}">
+        {% endif %}
+
+        <!-- Standard viewport tag to set the viewport to the device's width -->
+        <meta name="viewport" content="initial-scale=1.0,maximum-scale=2.0,width=device-width">
+
+        <!-- Open graph -->
+        {% include open-graph.liquid %}
+
+        <!-- Fonts -->
+        {% capture font_list %}
+            {{ settings.font_base }}:{{ settings.font_base_weight }},
+            {{ settings.font_base }}:600,
+            {{ settings.font_headings }}:{{ settings.font_headings_weight }},
+            {{ settings.font_accent }}:{{ settings.font_accent_weight }}
+        {% endcapture %}
+        {{ font_list | get_google_fonts_url | stylesheet_tag }}
+
+        <!-- Base bundles -->
+        {{ selz_head }}
+
+        <!-- Favicon -->
+        {% if store.icon %}
+            <link rel="icon" href="{{ store.icon }}">
+        {% endif %}
+    </head>
+    <body itemscope itemtype="http://schema.org/{{ itemtype }}">
+        {% include skip-link.liquid %}
+
+        <div class="alerts">
+            {% include eu-cookie.liquid %}
+            {% include announcement.liquid %}
+        </div>
+
+        {% include nav-bar.liquid %}
+
+        {% block header %}{% endblock %}
+
+        {% block contents %}{% endblock %}
+
+        {% include footer.liquid %}
+
+        {% include scripts.liquid %}
+    </body>
+</html>

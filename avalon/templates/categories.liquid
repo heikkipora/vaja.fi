@@ -1,0 +1,66 @@
+{% extends theme.liquid %}
+
+{% block header %}
+    <header class="header header-small">
+        <div class="container">
+            {% if page.title %}
+                <h1>{{ page.title }}</h1>
+            {% else %}
+                <h1>{{ "products.categories.categories" | t }}</h1>
+            {% endif %}
+            {% if page.description %}
+                <p>{{ page.description }}</p>
+            {% endif %}
+        </div>
+    </header>
+{% endblock %}
+
+{% block contents %}
+    <main id="main">
+        <div class="section">
+            <div class="container">
+            {% assign category_display_items = settings.category_display_items | split: ',' %}
+            {% if category_display_items contains 'categories' %}
+                {% for category in categories %}
+                    {% if category.depth > 0 %}
+                        {% continue %}
+                    {% endif %}
+
+                    {% if category.total_items == 0 and category.total_all_items == 0 %}
+                        {% continue %}
+                    {% endif %}
+
+                    <div class="section-heading">
+                        <h2>{{ category.title }}</h2>
+                        <a href="{{ category.url }}">{{ "products.categories.view" | t }} {{ category.total_all_items }}</a>
+                    </div>
+
+                    {% if category.total_items > 0 %}
+                        <ul class="tiles">
+                            {% for item in category.items limit: 3 %}
+                                {% include tile-item.liquid %}
+                            {% endfor %}
+                        </ul>
+                    {% elsif category.total_all_items > 0 %}
+                        <ul class="tiles">
+                            {% for item in category.all_items limit: 3 %}
+                                {% include tile-item.liquid %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <ul class="tiles">
+                    {% for category in categories %}
+                        {% if category.depth > 0 %}
+                            {% continue %}
+                        {% endif %}
+
+                        {% include tile-category.liquid %}
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

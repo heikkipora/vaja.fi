@@ -1,0 +1,32 @@
+{% include blocks-styles.liquid %}
+
+{% assign source_empty = block.settings.src | is_null_or_empty %}
+{% assign link_url_empty = block.settings.link_url | is_null_or_empty %}
+
+{% if block.settings.link_target == "true" %}
+    {% assign link_target = "_blank" %}
+{% else %}
+    {% assign link_target = "" %}
+{% endif %}
+
+<div id="{{block.id}}" class="content-block content-block-image {{ class | strip }}">
+    <div class="container">
+        {% include block-header.liquid %}
+
+        <div class="block-container {{ container_class | strip }}">
+            {% if block.settings.link_active == "true" and link_url_empty == false %}
+                <a href="{{ block.settings.link_url }}" target="{{ link_target }}">
+            {% endif %}
+
+            {% if source_empty == false %}
+                <img src="{{ block.settings.src }}" alt="{{ block.settings.alt }}">
+            {% elsif store.user_is_owner %}
+                <p class="content-block-placeholder">{{ "blocks.image.empty" | t }}</p>
+            {% endif %}
+
+            {% if block.settings.link_active == "true" and link_url_empty == false %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<li class="tile{% if settings.tile_info_overlaid == "true" %} tile-overlaid{% endif %}">
+    <a href="{{ item.url }}" class="tile-container">
+        <div class="media tile-media">
+            {% if item.featured_image %}
+                <img src="{{ item.featured_image.grande }}" srcset="{{ item.featured_image.grande }}, {{ item.featured_image.mucho_grande }} 2x" alt="">
+            {% else %}
+                {% if item.featured_media %}
+                    {% if item.featured_media.type == "audio" %}
+                        {{ "default-audio.svg" | asset_url | img_tag }}
+                    {% else %}
+                        {{ "default-video.svg" | asset_url | img_tag }}
+                    {% endif %}
+                {% else %}
+                    {{ "default-item.svg" | asset_url | img_tag }}
+                {% endif %}
+            {% endif %}
+        </div>
+        <div class="tile-info">
+            <div>
+                <h4>{{ item.title }}</h4>
+                {% if settings.tile_info_overlaid == "true" %}
+                    <small class="tag tag-price">
+                        {% if store.display_currency_code %}
+                            {{ item.price | money_with_currency: item.currency_code, item.price_is_flexible, item.quantity_unit }}
+                        {% else %}
+                            {{ item.price | money: item.currency_code, item.price_is_flexible, item.quantity_unit }}
+                        {% endif %}
+                    </small>
+                {% else %}
+                    <p>
+                        {% if store.display_currency_code %}
+                            {{ item.price | money_with_currency: item.currency_code, item.price_is_flexible, item.quantity_unit }}
+                        {% else %}
+                            {{ item.price | money: item.currency_code, item.price_is_flexible, item.quantity_unit }}
+                        {% endif %}
+                    </p>
+                {% endif %}
+
+                {% if item.is_sold_out %}
+                    <small class="tag tag-sold-out">{{ "products.item.sold_out" | t }}</small>
+                {% elsif item.price_regular > item.price %}
+                    <small class="tag tag-sale">{{ "products.item.on_sale" | t }}</small>
+                {% endif %}
+            </div>
+        </div>
+    </a>
+</li>

@@ -1,0 +1,67 @@
+{% if link.has_children %}
+    <div class="dropdown-nav-bar dropdown-mega-menu-nav-bar" role="menu">
+        <div class="container">
+            {% if settings.mega_menu_display_products != "true" %}
+                <div class="dropdown-mega-menu-categories">
+                    {% include nav-menu-links.liquid %}
+                </div>
+            {% else %}
+                <div class="dropdown-mega-menu-category">
+                    <div class="dropdown-mega-menu-category-info">
+                        {% assign item_count = 0 %}
+                        {% assign category_items = null %}
+                    
+                        {% unless categories_page_enabled %}
+                            {% assign link_path = link.page_path | replace: "/categories/", "" %}
+                            {% assign link_category = categories[link_path] %}
+                            {% assign item_count = link_category.items | size %}
+                        {% endunless %}
+
+                        {% if item_count > 0 %}
+                            <!-- Found items in {{ link.title }} -->
+                            {% assign category_items = link_category.items %}
+                        {% else %}
+                            {% for child_link in link.links %}
+                                {% assign link_path = child_link.page_path | replace: "/categories/", "" %}
+                                {% assign link_category = categories[link_path] %}
+                                {% assign item_count = link_category.items | size %}
+                                
+                                {% if item_count > 0 %}
+                                    <!-- Found items in {{ link.title }} > {{ child_link.title }} -->
+                                    {% assign category_items = link_category.items %}
+                                    {% break %}
+                                {% elsif child_link.has_children %}
+                                    {% for grand_child_link in child_link.links %}
+                                        {% assign link_path = grand_child_link.page_path | replace: "/categories/", "" %}
+                                        {% assign link_category = categories[link_path] %}
+                                        {% assign item_count = link_category.items | size %}
+                                        
+                                        {% if item_count > 0 %}
+                                            <!-- Found items in {{ link.title }} > {{ child_link.title }} > {{ grand_child_link.title }} -->
+                                            {% assign category_items = link_category.items %}
+                                            {% break %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                
+                                {% if item_count > 0 %}
+                                    {% break %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                                
+                        <h2>{{ link.title }}</h2>
+                        
+                        {% include nav-mega-menu-links.liquid %}
+                    </div>
+
+                    <ul class="dropdown-mega-menu-category-items tiles">
+                        {% for item in category_items limit: 3 -%}
+                            {% include tile-item.liquid %}
+                        {% endfor -%}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

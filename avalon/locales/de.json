@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Bearbeiten Sie Blockeinstellungen, um Audio-Inhalte hinzuzufügen."
+        },
+        "html": {
+            "empty": "Bearbeiten Sie Blockeinstellungen, um HTML-Inhalte zu bearbeiten."
+        },
+        "image": {
+            "empty": "Bearbeiten Sie Blockeinstellungen, um ein Bild hinzuzufügen."
+        },
+        "quote": {
+            "empty": "Fügen Sie Bewertungen und Erfahrungsberichte von Kunden hinzu, um die zufriedenen Kunden Ihres Shops ins Rampenlicht zu stellen."
+        },
+        "video": {
+            "empty": "Bearbeiten Sie Blockeinstellungen, um ein Video hinzuzufügen."
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Beitrag hinzufügen",
+            "block_title": "Vom Blog",
+            "get_started": "Erstellen Sie Ihren Blog und halten Sie Ihre Kunden mit aktuellen Neuigkeiten auf dem Laufenden.",
+            "read_more": "Mehr lesen",
+            "words": "Wörter"
+        },
+        "tags": {
+            "empty": "Leider gibt es hier noch keine Artikel. Schauen Sie später wieder vorbei.",
+            "tags_count": {
+                "one": "Artikel markiert mit",
+                "other": "Artikel markiert mit",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "Kontakt",
+            "email": "E-Mail-Adresse",
+            "error": "Oh! Anscheinend sind Fehler aufgetreten.",
+            "message": "Nachricht",
+            "name": "",
+            "send": "Senden",
+            "success": "Ihre Nachricht wurde gesendet!"
+        },
+        "social": {
+            "add_feedly": "Zu Feedly hinzufügen",
+            "connect": "Verbinden",
+            "connect_dribbble": "Hier wird Ihr Feed angezeigt, wenn Sie Ihr Dribbble-Konto verbinden.",
+            "connect_facebook": "Hier wird Ihr Feed angezeigt, wenn Sie Ihr Facebook-Konto verbinden.",
+            "connect_flickr": "Hier wird Ihr Feed angezeigt, wenn Sie Ihr Flickr-Konto verbinden.",
+            "connect_instagram": "Hier wird Ihr Feed angezeigt, wenn Sie Ihr Instagram-Konto verbinden.",
+            "connect_twitter": "Hier wird Ihr Feed angezeigt, wenn Sie Ihr Twitter-Konto verbinden.",
+            "empty": "Fügen Sie Links zu sozialen Netzwerken in Ihren Store-Einstellungen hinzu.",
+            "follow": "Folgen",
+            "rss_feed": "RSS-Feed",
+            "share": "Teilen"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Fehler",
+            "subtext": "Leider konnten wir diese Seite nicht finden.",
+            "title": "Seite nicht gefunden"
+        },
+        "buttons": {
+            "close": "Schließen",
+            "learn_more": "Erfahre mehr"
+        },
+        "cookies": {
+            "message": "Wir verwenden Cookies, um Ihr Nutzererlebnis zu optimieren. Mit der Nutzung dieser Website erklären Sie sich mit unserer Cookie-Nutzung einverstanden."
+        },
+        "navigation": {
+            "close": "Menü schließen",
+            "menu": "Menü"
+        },
+        "pages": {
+            "home": "Startseite"
+        },
+        "pagination": {
+            "page": "Seite",
+            "pagination": "Seitenzahl"
+        },
+        "skip_link": {
+            "skip": "Zum Inhalt springen"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Kategorien",
+            "empty": "Keine Artikel in dieser Kategorie",
+            "view": "Artikel anzeigen:"
+        },
+        "category_list": {
+            "empty": "Fügen Sie Kategorien zum Anzeigen in den Block-Einstellungen hinzu."
+        },
+        "featured_category": {
+            "empty": "Wählen Sie eine Kategorie in den Block-Einstellungen, um Artikel anzuzeigen."
+        },
+        "item": {
+            "on_sale": "Reduziert",
+            "sale": "Sonderaktion",
+            "shop_now": "Jetzt bestellen",
+            "sold_out": "Ausverkauft",
+            "youll_get": "Sie erhalten"
+        },
+        "payment": {
+            "we_accept": "Wir akzeptieren"
+        },
+        "search": {
+            "keyword": "Schlagwort",
+            "results": "Suchergebnisse",
+            "results_for": "Ergebnisse für",
+            "search": "Suchen"
+        }
+    }
+}

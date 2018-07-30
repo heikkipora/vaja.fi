@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "ブロック設定を編集して音声コンテンツを追加する"
+        },
+        "html": {
+            "empty": "ブロック設定を編集してHTMLコンテンツを編集する"
+        },
+        "image": {
+            "empty": "ブロック設定を編集して画像を追加する"
+        },
+        "quote": {
+            "empty": "ストアでご満足いただけた顧客を紹介するために顧客のレビューと功績を加える"
+        },
+        "video": {
+            "empty": "ブロック設定を編集して動画コンテンツを追加する"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "投稿を追加する",
+            "block_title": "ブログから",
+            "get_started": "ブログを開始し、顧客に最新のニュースをお伝えする。",
+            "read_more": "詳しく読む",
+            "words": "語"
+        },
+        "tags": {
+            "empty": "申し訳ありませんが、まだ記事がありません。後ほどご確認ください。",
+            "tags_count": {
+                "one": "",
+                "other": "タグ付けされた記事",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "連絡",
+            "email": "メール",
+            "error": "おっと、いくつかのエラーがあるようです。",
+            "message": "メッセージ",
+            "name": "名前",
+            "send": "送信する",
+            "success": "メッセージを送信しました！"
+        },
+        "social": {
+            "add_feedly": "Feedlyに追加する",
+            "connect": "接続",
+            "connect_dribbble": "あなたのフィードをここに表示するには、Dribbleアカウントを接続してください。",
+            "connect_facebook": "Facebookアカウントを接続してフィードを表示します。",
+            "connect_flickr": "あなたのフィードをここに表示するにはFlickrアカウントを接続してください。",
+            "connect_instagram": "Instagramアカウントを接続してフィードを表示します。",
+            "connect_twitter": "あなたのフィードをここに表示するにはTwitterアカウントを接続してください。",
+            "empty": "ストア設定でソーシャルリンクを追加する",
+            "follow": "フォロー",
+            "rss_feed": "RSSフィード",
+            "share": "共有"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "エラー",
+            "subtext": "申し訳ありません。このページを見つけることができませんでした。",
+            "title": "ページが見つかりません"
+        },
+        "buttons": {
+            "close": "閉じる",
+            "learn_more": "詳細を知る"
+        },
+        "cookies": {
+            "message": "当社はあなたの経験を最適化するためにクッキーを使います。このウェブサイトを使用してクッキーを使用することに同意します。"
+        },
+        "navigation": {
+            "close": "メニューを閉じる",
+            "menu": "メニュー"
+        },
+        "pages": {
+            "home": "ホーム"
+        },
+        "pagination": {
+            "page": "ページ",
+            "pagination": "ページネーション"
+        },
+        "skip_link": {
+            "skip": "コンテンツまでスキップ"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "カテゴリー",
+            "empty": "このカテゴリーには商品がありません",
+            "view": "商品を見る："
+        },
+        "category_list": {
+            "empty": "ブロック設定でカテゴリを追加して表示する"
+        },
+        "featured_category": {
+            "empty": "ブロック設定でカテゴリを選択して商品を表示する"
+        },
+        "item": {
+            "on_sale": "セール中",
+            "sale": "セール",
+            "shop_now": "今すぐ買い物をする",
+            "sold_out": "売り切れ",
+            "youll_get": "手に入るもの："
+        },
+        "payment": {
+            "we_accept": "受け入れます"
+        },
+        "search": {
+            "keyword": "キーワード",
+            "results": "検索結果",
+            "results_for": "検索結果：",
+            "search": "検索"
+        }
+    }
+}

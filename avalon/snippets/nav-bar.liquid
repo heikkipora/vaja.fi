@@ -1,0 +1,47 @@
+{% assign categories_page_enabled = false %}
+{% assign categories_page_title = null %}
+
+<div class="nav-bar js-nav-bar {% if store.apps.cart == false or page.template == "checkout" %}nav-bar-no-cart{% endif %} {% if settings.logo_position == "center" %} nav-bar-center-logo{% endif %}">
+    <div class="container">
+        {% if settings.logo_display != "hidden" %}
+            <div class="nav-bar-branding">
+                {% if settings.logo_display == "image" and store.logo %}
+                    <a href="{{ store.url }}">
+                        {{ store.logo | img_tag:store.display_name }}
+                    </a>
+                {% else %}
+                    <a href="{{ store.url }}">
+                        <span class="text-logo">{{ store.display_name }}</span>
+                    </a>
+                {% endif %}
+
+                {% shortcut "branding" "btn-settings-shortcut" "under-right" %}{% endshortcut %}
+            </div>
+        {% endif %}
+
+        <div class="nav-bar-toggle">
+            <button type="button" class="btn-faux-link btn-open-menu" data-toggle="class" data-target="html" data-class="menu-active">
+                <svg role="img" class="icon-menu" title="Menu">
+                    <use xlink:href="#theme-icon-menu"></use>
+                </svg>
+                <span class="sr-only">{{ "general.navigation.menu" | t }}</span>
+            </button>
+        </div>
+
+        {% include menu.liquid %}
+
+        <div class="nav-bar-aside">
+            <div class="nav-bar-aside-search">
+                {% assign search_collapsed = true %}
+                {% include search-form.liquid %}
+            </div>
+
+            <div class="nav-bar-aside-cart">
+                {% if store.apps.cart %}
+                    <svg role="img" class="icon cart-icon" title="Cart"><use xlink:href="#theme-icon-shopping-cart"></use></svg>
+                    {{ mini_cart }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

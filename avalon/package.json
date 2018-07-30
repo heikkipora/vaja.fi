@@ -1,0 +1,146 @@
+{
+    "version": "3.9.0",
+    "author": "Selz.com",
+    "name": "avalon",
+    "links": [
+        {
+            "name": "main-menu",
+            "paths": [
+                "/blog",
+                "/pages/about",
+                "/pages/contact"
+            ]
+        },
+        {
+            "name": "footer-menu",
+            "paths": [
+                "/",
+                "/blog",
+                "/pages/about",
+                "/pages/contact",
+                "/pages/privacy",
+                "/pages/terms"
+            ]
+        }
+    ],
+    "pages": [
+        {
+            "name": "About",
+            "title": "About us",
+            "slug": "about",
+            "template": "content.liquid"
+        },
+        {
+            "name": "Contact",
+            "title": "Contact us",
+            "slug": "contact",
+            "template": "contact.liquid"
+        },
+        {
+            "name": "Privacy",
+            "title": "Privacy",
+            "slug": "privacy",
+            "template": "content.liquid"
+        },
+        {
+            "name": "Terms",
+            "title": "Terms",
+            "slug": "terms",
+            "template": "content.liquid"
+        }
+    ],
+    "styles": [
+        {
+            "default": true,
+            "title": "Seasons",
+            "images": {
+                "tile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-tile@1x.jpg",
+                "tile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-tile@2x.jpg",
+                "mobile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-mobile@1x.jpg",
+                "mobile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-mobile@2x.jpg",
+                "desktop": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-desktop@1x.jpg",
+                "desktop@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-seasons-desktop@2x.jpg"
+            },
+            "demoid": 140119
+        },
+        {
+            "name": "motivate",
+            "title": "Motivate",
+            "images": {
+                "tile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-tile@1x.jpg",
+                "tile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-tile@2x.jpg",
+                "mobile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-mobile@1x.jpg",
+                "mobile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-mobile@2x.jpg",
+                "desktop": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-desktop@1x.jpg",
+                "desktop@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-motivate-desktop@2x.jpg"
+            },
+            "demoid": 37739
+        },
+        {
+            "name": "bestseller",
+            "title": "Bestseller",
+            "images": {
+                "tile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-tile@1x.jpg",
+                "tile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-tile@2x.jpg",
+                "mobile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-mobile@1x.jpg",
+                "mobile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-mobile@2x.jpg",
+                "desktop": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-desktop@1x.jpg",
+                "desktop@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-bestseller-desktop@2x.jpg"
+            },
+            "demoid": 139215
+        },
+        {
+            "name": "tech",
+            "title": "Tech",
+            "images": {
+                "tile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-tile@1x.jpg",
+                "tile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-tile@2x.jpg",
+                "mobile": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-mobile@1x.jpg",
+                "mobile@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-mobile@2x.jpg",
+                "desktop": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-desktop@1x.jpg",
+                "desktop@2x": "https://selzstatic.s3.amazonaws.com/themes/screenshots/avalon/avalon-tech-desktop@2x.jpg"
+            },
+            "demoid": 172849
+        }
+    ],
+    "buttons": [
+        {
+            "name": "Primary",
+            "class": "btn"
+        },
+        {
+            "name": "Secondary",
+            "class": "btn btn-secondary"
+        },
+        {
+            "name": "Facebook",
+            "class": "btn btn-facebook"
+        },
+        {
+            "name": "Twitter",
+            "class": "btn btn-twitter"
+        },
+        {
+            "name": "Pinterest",
+            "class": "btn btn-pinterest"
+        },
+        {
+            "name": "Google+",
+            "class": "btn btn-google-plus"
+        }
+    ],
+    "fonts": [
+        {
+            "name": "Body",
+            "class": "font-base"
+        },
+        {
+            "name": "Headings",
+            "class": "font-headings"
+        },
+        {
+            "name": "Accent",
+            "class": "font-accent"
+        }
+    ]
+}

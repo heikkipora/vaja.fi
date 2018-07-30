@@ -1,0 +1,17 @@
+{% if block.settings.action == 'buy-now' and block.item %}
+    <button type="button" class="btn {{ button_class | strip }}" data-buy-now="{{ block.item.id }}">
+        {{ block.settings.text }}
+    </button>
+{% elsif block.settings.action == 'add-to-cart' and block.item %}
+    <button type="button" class="btn {{ button_class | strip }}" data-add-to-cart="{{ block.item.id }}">
+        {{ block.settings.text }}
+    </button>
+{% elsif block.settings.action == 'view-item' and block.item %}
+    <a href="{{ block.item.url }}" class="btn {{ button_class | strip }}">
+        {{ block.settings.text }}
+    </a>
+{% elsif block.settings.action == 'link' %}
+    <a href="{{ block.settings.link_url }}"{% if block.settings.link_target == '_blank' %} target="_blank"{% endif %} class="btn {{ button_class | strip }}">
+        {{ block.settings.text }}
+    </a>
+{% endif %}

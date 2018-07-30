@@ -1,0 +1,117 @@
+{
+    "blocks": {
+        "audio": {
+            "empty": "Modifier les paramètres du bloc pour ajouter du contenu audio"
+        },
+        "html": {
+            "empty": "Modifier les paramètres du bloc pour modifier le contenu HTML"
+        },
+        "image": {
+            "empty": "Modifier les paramètres du bloc pour ajouter une image"
+        },
+        "quote": {
+            "empty": "Ajoutez des avis et des témoignages de clients pour mettre en avant les clients satisfaits de votre boutique"
+        },
+        "video": {
+            "empty": "Modifiez les paramètres du bloc pour ajouter du contenu vidéo"
+        }
+    },
+    "blogs": {
+        "articles": {
+            "add_post": "Ajouter une publication",
+            "block_title": "Du blog",
+            "get_started": "Commencez votre blog et tenez vos clients au courant des dernières actualités.",
+            "read_more": "en savoir plus",
+            "words": "mots"
+        },
+        "tags": {
+            "empty": "Malheureusement, il n'y a pas encore d'articles. Revenez plus tard.",
+            "tags_count": {
+                "one": "article taggé avec",
+                "other": "articles taggés avec",
+                "zero": ""
+            }
+        }
+    },
+    "contact": {
+        "form": {
+            "contact": "",
+            "email": "E-mail",
+            "error": "Oups, il semble que des erreurs se sont produites.",
+            "message": "",
+            "name": "Nom",
+            "send": "Envoyer",
+            "success": "Votre message a été envoyé !"
+        },
+        "social": {
+            "add_feedly": "Ajouter à Feedly",
+            "connect": "Connecter",
+            "connect_dribbble": "Connectez votre compte Dribbble pour afficher votre flux ici.",
+            "connect_facebook": "Connectez votre compte Facebook pour afficher votre flux ici.",
+            "connect_flickr": "Connectez votre compte Flickr pour afficher votre flux ici.",
+            "connect_instagram": "Connectez votre compte Instagram pour afficher votre flux ici.",
+            "connect_twitter": "Connectez votre compte Twitter pour afficher votre flux ici.",
+            "empty": "Ajoutez des liens sociaux dans les paramètres de la boutique",
+            "follow": "Suivre",
+            "rss_feed": "Flux RSS",
+            "share": "Partager"
+        }
+    },
+    "general": {
+        "404": {
+            "error": "Erreur",
+            "subtext": "Malheureusement, la page est introuvable.",
+            "title": "Page introuvable"
+        },
+        "buttons": {
+            "close": "Fermer",
+            "learn_more": "En savoir plus"
+        },
+        "cookies": {
+            "message": "Nous utilisons des cookies pour optimiser votre expérience. En consultant ce site Web, vous acceptez implicitement l'utilisation de cookies."
+        },
+        "navigation": {
+            "close": "Fermer le menu",
+            "menu": ""
+        },
+        "pages": {
+            "home": "Accueil"
+        },
+        "pagination": {
+            "page": "",
+            "pagination": ""
+        },
+        "skip_link": {
+            "skip": "Passer au contenu"
+        }
+    },
+    "products": {
+        "categories": {
+            "categories": "Catégories",
+            "empty": "Cette catégorie n'a aucun élément",
+            "view": "Voir les éléments :"
+        },
+        "category_list": {
+            "empty": "Ajouter les catégories dans les paramètres du bloc pour afficher"
+        },
+        "featured_category": {
+            "empty": "Ajouter les catégories dans les paramètres du bloc pour afficher les éléments"
+        },
+        "item": {
+            "on_sale": "En vente",
+            "sale": "Vente",
+            "shop_now": "Acheter maintenant",
+            "sold_out": "Épuisé",
+            "youll_get": "Vous recevrez"
+        },
+        "payment": {
+            "we_accept": "Nous acceptons"
+        },
+        "search": {
+            "keyword": "Mot-clé",
+            "results": "Résultats de la recherche",
+            "results_for": "Résultats pour",
+            "search": "Recherche"
+        }
+    }
+}
