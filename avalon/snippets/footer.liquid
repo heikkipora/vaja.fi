@@ -2,7 +2,7 @@
 
 <footer class="footer">
     <div class="container row">
-        <div class="span3">
+        <div class="span4">
             {% if modules contains "display_logos" %}
                 <div class="footer-branding">
                     {% if settings.logo_display == "image" and store.logo %}
@@ -23,12 +23,12 @@
             <div class="copyright">{{ store.display_name }} &copy; {{ "%Y" | date_now }} {% if modules contains "powered_by" %} &middot; {{ powered_by_link }}{% endif %}</div>
         </div>
 
-        <div class="span3 vaja-footer">
+        <div class="span5 vaja-footer">
           {% include _vaja-footer.liquid %}
         </div>
 
         {% if link_count > 0 %}
-            <div class="span3 offset3 footer-nav">
+            <div class="span4 footer-nav">
                 <nav>
                     <ul class="list-unstyled">
                         {% for link in links.footer-menu %}
