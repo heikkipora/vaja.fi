@@ -1,13 +1,38 @@
 {
-  "blocks": {
-    "audio": {
-      "empty": "Muokkaa elementin asetuksia lisätäksesi audiosisältöä"
+  "blogs": {
+    "tags": {
+      "empty":
+        "Yhtään artikkelia ei ole vielä saatavilla. Tarkista tilanne myöhemmin.",
+      "tags_count": { "one": "", "zero": "", "other": "article tagged with" }
     },
+    "articles": {
+      "words": "sanaa",
+      "add_post": "Lisää postaus",
+      "read_more": "lue lisää",
+      "get_started":
+        "Perusta blogi, niin voit pitää asiakkaasi aina ajan tasalla uusimmista kuulumisistasi.",
+      "block_title": "Blogista"
+    }
+  },
+  "general": {
+    "404": {
+      "error": "Virhe",
+      "title": "Sivua ei löytynyt",
+      "subtext": "Sivua ei löytynyt."
+    },
+    "pages": { "home": "Etusivu" },
+    "buttons": { "close": "Sulje", "learn_more": "Lue lisää" },
+    "skip_link": { "skip": "Siirry sisältöön" },
+    "pagination": { "page": "Sivu", "pagination": "Sivutus" },
+    "navigation": { "menu": "Valikko", "close": "Sulje" },
+    "cookies": { "message": "" }
+  },
+  "blocks": {
     "html": {
       "empty": "Muokkaa elementin asetuksia muokataksesi HTML-sisältöä"
     },
-    "image": {
-      "empty": "Muokkaa elementin asetuksia lisätäksesi kuvan"
+    "audio": {
+      "empty": "Muokkaa elementin asetuksia lisätäksesi audiosisältöä"
     },
     "quote": {
       "empty":
@@ -15,109 +40,61 @@
     },
     "video": {
       "empty": "Muokkaa elementin asetuksia lisätäksesi videosisältöä"
-    }
-  },
-  "blogs": {
-    "articles": {
-      "add_post": "Lisää postaus",
-      "block_title": "Blogista",
-      "get_started":
-        "Perusta blogi, niin voit pitää asiakkaasi aina ajan tasalla uusimmista kuulumisistasi.",
-      "read_more": "lue lisää",
-      "words": "sanaa"
     },
-    "tags": {
-      "empty":
-        "Yhtään artikkelia ei ole vielä saatavilla. Tarkista tilanne myöhemmin.",
-      "tags_count": {
-        "one": "",
-        "other": "article tagged with",
-        "zero": ""
-      }
-    }
+    "image": { "empty": "Muokkaa elementin asetuksia lisätäksesi kuvan" }
   },
   "contact": {
     "form": {
-      "contact": "Yhteystiedot",
+      "send": "Lähetä",
+      "name": "Nimi",
       "email": "Sähköpostiosoite",
       "error": "Hups! Ilmeni virheitä.",
       "message": "Viesti",
-      "name": "Nimi",
-      "send": "Lähetä",
+      "contact": "Yhteystiedot",
       "success": "Viestisi lähetettiin!"
     },
     "social": {
-      "add_feedly": "Lisää Feedlyyn",
+      "share": "Jaa",
+      "empty": "Lisää sosiaalisen median linkit kaupan asetuksissa",
+      "follow": "Seuraa",
       "connect": "Linkitä",
+      "rss_feed": "RSS-syöte",
+      "add_feedly": "Lisää Feedlyyn",
+      "connect_flickr": "Linkitä Flickr-tilisi, niin syötteesi näkyy tässä.",
+      "connect_twitter": "Linkitä Twitter-tilisi, niin syötteesi näkyy tässä.",
       "connect_dribbble": "Linkitä Dribble-tilisi, niin syötteesi näkyy tässä.",
       "connect_facebook":
         "Linkitä Facebook-tilisi, niin syötteesi näkyy tässä.",
-      "connect_flickr": "Linkitä Flickr-tilisi, niin syötteesi näkyy tässä.",
       "connect_instagram":
-        "Linkitä Instagram-tilisi, niin syötteesi näkyy tässä.",
-      "connect_twitter": "Linkitä Twitter-tilisi, niin syötteesi näkyy tässä.",
-      "empty": "Lisää sosiaalisen median linkit kaupan asetuksissa",
-      "follow": "Seuraa",
-      "rss_feed": "RSS-syöte",
-      "share": "Jaa"
-    }
-  },
-  "general": {
-    "404": {
-      "error": "Virhe",
-      "subtext": "Sivua ei löytynyt.",
-      "title": "Sivua ei löytynyt"
-    },
-    "buttons": {
-      "close": "",
-      "learn_more": ""
-    },
-    "cookies": {
-      "message": ""
-    },
-    "navigation": {
-      "close": "Sulje valikko",
-      "menu": "Valikko"
-    },
-    "pages": {
-      "home": "Koti"
-    },
-    "pagination": {
-      "page": "Sivu",
-      "pagination": "Sivutus"
-    },
-    "skip_link": {
-      "skip": "Siirry sisältöön"
+        "Linkitä Instagram-tilisi, niin syötteesi näkyy tässä."
     }
   },
   "products": {
-    "categories": {
-      "categories": "Luokat",
-      "empty": "Tässä tuoteryhmässä ei ole tuotteita",
-      "view": "Näytä tuotteet:"
+    "item": {
+      "sale": "Alennusmyynti",
+      "on_sale": "Alennuksessa",
+      "sold_out": "Loppuunmyyty",
+      "shop_now": "OSTA NYT",
+      "youll_get": "Saat"
     },
+    "search": {
+      "search": "Hae",
+      "results": "Hae tuloksia",
+      "keyword": "Hakusana",
+      "results_for": "Tulokset:"
+    },
+    "categories": {
+      "view": "Näytä tuotteet:",
+      "empty": "Tässä tuoteryhmässä ei ole tuotteita",
+      "categories": "Luokat"
+    },
+    "payment": { "we_accept": "Hyväksymme" },
     "category_list": {
       "empty": "Siirry elementin asetuksiin ja lisää näytettäviä tuoteryhmiä"
     },
     "featured_category": {
       "empty":
         "Siirry elementin asetuksiin ja valitse tuoteryhmä, jonka tuotteita näytetään"
-    },
-    "item": {
-      "on_sale": "Alennuksessa",
-      "sale": "Alennusmyynti",
-      "shop_now": "OSTA NYT",
-      "sold_out": "Loppuunmyyty",
-      "youll_get": "Saat"
-    },
-    "payment": {
-      "we_accept": ""
-    },
-    "search": {
-      "keyword": "Search",
-      "results": "Hae tuloksia",
-      "results_for": "Tulokset:",
-      "search": "Hae"
     }
   }
 }
